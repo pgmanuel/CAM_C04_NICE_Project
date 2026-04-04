@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+chroma_db/
+embeddings/
+dataset/processed/
+*.npy
+*.sqlite3
+*.txt
+
+chroma_db/
+embeddings/
+audit/
+dataset/raw/
+dataset/processed/
+dataset/data/
+*.npy
+*.sqlite3
