@@ -14,8 +14,9 @@ build/
 venv/
 env/
 
-# Environment variables
+# Environment variables and User Settings
 .env
+user_settings.py
 
 # Jupyter
 .ipynb_checkpoints/

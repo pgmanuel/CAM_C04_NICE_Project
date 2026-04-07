@@ -1,4 +1,5 @@
 import logging
+from pathlib import Path
 from typing import Any
 
 import chromadb
@@ -117,12 +118,17 @@ class DataLoader:
             return DataLoader._shared_collection
 
         try:
-            client = chromadb.PersistentClient(path=str(self.config.chroma_persist_dir))
-            DataLoader._shared_collection = client.get_collection(name=self.config.chroma_collection_name)
-            logger.info("Loaded Chroma collection '%s'.", self.config.chroma_collection_name)
+            chroma_dir = Path(self.config.chroma_persist_dir)
+            if chroma_dir.exists() and any(chroma_dir.iterdir()):
+                logger.info("Loading existing Chroma DB from '%s'.", chroma_dir)
+            else:
+                logger.info("Chroma DB not found or empty at '%s'. A fresh instance will be created.", chroma_dir)
+
+            client = chromadb.PersistentClient(path=str(chroma_dir))
+            DataLoader._shared_collection = client.get_or_create_collection(name=self.config.chroma_collection_name)
             return DataLoader._shared_collection
         except Exception as exc:
-            logger.warning("Could not load Chroma collection from %s: %s", self.config.chroma_persist_dir, exc)
+            logger.warning("Could not load/create Chroma collection from %s: %s", self.config.chroma_persist_dir, exc)
             return None
 
     def get_embedding_model(self) -> SentenceTransformer | None:
@@ -130,8 +136,32 @@ class DataLoader:
             return DataLoader._shared_embedding_model
 
         try:
-            DataLoader._shared_embedding_model = SentenceTransformer(self.config.embedding_model_name)
-            logger.info("Loaded embedding model '%s'.", self.config.embedding_model_name)
+            embeddings_dir = Path(self.config.embeddings_dir)
+            
+            is_direct_model = embeddings_dir.exists() and (
+                (embeddings_dir / "modules.json").exists() or 
+                (embeddings_dir / "config.json").exists()
+            )
+            
+            cache_model_dir_name = f"models--{self.config.embedding_model_name.replace('/', '--')}"
+            is_cached_model = embeddings_dir.exists() and (embeddings_dir / cache_model_dir_name).exists()
+            
+            if is_direct_model:
+                logger.info("Loading existing direct local embedding model from '%s'.", embeddings_dir)
+                DataLoader._shared_embedding_model = SentenceTransformer(str(embeddings_dir))
+            elif is_cached_model:
+                logger.info("Found cached embedding model '%s' in '%s'. Reusing...", self.config.embedding_model_name, embeddings_dir)
+                DataLoader._shared_embedding_model = SentenceTransformer(
+                    self.config.embedding_model_name, 
+                    cache_folder=str(embeddings_dir)
+                )
+            else:
+                logger.info("No usable local resource or cache found at '%s'. Downloading/initialising '%s'...", embeddings_dir, self.config.embedding_model_name)
+                DataLoader._shared_embedding_model = SentenceTransformer(
+                    self.config.embedding_model_name, 
+                    cache_folder=str(embeddings_dir)
+                )
+
             return DataLoader._shared_embedding_model
         except Exception as exc:
             logger.warning("Could not load embedding model '%s': %s", self.config.embedding_model_name, exc)
