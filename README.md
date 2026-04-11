@@ -1,14 +1,145 @@
-# CAM_C04_NICE_Project
-CAM C04 NICE Project
+# NICE Clinical Code Recommendation MVP
 
+## Overview
+This project is a working MVP for an AI-assisted clinical code recommendation pipeline. It takes a plain-English cohort query, retrieves relevant SNOMED candidates, groups them into analyst-facing buckets, and writes an audit trail for traceability.
 
-Scenario
-The National Institute for Health and Care Excellence (NICE) supports evidence-based decision-making within the NHS by developing national guidance on the use of medicines, treatments, and healthcare interventions. 
+It is designed as a **human-in-the-loop analyst support tool**, not an autonomous coding system.
 
-To produce high-impact guidance, NICE relies heavily on healthcare data analysis, particularly when assessing disease prevalence, treatment eligibility, and population-level impact. A critical component of this analysis involves defining clinical code sets, such as the Systematised Nomenclature of Medicine (SNOMED) or other diagnostic codes, which are used to identify patient cohorts within healthcare datasets.
+## What it does
+Given a query such as:
 
-To achieve this, NICE draws on a range of data sources, many of which are publicly available but complex to work with. These include NHS England reference sets, Quality and Outcomes Framework (QOF) – which specify clinical codes that should be used to adhere to a QOF indicator – and open clinical code repositories. The process of defining accurate and comprehensive clinical code lists for research questions is particularly challenging for two key reasons:
+```text
+Obesity, diabetes mellitus, and hypertension
+```
 
-The data sources are largely unstructured or semi-structured, often presented in formats such as spreadsheets, documents, or text-based repositories. 
-The task requires significant domain expertise, as clinical conditions – especially those involving co-morbidities – can require hundreds of codes that must be carefully validated and justified, which can be subjective.
-This project aims to improve the efficiency and accuracy of clinical code definition to support the pre-analysis phase of NICE workflows by applying advanced data science techniques, such as natural language processing (NLP) and large language models (LLMs), to these complex data sources. By enhancing NICE’s ability to generate and validate clinical code sets more effectively, the project aims to reduce manual effort, accelerate evidence generation, and ultimately improve the quality and consistency of NICE’s guidance and healthcare decision-making.
+the pipeline:
+
+- decomposes the query into structured search components
+- runs hybrid retrieval using BM25 and vector search
+- merges and ranks evidence across search jobs
+- groups candidates into review buckets
+- writes a JSON audit file for each run
+
+## Output buckets
+The current output is grouped into:
+
+- `include_candidates` — broad anchor concepts for first-pass review
+- `review_candidates` — narrower but plausible concepts for analyst review
+- `specific_variants` — lower-priority specialised related concepts
+- `suppressed_candidates` — retained for traceability but hidden from first-pass review
+
+## Design principles
+This MVP is built to be:
+
+- **explainable** — evidence fields are preserved
+- **auditable** — each run writes a JSON audit artifact
+- **deterministic** — grouping and confidence logic are rule-based
+- **human-in-the-loop** — final judgement remains with the analyst
+
+## Project structure
+```text
+CAM_C04_NICE_Project/
+├── main.py
+├── config.py
+├── query_planning.py
+├── retrieval_engine.py
+├── fusion_engine.py
+├── ranking_engine.py
+├── scoring_rules.py
+├── decision_engine.py
+├── output_formatter.py
+├── audit_logger.py
+├── tests/
+├── audit/
+└── README.md
+```
+
+## Resource loading
+The project supports reusable local resources for:
+
+- **Chroma DB**
+- **embedding model cache**
+
+By default, it looks for sibling folders outside the project root:
+
+- `../chroma_db`
+- `../embeddings`
+
+You can also override these with environment variables:
+
+```bash
+export INTEGRATED_AGENT_CHROMA_DIR=/absolute/path/to/chroma_db
+export INTEGRATED_AGENT_EMBEDDINGS_DIR=/absolute/path/to/embeddings
+```
+
+Behaviour:
+
+- if an existing Chroma DB is found, it is reused
+- if a cached embedding model is found, it is reused
+- if resources are missing, they are created or downloaded automatically
+
+## Configuration Setup
+To customise paths, models, or testing queries without modifying core files:
+1. Copy `user_settings.example.py` to `user_settings.py`.
+2. Edit `user_settings.py` to set your local customisations.
+   *(Note: `user_settings.py` is safely ignored by git).*
+
+**⚠️ CRITICAL**: Do NOT store API keys in `user_settings.py`. Any secret credentials must remain purely within your environment variables.
+
+## How to run
+From the project root:
+
+```bash
+python main.py
+```
+
+Or with the virtual environment:
+
+```bash
+./.venv/bin/python main.py
+```
+
+## Regression checks
+To run the lightweight regression checks:
+
+```bash
+./.venv/bin/python tests/run_regression_checks.py
+```
+
+Or, run the programmatic baseline suite via pytest:
+
+```bash
+./.venv/bin/python -m pytest tests/test_regression_baseline.py -v
+```
+
+## Audit output
+Each run writes a JSON audit file into:
+
+```text
+audit/
+```
+
+The audit captures the key pipeline steps and config snapshot used for that run.
+
+## Current limitations
+This is still an MVP.
+
+- not clinically validated
+- not production-ready
+- requires human review
+- retrieval quality depends on local data and cache state
+- grouping and confidence are heuristic, not final clinical logic
+
+## Positioning
+This project should be described as:
+
+- an analyst-support pipeline
+- explainable and auditable by design
+- a practical candidate-generation MVP
+
+It should **not** be described as:
+
+- a clinically validated system
+- a production deployment
+- an autonomous clinical coding agent
+- a replacement for analyst judgement

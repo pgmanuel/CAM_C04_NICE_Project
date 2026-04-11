@@ -1,0 +1,23 @@
+[
+  {
+    "query": "Obesity, diabetes mellitus, and hypertension",
+    "expectations": {
+      "required_buckets": [
+        "include_candidates",
+        "review_candidates",
+        "specific_variants",
+        "suppressed_candidates"
+      ],
+      "must_include_terms_substring": [
+        "obesity",
+        "diabetes",
+        "hypertension"
+      ],
+      "must_not_be_empty_buckets": [
+        "include_candidates",
+        "suppressed_candidates"
+      ],
+      "suppression_expectations": "At least one clearly context-specific or lower-priority concept should remain in suppressed_candidates for traceability."
+    }
+  }
+]
