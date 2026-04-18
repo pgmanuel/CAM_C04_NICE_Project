@@ -1,30 +1,28 @@
 # ==========================================
-# Paths (Absolute or Relative to project root)
+# NICE Pipeline v4 — User Settings
+# Copy this file to user_settings.py and fill in your local paths.
 # ==========================================
-SNOMED_PATH = "../snomed_master_v3.csv"
-CHROMA_DIR = "../chroma_db"
+
+# ==========================================
+# Paths (Absolute paths recommended)
+# ==========================================
+# v4 requires snomed_master_v4.csv AND the hierarchy edge file.
+SNOMED_PATH   = "../snomed_master_v4.csv"
+EDGE_PATH     = "../snomed_parent_child_edges_clean.csv"
+CHROMA_DIR    = "../chroma_db_v4"
 EMBEDDINGS_DIR = "../embeddings"
 
 # ==========================================
 # Models
 # ==========================================
-EMBEDDING_MODEL_NAME = "BAAI/bge-small-en"
-LLM_MODEL = "llama3.1"
+EMBEDDING_MODEL_NAME    = "BAAI/bge-small-en"
+CROSS_ENCODER_MODEL     = "BAAI/bge-reranker-v2-m3"
+CHROMA_COLLECTION       = "snomed_master_v4_retrieval"
+LLM_MODEL               = "llama3.1"
 
 # ==========================================
 # Runtime
 # ==========================================
-DEMO_QUERY = "Type 2 Diabetes Mellitus"
-RETRIEVAL_LIMIT = 10
+DEMO_QUERY      = "Obesity, diabetes mellitus, and hypertension"
 
-# ==========================================
-# Optional API Modes (For future use)
-# ==========================================
-USE_API_EMBEDDINGS = False
-USE_API_LLM = False
-
-# Example of configuring provider and model names (no credentials here)
-EMBEDDING_API_PROVIDER = None
-EMBEDDING_API_MODEL = None
-LLM_API_PROVIDER = None
-LLM_API_MODEL = None
+RETRIEVAL_LIMIT = 20

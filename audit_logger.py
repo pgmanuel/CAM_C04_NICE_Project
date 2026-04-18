@@ -1,15 +1,24 @@
+"""audit_logger.py — pipeline run auditing with hierarchy/gate/CE trace slots.
+
+Source: Playground.ipynb, Section 3 (cell XwjtS8PHD9-d).
+Logic is unchanged from the notebook. New log slots added for v4 stages.
+"""
+
+from __future__ import annotations
+
 import json
 import logging
 import uuid
 from datetime import datetime
+from pathlib import Path
 from typing import Any
 
-
-logger = logging.getLogger("IntegratedPipeline")
+logger = logging.getLogger(__name__)
 
 
 def generate_run_id() -> str:
-    return f"run_{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:6]}"
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    return f"run_{ts}_{uuid.uuid4().hex[:6]}"
 
 
 class RunLogger:
@@ -25,141 +34,159 @@ class RunLogger:
         self.original_query = original_query
         self.config_snapshot = config_snapshot or {}
         self.start_time = datetime.now()
+
         self.trace: dict[str, Any] = {
             "normalized_query": None,
             "structured_query": None,
             "search_jobs": [],
             "retrieval_batches_summary": [],
-            "top_candidates_per_search_job": [],
+            "hierarchy_enrichment_summary": [],  # new v4 slot
             "fused_candidates_preview": [],
-            "fused_candidates_before_decisioning": [],
+            "gate_summary": {},                  # new v4 slot
+            "gate_candidates_preview": [],        # new v4 slot
+            "cross_encoder_summary": {},          # new v4 slot
+            "cross_encoder_candidates_preview": [],  # new v4 slot
             "final_decisions": [],
             "explanation_mode": None,
             "formatter_debug": None,
         }
 
-    def log_normalized_query(self, normalized_query: str) -> None:
-        self.trace["normalized_query"] = normalized_query
+    def log_normalized_query(self, v: str) -> None:
+        self.trace["normalized_query"] = v
 
-    def log_structured_query(self, structured_query: dict[str, Any]) -> None:
-        self.trace["structured_query"] = structured_query
+    def log_structured_query(self, v: dict[str, Any]) -> None:
+        self.trace["structured_query"] = v
 
-    def log_search_jobs(self, search_jobs: list[dict[str, Any]]) -> None:
-        self.trace["search_jobs"] = search_jobs
+    def log_search_jobs(self, v: list) -> None:
+        self.trace["search_jobs"] = v
 
-    def log_retrieval_batches(
-        self,
-        search_jobs: list[dict[str, Any]],
-        retrieval_batches: list[list[dict[str, Any]]],
-    ) -> None:
-        summary = []
-        for job, batch in zip(search_jobs, retrieval_batches):
-            summary.append(
-                {
-                    "query_text": job["query_text"],
-                    "query_type": job["query_type"],
-                    "result_count": len(batch),
-                }
-            )
-        self.trace["retrieval_batches_summary"] = summary
+    def log_final_decisions(self, v: Any) -> None:
+        self.trace["final_decisions"] = v
 
-        detailed = []
-        for job, batch in zip(search_jobs, retrieval_batches):
-            detailed.append(
-                {
-                    "query_text": job["query_text"],
-                    "query_type": job["query_type"],
-                    "top_candidates": [
-                        {
-                            "snomed_code": candidate["snomed_code"],
-                            "term": candidate["term"],
-                            "semantic_tag": candidate["semantic_tag"],
-                            "weighted_retrieval_score": candidate["weighted_retrieval_score"],
-                            "lexical_overlap": candidate["lexical_overlap"],
-                            "semantic_tag_weight": candidate["semantic_tag_weight"],
-                        }
-                        for candidate in batch[:10]
-                    ],
-                }
-            )
-        self.trace["top_candidates_per_search_job"] = detailed
+    def log_explanation_mode(self, v: str) -> None:
+        self.trace["explanation_mode"] = v
 
-    def log_fused_candidates(self, fused_candidates: list[dict[str, Any]]) -> None:
-        preview = []
-        for candidate in sorted(
-            fused_candidates,
-            key=lambda item: item["fusion_score"],
-            reverse=True,
-        )[:10]:
-            preview.append(
-                {
-                    "snomed_code": candidate["snomed_code"],
-                    "term": candidate["term"],
-                    "fusion_score": candidate["fusion_score"],
-                    "best_primary_condition_score": candidate["best_primary_condition_score"],
-                    "query_types_hit": candidate["query_types_hit"],
-                    "query_coverage_count": candidate["query_coverage_count"],
-                }
-            )
-        self.trace["fused_candidates_preview"] = preview
+    def log_formatter_debug(self, v: dict) -> None:
+        self.trace["formatter_debug"] = v
 
-        self.trace["fused_candidates_before_decisioning"] = [
+    def log_retrieval_batches(self, search_jobs: list, retrieval_batches: list) -> None:
+        self.trace["retrieval_batches_summary"] = [
             {
-                "snomed_code": candidate["snomed_code"],
-                "term": candidate["term"],
-                "semantic_tag": candidate["semantic_tag"],
-                "fusion_score": candidate["fusion_score"],
-                "best_primary_condition_score": candidate["best_primary_condition_score"],
-                "lexical_overlap_max": candidate["lexical_overlap_max"],
-                "query_types_hit": candidate["query_types_hit"],
-                "query_coverage_count": candidate["query_coverage_count"],
+                "query_text":     job["query_text"],
+                "query_type":     job["query_type"],
+                "clinical_focus": job.get("clinical_focus"),
+                "result_count":   len(batch),
             }
-            for candidate in sorted(
-                fused_candidates,
-                key=lambda item: item["fusion_score"],
-                reverse=True,
-            )[:25]
+            for job, batch in zip(search_jobs, retrieval_batches)
         ]
 
-    def log_final_decisions(self, final_decisions: Any) -> None:
-        self.trace["final_decisions"] = final_decisions
-
-    def log_explanation_mode(self, explanation_mode: str) -> None:
-        self.trace["explanation_mode"] = explanation_mode
-
-    def log_formatter_debug(self, formatter_debug: dict[str, Any]) -> None:
-        self.trace["formatter_debug"] = formatter_debug
-
-    def _trace_for_verbosity(self) -> dict[str, Any]:
-        verbosity = getattr(self.config, "audit_verbosity", "standard")
-        if verbosity in {"debug", "standard"}:
-            return self.trace
-        if verbosity == "submission":
-            return {
-                "normalized_query": self.trace["normalized_query"],
-                "structured_query": self.trace["structured_query"],
-                "search_jobs": self.trace["search_jobs"],
-                "retrieval_batches_summary": self.trace["retrieval_batches_summary"],
-                "fused_candidates_preview": self.trace["fused_candidates_preview"],
-                "final_decisions": self.trace["final_decisions"],
-                "explanation_mode": self.trace["explanation_mode"],
+    def log_hierarchy_enrichment(self, enriched_batches: list[list[dict[str, Any]]]) -> None:
+        """Log summary of hierarchy enrichment stage (v4 new slot)."""
+        self.trace["hierarchy_enrichment_summary"] = [
+            {
+                "batch_index": i,
+                "total_candidates_after_enrichment": len(batch),
+                "hierarchy_added_count": sum(
+                    1 for c in batch if c.get("retrieval_method") == "hierarchy_child"
+                ),
             }
-        return self.trace
+            for i, batch in enumerate(enriched_batches)
+        ]
+
+    def log_fused_candidates(self, fused_candidates: list[dict[str, Any]]) -> None:
+        self.trace["fused_candidates_preview"] = [
+            {
+                "snomed_code":            c["snomed_code"],
+                "term":                   c["term"],
+                "fusion_score":           c.get("fusion_score", 0.0),
+                "rrf_score":              c.get("rrf_score", 0.0),
+                "query_types_hit":        c.get("query_types_hit", []),
+                "clinical_focuses_hit":   c.get("clinical_focuses_hit", []),
+                "query_coverage_count":   c.get("query_coverage_count", 0),
+                "retrieval_method":       c.get("retrieval_method", "direct"),
+            }
+            for c in sorted(fused_candidates, key=lambda x: x.get("fusion_score", 0.0), reverse=True)[:10]
+        ]
+
+    def log_gate_candidates(
+        self,
+        gate_candidates: list[dict[str, Any]],
+        relevance_threshold: float | None = None,
+        top_n_per_condition: int | None = None,
+    ) -> None:
+        """Log summary of relevance gate reranker stage (v4 new slot)."""
+        self.trace["gate_summary"] = {
+            "relevance_threshold":    relevance_threshold,
+            "top_n_per_condition":    top_n_per_condition,
+            "survivor_count":         len(gate_candidates),
+        }
+
+        self.trace["gate_candidates_preview"] = [
+            {
+                "snomed_code":                  c["snomed_code"],
+                "term":                         c["term"],
+                "rerank_score":                 c.get("rerank_score", 0.0),
+                "relevance_score":              c.get("relevance_score", 0.0),
+                "matched_conditions_from_gate": c.get("matched_conditions_from_gate", []),
+                "dominant_condition_from_gate": c.get("dominant_condition_from_gate"),
+                "retrieval_method":             c.get("retrieval_method", "direct"),
+            }
+            for c in sorted(gate_candidates, key=lambda x: x.get("rerank_score", 0.0), reverse=True)[:20]
+        ]
+
+    def log_cross_encoder_candidates(
+        self,
+        ce_candidates: list[dict[str, Any]],
+        model_name: str | None = None,
+        top_n_per_condition: int | None = None,
+        ce_condition_weight: float | None = None,
+        ce_query_weight: float | None = None,
+    ) -> None:
+        """Log summary of cross-encoder reranker stage (v4 new slot)."""
+        self.trace["cross_encoder_summary"] = {
+            "model_name":            model_name,
+            "top_n_per_condition":   top_n_per_condition,
+            "ce_condition_weight":   ce_condition_weight,
+            "ce_query_weight":       ce_query_weight,
+            "survivor_count":        len(ce_candidates),
+        }
+
+        self.trace["cross_encoder_candidates_preview"] = [
+            {
+                "snomed_code":                    c["snomed_code"],
+                "term":                           c["term"],
+                "ce_score":                       c.get("ce_score", 0.0),
+                "rerank_score":                   c.get("rerank_score", 0.0),
+                "relevance_score":                c.get("relevance_score", 0.0),
+                "matched_conditions_from_gate":   c.get("matched_conditions_from_gate", []),
+                "dominant_condition_from_gate":   c.get("dominant_condition_from_gate"),
+                "matched_conditions_from_ce":     c.get("matched_conditions_from_ce", []),
+                "dominant_condition_from_ce":     c.get("dominant_condition_from_ce"),
+                "ce_score_by_condition":          c.get("ce_score_by_condition", {}),
+                "retrieval_method":               c.get("retrieval_method", "direct"),
+            }
+            for c in sorted(ce_candidates, key=lambda x: x.get("ce_score", 0.0), reverse=True)[:20]
+        ]
 
     def finish(self, final_structured_output: Any) -> Any:
         packet = {
-            "run_id": self.run_id,
-            "timestamp": self.start_time.isoformat(),
-            "duration_seconds": (datetime.now() - self.start_time).total_seconds(),
-            "query": self.original_query,
-            "config_snapshot": self.config_snapshot,
-            "trace": self._trace_for_verbosity(),
+            "run_id":                  self.run_id,
+            "timestamp":               self.start_time.isoformat(),
+            "duration_seconds":        (datetime.now() - self.start_time).total_seconds(),
+            "query":                   self.original_query,
+            "config_snapshot":         self.config_snapshot,
+            "trace":                   self.trace,
             "final_structured_output": final_structured_output,
         }
-        audit_dir = self.config.base_dir / "audit"
-        audit_dir.mkdir(parents=True, exist_ok=True)
-        audit_path = audit_dir / f"{self.run_id}.json"
-        with open(audit_path, "w", encoding="utf-8") as handle:
-            json.dump(packet, handle, indent=2)
-        logger.info("Pipeline audit written to %s", audit_path)
+
+        try:
+            audit_dir  = Path(self.config.base_dir) / "audit"
+            audit_dir.mkdir(parents=True, exist_ok=True)
+            audit_path = audit_dir / f"{self.run_id}.json"
+            with open(audit_path, "w", encoding="utf-8") as fh:
+                json.dump(packet, fh, indent=2)
+            logger.info("Audit written to %s", audit_path)
+        except Exception as exc:
+            logger.warning("Audit write skipped (non-fatal): %s", exc)
+
         return final_structured_output

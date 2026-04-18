@@ -1,306 +1,293 @@
-from collections import defaultdict
+"""decision_engine.py — CE-first, per-condition anchor decisioning.
+
+Source: Playground.ipynb, Section 3 (cells PRbLMmcY4fCI + BYT92I_AClpo).
+Logic is unchanged from the notebook.
+
+FIX 2: Anchor selection enforces final_rerank_score >= 0.2.
+FIX 3: Hard CE safety filter (ce_score < 0.2 → skip) as secondary belt-and-braces
+        after ce_reranker.py has already applied the primary filter.
+NOTE:   specificity_score is NOT computed here — it is metadata from HierarchyEnricher.
+"""
+
+from __future__ import annotations
+
+import math
 from typing import Any
 
-from pipeline_policy import (
-    DEFAULT_CANDIDATE_POOL_LIMIT,
-    DEFAULT_INCLUDE_CANDIDATES_CAP,
-    DEFAULT_REVIEW_CANDIDATES_CAP,
-    DEFAULT_SPECIFIC_VARIANTS_CAP,
-)
-from scoring_rules import (
-    allows_causal_language,
-    candidate_role,
-    compute_authority_score,
-    compute_centrality_component,
-    compute_coverage_component,
-    compute_fusion_component,
-    compute_modifier_component,
-    compute_primary_alignment_component,
-    compute_query_misalignment_penalty,
-    compute_subtype_clutter_penalty,
-    condition_matches,
-    dominant_condition,
-    has_primary_modifier_alignment,
-    is_causal_variant,
-    is_generic_anchor,
-    is_narrow_subtype_variant,
-    is_pregnancy_variant,
-    is_preferred_obesity_refinement,
-    major_conditions,
-    query_context,
-    serialize_candidate_output,
-)
 
+# Semantic tags that must never be selected as a broad anchor concept.
+BLOCKED_CORE_TAGS = {
+    "situation",
+    "context-dependent category",
+    "finding",
+}
+
+
+# ── Shared helpers (also imported by gate_reranker and ce_reranker) ───────────
+
+def major_conditions(structured_query: dict[str, Any]) -> list[str]:
+    """Return the ordered list of major conditions from a structured query."""
+    raw = [structured_query.get("primary_condition", "")] + structured_query.get("secondary_conditions", [])
+    seen: set[str] = set()
+    result = []
+    for c in raw:
+        t = _normalize_query(c)
+        if t and t.lower() not in seen:
+            seen.add(t.lower())
+            result.append(t)
+    return result
+
+
+def _normalize_query(text: str) -> str:
+    return " ".join(str(text).strip().split())
+
+
+# ── Confidence + authority helpers ────────────────────────────────────────────
 
 def assign_confidence(candidate: dict[str, Any]) -> str:
     in_qof = bool(candidate.get("in_qof", False))
-    in_opencodelists = bool(candidate.get("in_opencodelists", False))
-    usage_count_nhs = float(candidate.get("usage_count_nhs", 0.0))
+    in_oc = bool(candidate.get("in_opencodelists", False))
+    usage = float(candidate.get("usage_count_nhs", 0.0))
 
     if in_qof:
         return "HIGH"
-    if in_opencodelists and usage_count_nhs >= 29097:
+    if in_oc and usage >= 29097:
         return "HIGH"
-    if in_opencodelists or usage_count_nhs >= 6730:
+    if in_oc or usage >= 6730:
         return "MEDIUM"
     return "REVIEW"
 
 
+def compute_bounded_authority(candidate: dict[str, Any]) -> float:
+    usage = float(candidate.get("usage_count_nhs", 0.0))
+    in_qof = bool(candidate.get("in_qof", False))
+    in_oc = bool(candidate.get("in_opencodelists", False))
+
+    return min(
+        1.0,
+        0.40 * float(in_qof) +
+        0.25 * float(in_oc) +
+        min(0.35, math.log10(usage + 1.0) / 8.0)
+    )
+
+
+# ── Output serializer ─────────────────────────────────────────────────────────
+
+def serialize_candidate_output(row: dict[str, Any], index: int | None = None) -> dict[str, Any]:
+    payload = {
+        "presentation_score": float(row.get("presentation_score", 0.0)),
+        "snomed_code": row["snomed_code"],
+        "term": row["term"],
+        "semantic_tag": row.get("semantic_tag", ""),
+        "confidence_tier": row["confidence_tier"],
+        "candidate_role": row.get("candidate_role"),
+        "evidence": {
+            "in_qof": bool(row["in_qof"]),
+            "in_opencodelists": bool(row["in_opencodelists"]),
+            "usage_count_nhs": float(row["usage_count_nhs"]),
+        },
+        "retrieval_features": {
+            "fusion_score": float(row.get("fusion_score", 0.0)),
+            "rrf_score": float(row.get("rrf_score", row.get("fusion_score", 0.0))),
+            "semantic_score_max": float(row.get("semantic_score_max", row.get("semantic_score", 0.0))),
+            "bm25_score_max": float(row.get("bm25_score_max", row.get("bm25_score", 0.0))),
+            "lexical_overlap_max": float(row.get("lexical_overlap_max", row.get("lexical_overlap", 0.0))),
+            "term_precision_max": float(row.get("term_precision_max", row.get("term_precision", 0.0))),
+            "specificity_score_max": float(row.get("specificity_score_max", row.get("specificity_score", 0.0))),
+            "query_coverage_count": int(row.get("query_coverage_count", 0)),
+        },
+        "reranker_features": {
+            "rerank_score": float(row.get("rerank_score", 0.0)),
+            "relevance_score": float(row.get("relevance_score", 0.0)),
+            "condition_relevance": row.get("condition_relevance", {}),
+            "ce_score": float(row.get("ce_score", 0.0)),
+            "ce_score_by_condition": row.get("ce_score_by_condition", {}),
+            "matched_conditions_from_ce": row.get("matched_conditions_from_ce", []),
+            "dominant_condition_from_ce": row.get("dominant_condition_from_ce"),
+        },
+        "matched_conditions": row.get("matched_conditions", []),
+        "dominant_condition": row.get("dominant_condition", "unassigned"),
+        "ranking_components": row.get("ranking_components", {}),
+        "retrieval_method": row.get("retrieval_method", "direct"),
+        "hierarchy_parent_code": row.get("hierarchy_parent_code"),
+        "hierarchy_parent_term": row.get("hierarchy_parent_term"),
+        "retrieval_trace": row.get("retrieval_trace", []),
+    }
+
+    if index is not None:
+        payload["presentation_rank"] = index
+
+    return payload
+
+
+# ── Decision Engine ───────────────────────────────────────────────────────────
+
 class DecisionEngine:
     def assign_final_decisions(
         self,
-        fused_candidates: list[dict[str, Any]],
+        reranked_candidates: list[dict[str, Any]],
         structured_query: dict[str, Any],
         top_k: int,
     ) -> dict[str, list[dict[str, Any]]]:
+
         conditions = major_conditions(structured_query)
-        query_ctx = query_context(structured_query)
         multimorbidity = len(conditions) > 1
-        decisions: list[dict[str, Any]] = []
 
-        for candidate in fused_candidates:
-            decision = dict(candidate)
-            decision["confidence_tier"] = assign_confidence(candidate)
-            matched = condition_matches(candidate, conditions)
-            dominant = dominant_condition(candidate, matched, conditions)
-            authority_component = compute_authority_score(candidate)
-            coverage_component = compute_coverage_component(candidate, matched, multimorbidity)
-            fusion_component = compute_fusion_component(candidate)
-            primary_alignment_component = compute_primary_alignment_component(dominant, matched, conditions)
-            centrality_component = compute_centrality_component(candidate, matched, conditions)
-            modifier_component = compute_modifier_component(candidate, matched, conditions, query_ctx)
-            subtype_penalty = compute_subtype_clutter_penalty(candidate, matched, multimorbidity, query_ctx)
-            query_misalignment_penalty = compute_query_misalignment_penalty(candidate, query_ctx)
+        # ── Stage 1: scoring ─────────────────────────────────────────────────
+        enriched = []
 
-            decision["matched_conditions"] = matched
-            decision["dominant_condition"] = dominant
-            decision["ranking_components"] = {
-                "authority_component": round(authority_component, 6),
-                "fusion_component": round(fusion_component, 6),
-                "coverage_component": round(coverage_component, 6),
-                "primary_alignment_component": round(primary_alignment_component, 6),
-                "centrality_component": round(centrality_component, 6),
-                "modifier_component": round(modifier_component, 6),
-                "diversity_component": 0.0,
-                "family_policy_component": 0.0,
-                "subtype_clutter_penalty": round(subtype_penalty, 6),
-                "query_misalignment_penalty": round(query_misalignment_penalty, 6),
+        for candidate in reranked_candidates:
+            ce_score = float(candidate.get("ce_score", 0.0))
+            rerank_score = float(candidate.get("rerank_score", 0.0))
+            relevance_score = float(candidate.get("relevance_score", 0.0))
+
+            final_rerank_score = (
+                0.70 * ce_score + 0.30 * rerank_score
+            ) if ce_score > 0 else rerank_score
+
+            # FIX 3: HARD CE QUALITY FILTER — secondary safeguard
+            # (primary filter already applied in ce_reranker.py)
+            if ce_score < 0.2:
+                continue
+
+            if final_rerank_score <= 0:
+                continue
+
+            matched = list(candidate.get("matched_conditions_from_ce", [])) or list(
+                candidate.get("matched_conditions_from_gate", [])
+            )
+
+            if not matched:
+                continue
+
+            dominant = (
+                candidate.get("dominant_condition_from_ce")
+                or candidate.get("dominant_condition_from_gate")
+                or "unassigned"
+            )
+
+            authority = compute_bounded_authority(candidate)
+
+            # scoring components
+            coverage_bonus = (
+                min(0.20, 0.08 * len(matched))
+                if multimorbidity else
+                min(0.10, 0.05 * len(matched))
+            )
+
+            specificity = float(candidate.get("specificity_score_max", 0.0))
+            anchor_bonus = (
+                0.10 if specificity >= 0.70 else
+                0.05 if specificity >= 0.50 else
+                0.0
+            )
+
+            presentation_score = (
+                0.65 * final_rerank_score +
+                0.20 * authority +
+                0.10 * coverage_bonus +
+                0.05 * anchor_bonus
+            )
+
+            ranking_components = {
+                "ce_score": round(ce_score, 6),
+                "rerank_score": round(rerank_score, 6),
+                "final_rerank_score": round(final_rerank_score, 6),
+                "relevance_score": round(relevance_score, 6),
+                "authority_component": round(authority, 6),
+                "coverage_component": round(coverage_bonus, 6),
+                "anchor_bonus": round(anchor_bonus, 6),
             }
-            decision["candidate_role"] = candidate_role(
-                candidate,
-                matched,
-                conditions,
-                query_ctx,
-                decision["ranking_components"],
-            )
-            decision["base_presentation_score"] = round(
-                authority_component
-                + fusion_component
-                + coverage_component
-                + primary_alignment_component
-                + centrality_component
-                + modifier_component
-                - subtype_penalty
-                - query_misalignment_penalty,
-                6,
-            )
-            decision["presentation_score"] = decision["base_presentation_score"]
-            decision["authority_bucket"] = (
-                0
-                if bool(candidate.get("in_qof", False))
-                else 1
-                if bool(candidate.get("in_opencodelists", False))
-                or float(candidate.get("usage_count_nhs", 0.0)) >= 6730
-                else 2
-            )
-            decisions.append(decision)
 
-        suppressed_decisions = [row for row in decisions if row.get("candidate_role") == "suppress"]
-        eligible_decisions = [row for row in decisions if row.get("candidate_role") != "suppress"]
+            d = dict(candidate)
+            d["confidence_tier"] = assign_confidence(candidate)
+            d["matched_conditions"] = matched
+            d["dominant_condition"] = dominant
+            d["final_rerank_score"] = final_rerank_score
+            d["authority_score"] = authority
+            d["presentation_score"] = round(presentation_score, 6)
+            d["ranking_components"] = ranking_components
 
-        ranked = sorted(
-            eligible_decisions,
-            key=lambda row: (
-                -row["base_presentation_score"],
-                -row["ranking_components"]["primary_alignment_component"],
-                -row["ranking_components"]["centrality_component"],
-                -row["presentation_score"],
-                -row["ranking_components"]["authority_component"],
-                row["snomed_code"],
-            ),
-        )
+            enriched.append(d)
 
-        selected: list[dict[str, Any]] = []
+        # ── Stage 2: group per condition ──────────────────────────────────────
+        by_condition: dict[str, list[dict[str, Any]]] = {c: [] for c in conditions}
+
+        for c in enriched:
+            for cond in c["matched_conditions"]:
+                if cond in by_condition:
+                    by_condition[cond].append(c)
+
+        include, review, specific = [], [], []
         selected_codes: set[str] = set()
-        dominant_condition_counts: dict[str, int] = defaultdict(int)
-        covered_conditions: set[str] = set()
-        generic_anchor_conditions: set[str] = set()
 
-        primary_condition = conditions[0] if conditions else ""
+        # ── Stage 3: strict anchor selection (1 per condition) ────────────────
+        for condition in conditions:
+            candidates = by_condition.get(condition, [])
+            if not candidates:
+                continue
 
-        def best_for_condition(condition: str) -> dict[str, Any] | None:
-            branch_candidates = [
-                row
-                for row in ranked
-                if row["snomed_code"] not in selected_codes
-                and condition in row.get("matched_conditions", [])
-                and not is_pregnancy_variant(row)
-                and (allows_causal_language(query_ctx) or not is_causal_variant(row))
-            ]
-            if not branch_candidates:
-                return None
-            if condition == primary_condition:
-                modifier_aligned = [
-                    row
-                    for row in branch_candidates
-                    if has_primary_modifier_alignment(
-                        row,
-                        row.get("matched_conditions", []),
-                        conditions,
-                        query_ctx,
-                    )
-                ]
-                if modifier_aligned:
-                    return modifier_aligned[0]
-                preferred_obesity = [row for row in branch_candidates if is_preferred_obesity_refinement(row)]
-                if preferred_obesity:
-                    return preferred_obesity[0]
-            return branch_candidates[0] if branch_candidates else None
-
-        if primary_condition:
-            chosen = best_for_condition(primary_condition)
-            if chosen is not None:
-                chosen["ranking_components"]["family_policy_component"] = round(
-                    chosen["ranking_components"]["family_policy_component"] + 0.65,
-                    6,
+            candidates = sorted(
+                candidates,
+                key=lambda x: (
+                    -x["ranking_components"]["ce_score"],
+                    -x["authority_score"],
                 )
-                chosen["presentation_score"] = round(chosen["base_presentation_score"] + 0.65, 6)
-                selected.append(chosen)
-                selected_codes.add(chosen["snomed_code"])
-                dominant_condition_counts[chosen["dominant_condition"]] += 1
-                covered_conditions.update(chosen.get("matched_conditions", []))
-                if is_generic_anchor(chosen, primary_condition):
-                    generic_anchor_conditions.add(primary_condition)
-
-        if multimorbidity:
-            for condition in conditions[1:]:
-                chosen = best_for_condition(condition)
-                if chosen is not None:
-                    chosen["ranking_components"]["family_policy_component"] = round(
-                        chosen["ranking_components"]["family_policy_component"] + 0.35,
-                        6,
-                    )
-                    chosen["presentation_score"] = round(chosen["base_presentation_score"] + 0.35, 6)
-                    selected.append(chosen)
-                    selected_codes.add(chosen["snomed_code"])
-                    dominant_condition_counts[chosen["dominant_condition"]] += 1
-                    covered_conditions.update(chosen.get("matched_conditions", []))
-                    if is_generic_anchor(chosen, condition):
-                        generic_anchor_conditions.add(condition)
-
-        max_per_condition = 2 if multimorbidity else top_k
-        for row in ranked:
-            if len(selected) >= top_k:
-                break
-            if row["snomed_code"] in selected_codes:
-                continue
-            if is_pregnancy_variant(row):
-                continue
-            if is_causal_variant(row) and not allows_causal_language(query_ctx):
-                continue
-            if is_narrow_subtype_variant(row, query_ctx) and any(
-                condition in generic_anchor_conditions for condition in row.get("matched_conditions", [])
-            ):
-                continue
-
-            dominant = row["dominant_condition"]
-            if multimorbidity and dominant_condition_counts[dominant] >= max_per_condition:
-                continue
-
-            diversity_component = 0.0
-            if multimorbidity and row.get("matched_conditions"):
-                uncovered = [
-                    condition
-                    for condition in row["matched_conditions"]
-                    if condition not in covered_conditions
-                ]
-                if uncovered:
-                    diversity_component = 0.25
-
-            family_policy_component = 0.0
-            if primary_condition and row["dominant_condition"] == primary_condition:
-                family_policy_component += 0.15
-
-            row["ranking_components"]["diversity_component"] = round(diversity_component, 6)
-            row["ranking_components"]["family_policy_component"] = round(
-                row["ranking_components"]["family_policy_component"] + family_policy_component,
-                6,
             )
-            row["presentation_score"] = round(
-                row["base_presentation_score"] + diversity_component + family_policy_component,
-                6,
-            )
-            selected.append(row)
-            selected_codes.add(row["snomed_code"])
-            dominant_condition_counts[dominant] += 1
-            covered_conditions.update(row.get("matched_conditions", []))
-            for condition in row.get("matched_conditions", []):
-                if is_generic_anchor(row, condition):
-                    generic_anchor_conditions.add(condition)
 
-        cleaned_selected: list[dict[str, Any]] = []
-        cleaned_codes: set[str] = set()
-        for row in selected:
-            if is_narrow_subtype_variant(row, query_ctx) and any(
-                condition in generic_anchor_conditions for condition in row.get("matched_conditions", [])
-            ):
-                continue
-            cleaned_selected.append(row)
-            cleaned_codes.add(row["snomed_code"])
+            anchor = None
 
-        for row in ranked:
-            if len(cleaned_selected) >= top_k:
-                break
-            if row["snomed_code"] in cleaned_codes:
-                continue
-            if is_pregnancy_variant(row):
-                continue
-            if is_causal_variant(row) and not allows_causal_language(query_ctx):
-                continue
-            if is_narrow_subtype_variant(row, query_ctx) and any(
-                condition in generic_anchor_conditions for condition in row.get("matched_conditions", [])
-            ):
-                continue
-            cleaned_selected.append(row)
-            cleaned_codes.add(row["snomed_code"])
+            for c in candidates:
+                tag = str(c.get("semantic_tag", "")).lower()
 
-        candidate_pool_limit = min(top_k, DEFAULT_CANDIDATE_POOL_LIMIT)
-        final_candidates = cleaned_selected[:candidate_pool_limit]
-        grouped_output: dict[str, list[dict[str, Any]]] = {
-            "include_candidates": [],
-            "review_candidates": [],
-            "specific_variants": [],
+                # FIX 2: anchor constraint — blocked tags + final_rerank_score >= 0.2
+                if (
+                    tag not in BLOCKED_CORE_TAGS and
+                    c["final_rerank_score"] >= 0.2
+                ):
+                    anchor = c
+                    break
+
+            if anchor:
+                anchor["candidate_role"] = "core"
+                include.append(anchor)
+                selected_codes.add(anchor["snomed_code"])
+
+            # rest → variant / specific
+            for c in candidates:
+                if c["snomed_code"] in selected_codes:
+                    continue
+
+                tag = str(c.get("semantic_tag", "")).lower()
+
+                if tag in BLOCKED_CORE_TAGS:
+                    c["candidate_role"] = "specific"
+                    specific.append(c)
+                else:
+                    c["candidate_role"] = "variant"
+                    review.append(c)
+
+        # ── Stage 4: deduplicate + cap ─────────────────────────────────────────
+        def serialize_list(rows: list[dict[str, Any]], cap: int) -> list[dict[str, Any]]:
+            out = []
+            seen: set[str] = set()
+
+            for i, r in enumerate(rows, start=1):
+                code = r["snomed_code"]
+                if code in seen:
+                    continue
+
+                seen.add(code)
+                out.append(serialize_candidate_output(r, index=i))
+
+                if len(out) >= cap:
+                    break
+
+            return out
+
+        return {
+            "include_candidates": serialize_list(include, len(conditions)),
+            "review_candidates": serialize_list(review, 5),
+            "specific_variants": serialize_list(specific, 5),
             "suppressed_candidates": [],
         }
-
-        for index, row in enumerate(final_candidates, start=1):
-            serialized = serialize_candidate_output(row, index=index)
-            role = row.get("candidate_role")
-            if role == "core":
-                if len(grouped_output["include_candidates"]) < DEFAULT_INCLUDE_CANDIDATES_CAP:
-                    grouped_output["include_candidates"].append(serialized)
-                elif len(grouped_output["review_candidates"]) < DEFAULT_REVIEW_CANDIDATES_CAP:
-                    grouped_output["review_candidates"].append(serialized)
-            elif role == "specific":
-                if len(grouped_output["specific_variants"]) < DEFAULT_SPECIFIC_VARIANTS_CAP:
-                    grouped_output["specific_variants"].append(serialized)
-            elif len(grouped_output["review_candidates"]) < DEFAULT_REVIEW_CANDIDATES_CAP:
-                grouped_output["review_candidates"].append(serialized)
-
-        for row in sorted(
-            suppressed_decisions,
-            key=lambda item: (-item["base_presentation_score"], item["snomed_code"]),
-        )[:10]:
-            grouped_output["suppressed_candidates"].append(serialize_candidate_output(row))
-
-        return grouped_output
