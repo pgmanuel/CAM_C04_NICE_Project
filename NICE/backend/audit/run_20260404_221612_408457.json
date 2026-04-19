@@ -1,0 +1,1828 @@
+{
+  "run_id": "run_20260404_221612_408457",
+  "timestamp": "2026-04-04T22:16:12.329618",
+  "duration_seconds": 17.06502,
+  "query": "Obesity, diabetes mellitus, and hypertension",
+  "trace": {
+    "normalized_query": "Obesity, diabetes mellitus, and hypertension",
+    "structured_query": {
+      "original_query": "Obesity, diabetes mellitus, and hypertension",
+      "primary_condition": "Obesity, diabetes mellitus, and hypertension",
+      "secondary_conditions": [],
+      "modifiers": [],
+      "supporting_terms": []
+    },
+    "search_jobs": [
+      {
+        "query_text": "Obesity, diabetes mellitus, and hypertension",
+        "query_type": "primary_condition",
+        "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+        "weight": 1.0,
+        "query_terms": [
+          "diabetes",
+          "hypertension",
+          "mellitus",
+          "obesity"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "hypertension",
+            "mellitus",
+            "obesity"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      }
+    ],
+    "retrieval_batches_summary": [
+      {
+        "query_text": "Obesity, diabetes mellitus, and hypertension",
+        "query_type": "primary_condition",
+        "result_count": 20
+      }
+    ],
+    "top_candidates_per_search_job": [
+      {
+        "query_text": "Obesity, diabetes mellitus, and hypertension",
+        "query_type": "primary_condition",
+        "top_candidates": [
+          {
+            "snomed_code": "237612000",
+            "term": "Photomyoclonus, diabetes mellitus, deafness, nephropathy and cerebral dysfunction (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.52,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "1255271005",
+            "term": "Type 1 diabetes mellitus, central and peripheral neurodegeneration syndrome (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4925169574812512,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "128001000119105",
+            "term": "Hypertension concurrent and due to end stage renal disease on dialysis due to type 1 diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4774320729794332,
+            "lexical_overlap": 0.75,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "722206009",
+            "term": "Pancreatic hypoplasia, diabetes mellitus, congenital heart disease syndrome (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.47637232942887037,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "71701000119105",
+            "term": "Hypertension in chronic kidney disease due to type 1 diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.47280062318021826,
+            "lexical_overlap": 0.75,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "127991000119101",
+            "term": "Hypertension concurrent and due to end stage renal disease on dialysis due to type 2 diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.44847450569389774,
+            "lexical_overlap": 0.75,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "71421000119105",
+            "term": "Hypertension in chronic kidney disease due to type 2 diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4433609254207355,
+            "lexical_overlap": 0.75,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "609580007",
+            "term": "Diabetes mellitus, transient neonatal 2 (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.42542370270962204,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "609579009",
+            "term": "Diabetes mellitus, transient neonatal 1 (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.42542370270962204,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "609581006",
+            "term": "Diabetes mellitus, transient neonatal 3 (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.42542370270962204,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          }
+        ]
+      }
+    ],
+    "fused_candidates_preview": [
+      {
+        "snomed_code": "237612000",
+        "term": "Photomyoclonus, diabetes mellitus, deafness, nephropathy and cerebral dysfunction (disorder)",
+        "fusion_score": 0.717,
+        "best_primary_condition_score": 0.52,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "1255271005",
+        "term": "Type 1 diabetes mellitus, central and peripheral neurodegeneration syndrome (disorder)",
+        "fusion_score": 0.679898,
+        "best_primary_condition_score": 0.492517,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "128001000119105",
+        "term": "Hypertension concurrent and due to end stage renal disease on dialysis due to type 1 diabetes mellitus (disorder)",
+        "fusion_score": 0.659533,
+        "best_primary_condition_score": 0.477432,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "722206009",
+        "term": "Pancreatic hypoplasia, diabetes mellitus, congenital heart disease syndrome (disorder)",
+        "fusion_score": 0.658103,
+        "best_primary_condition_score": 0.476372,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "71701000119105",
+        "term": "Hypertension in chronic kidney disease due to type 1 diabetes mellitus (disorder)",
+        "fusion_score": 0.653281,
+        "best_primary_condition_score": 0.472801,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "127991000119101",
+        "term": "Hypertension concurrent and due to end stage renal disease on dialysis due to type 2 diabetes mellitus (disorder)",
+        "fusion_score": 0.620441,
+        "best_primary_condition_score": 0.448475,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "71421000119105",
+        "term": "Hypertension in chronic kidney disease due to type 2 diabetes mellitus (disorder)",
+        "fusion_score": 0.613537,
+        "best_primary_condition_score": 0.443361,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "609580007",
+        "term": "Diabetes mellitus, transient neonatal 2 (disorder)",
+        "fusion_score": 0.589322,
+        "best_primary_condition_score": 0.425424,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "609579009",
+        "term": "Diabetes mellitus, transient neonatal 1 (disorder)",
+        "fusion_score": 0.589322,
+        "best_primary_condition_score": 0.425424,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "609581006",
+        "term": "Diabetes mellitus, transient neonatal 3 (disorder)",
+        "fusion_score": 0.589322,
+        "best_primary_condition_score": 0.425424,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      }
+    ],
+    "fused_candidates_before_decisioning": [
+      {
+        "snomed_code": "237612000",
+        "term": "Photomyoclonus, diabetes mellitus, deafness, nephropathy and cerebral dysfunction (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.717,
+        "best_primary_condition_score": 0.52,
+        "lexical_overlap_max": 0.5,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "1255271005",
+        "term": "Type 1 diabetes mellitus, central and peripheral neurodegeneration syndrome (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.679898,
+        "best_primary_condition_score": 0.492517,
+        "lexical_overlap_max": 0.5,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "128001000119105",
+        "term": "Hypertension concurrent and due to end stage renal disease on dialysis due to type 1 diabetes mellitus (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.659533,
+        "best_primary_condition_score": 0.477432,
+        "lexical_overlap_max": 0.75,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "722206009",
+        "term": "Pancreatic hypoplasia, diabetes mellitus, congenital heart disease syndrome (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.658103,
+        "best_primary_condition_score": 0.476372,
+        "lexical_overlap_max": 0.5,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "71701000119105",
+        "term": "Hypertension in chronic kidney disease due to type 1 diabetes mellitus (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.653281,
+        "best_primary_condition_score": 0.472801,
+        "lexical_overlap_max": 0.75,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "127991000119101",
+        "term": "Hypertension concurrent and due to end stage renal disease on dialysis due to type 2 diabetes mellitus (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.620441,
+        "best_primary_condition_score": 0.448475,
+        "lexical_overlap_max": 0.75,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "71421000119105",
+        "term": "Hypertension in chronic kidney disease due to type 2 diabetes mellitus (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.613537,
+        "best_primary_condition_score": 0.443361,
+        "lexical_overlap_max": 0.75,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "609580007",
+        "term": "Diabetes mellitus, transient neonatal 2 (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.589322,
+        "best_primary_condition_score": 0.425424,
+        "lexical_overlap_max": 0.5,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "609579009",
+        "term": "Diabetes mellitus, transient neonatal 1 (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.589322,
+        "best_primary_condition_score": 0.425424,
+        "lexical_overlap_max": 0.5,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "609581006",
+        "term": "Diabetes mellitus, transient neonatal 3 (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.589322,
+        "best_primary_condition_score": 0.425424,
+        "lexical_overlap_max": 0.5,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "237619009",
+        "term": "Maternally inherited diabetes and deafness (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.542217,
+        "best_primary_condition_score": 0.390531,
+        "lexical_overlap_max": 0.5,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "783722008",
+        "term": "Myopathy and diabetes mellitus (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.540721,
+        "best_primary_condition_score": 0.389423,
+        "lexical_overlap_max": 0.5,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "720568003",
+        "term": "Brachydactyly and arterial hypertension syndrome (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.473368,
+        "best_primary_condition_score": 0.339532,
+        "lexical_overlap_max": 0.25,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "199005000",
+        "term": "Pre-existing hypertension complicating pregnancy, childbirth and puerperium (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.458637,
+        "best_primary_condition_score": 0.32862,
+        "lexical_overlap_max": 0.25,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "198949009",
+        "term": "Renal hypertension complicating pregnancy, childbirth and the puerperium (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.451817,
+        "best_primary_condition_score": 0.323568,
+        "lexical_overlap_max": 0.25,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "199008003",
+        "term": "Pre-existing secondary hypertension complicating pregnancy, childbirth and puerperium (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.451817,
+        "best_primary_condition_score": 0.323568,
+        "lexical_overlap_max": 0.25,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "198942000",
+        "term": "Benign essential hypertension complicating pregnancy, childbirth and the puerperium (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.445323,
+        "best_primary_condition_score": 0.318758,
+        "lexical_overlap_max": 0.25,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "198941007",
+        "term": "Hypertension complicating pregnancy, childbirth and the puerperium (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.442583,
+        "best_primary_condition_score": 0.316728,
+        "lexical_overlap_max": 0.25,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "774102003",
+        "term": "Intellectual disability, obesity, prognathism, eye and skin anomalies syndrome (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.374261,
+        "best_primary_condition_score": 0.266119,
+        "lexical_overlap_max": 0.25,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "715759002",
+        "term": "Provision of written information about diabetes and hypertension (procedure)",
+        "semantic_tag": "procedure",
+        "fusion_score": 0.370079,
+        "best_primary_condition_score": 0.263022,
+        "lexical_overlap_max": 0.5,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      }
+    ],
+    "final_decisions": {
+      "include_candidates": [
+        {
+          "presentation_score": 1.990322,
+          "snomed_code": "783722008",
+          "term": "Myopathy and diabetes mellitus (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "MEDIUM",
+          "candidate_role": "core",
+          "evidence": {
+            "in_qof": false,
+            "in_opencodelists": true,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.540721,
+            "best_primary_condition_score": 0.389423,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.621517,
+            "lexical_overlap_max": 0.5,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 0.35,
+            "fusion_component": 0.270322,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.25,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.15,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 1,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.6215,
+              "lexical_overlap": 0.5,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.1865,
+              "adjusted_retrieval_score": 0.3894,
+              "weighted_retrieval_score": 0.3894
+            }
+          ],
+          "presentation_rank": 4
+        }
+      ],
+      "review_candidates": [
+        {
+          "presentation_score": 3.300034,
+          "snomed_code": "237619009",
+          "term": "Maternally inherited diabetes and deafness (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "variant",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 80.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.542217,
+            "best_primary_condition_score": 0.390531,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.624728,
+            "lexical_overlap_max": 0.5,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 1.40904,
+            "fusion_component": 0.270993,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.65,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.6247,
+              "lexical_overlap": 0.5,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.1874,
+              "adjusted_retrieval_score": 0.3905,
+              "weighted_retrieval_score": 0.3905
+            }
+          ],
+          "presentation_rank": 1
+        },
+        {
+          "presentation_score": 2.71944,
+          "snomed_code": "237612000",
+          "term": "Photomyoclonus, diabetes mellitus, deafness, nephropathy and cerebral dysfunction (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "variant",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.717,
+            "best_primary_condition_score": 0.52,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 1.0,
+            "lexical_overlap_max": 0.5,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 1.25,
+            "fusion_component": 0.34944,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.15,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 1.0,
+              "lexical_overlap": 0.5,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.3,
+              "adjusted_retrieval_score": 0.52,
+              "weighted_retrieval_score": 0.52
+            }
+          ],
+          "presentation_rank": 2
+        },
+        {
+          "presentation_score": 2.590962,
+          "snomed_code": "720568003",
+          "term": "Brachydactyly and arterial hypertension syndrome (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "variant",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.473368,
+            "best_primary_condition_score": 0.339532,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.658063,
+            "lexical_overlap_max": 0.25,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 1.25,
+            "fusion_component": 0.220962,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.15,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.6581,
+              "lexical_overlap": 0.25,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.1974,
+              "adjusted_retrieval_score": 0.3395,
+              "weighted_retrieval_score": 0.3395
+            }
+          ],
+          "presentation_rank": 3
+        },
+        {
+          "presentation_score": 1.793006,
+          "snomed_code": "722206009",
+          "term": "Pancreatic hypoplasia, diabetes mellitus, congenital heart disease syndrome (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "MEDIUM",
+          "candidate_role": "variant",
+          "evidence": {
+            "in_qof": false,
+            "in_opencodelists": true,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.658103,
+            "best_primary_condition_score": 0.476372,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.873543,
+            "lexical_overlap_max": 0.5,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 0.35,
+            "fusion_component": 0.323006,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.15,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 1,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.8735,
+              "lexical_overlap": 0.5,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2621,
+              "adjusted_retrieval_score": 0.4764,
+              "weighted_retrieval_score": 0.4764
+            }
+          ],
+          "presentation_rank": 5
+        },
+        {
+          "presentation_score": 1.715277,
+          "snomed_code": "715759002",
+          "term": "Provision of written information about diabetes and hypertension (procedure)",
+          "semantic_tag": "procedure",
+          "confidence_tier": "MEDIUM",
+          "candidate_role": "variant",
+          "evidence": {
+            "in_qof": false,
+            "in_opencodelists": false,
+            "usage_count_nhs": 29790.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.370079,
+            "best_primary_condition_score": 0.263022,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.733515,
+            "lexical_overlap_max": 0.5,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 0.37284,
+            "fusion_component": 0.222436,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.15,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 1,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.7335,
+              "lexical_overlap": 0.5,
+              "semantic_tag_weight": 0.4,
+              "retrieval_score": 0.2201,
+              "adjusted_retrieval_score": 0.263,
+              "weighted_retrieval_score": 0.263
+            }
+          ],
+          "presentation_rank": 6
+        },
+        {
+          "presentation_score": 1.170831,
+          "snomed_code": "609580007",
+          "term": "Diabetes mellitus, transient neonatal 2 (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "REVIEW",
+          "candidate_role": "variant",
+          "evidence": {
+            "in_qof": false,
+            "in_opencodelists": false,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.589322,
+            "best_primary_condition_score": 0.425424,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.870793,
+            "lexical_overlap_max": 0.5,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 0.0,
+            "fusion_component": 0.300831,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.15,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.25,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 2,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.8708,
+              "lexical_overlap": 0.5,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2612,
+              "adjusted_retrieval_score": 0.4254,
+              "weighted_retrieval_score": 0.4254
+            }
+          ],
+          "presentation_rank": 7
+        },
+        {
+          "presentation_score": 1.170831,
+          "snomed_code": "609579009",
+          "term": "Diabetes mellitus, transient neonatal 1 (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "REVIEW",
+          "candidate_role": "variant",
+          "evidence": {
+            "in_qof": false,
+            "in_opencodelists": false,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.589322,
+            "best_primary_condition_score": 0.425424,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.870793,
+            "lexical_overlap_max": 0.5,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 0.0,
+            "fusion_component": 0.300831,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.15,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.25,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 2,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.8708,
+              "lexical_overlap": 0.5,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2612,
+              "adjusted_retrieval_score": 0.4254,
+              "weighted_retrieval_score": 0.4254
+            }
+          ],
+          "presentation_rank": 8
+        },
+        {
+          "presentation_score": 1.170831,
+          "snomed_code": "609581006",
+          "term": "Diabetes mellitus, transient neonatal 3 (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "REVIEW",
+          "candidate_role": "variant",
+          "evidence": {
+            "in_qof": false,
+            "in_opencodelists": false,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.589322,
+            "best_primary_condition_score": 0.425424,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.870793,
+            "lexical_overlap_max": 0.5,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 0.0,
+            "fusion_component": 0.300831,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.15,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.25,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 2,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.8708,
+              "lexical_overlap": 0.5,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2612,
+              "adjusted_retrieval_score": 0.4254,
+              "weighted_retrieval_score": 0.4254
+            }
+          ],
+          "presentation_rank": 9
+        },
+        {
+          "presentation_score": 1.055176,
+          "snomed_code": "774102003",
+          "term": "Intellectual disability, obesity, prognathism, eye and skin anomalies syndrome (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "REVIEW",
+          "candidate_role": "variant",
+          "evidence": {
+            "in_qof": false,
+            "in_opencodelists": false,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.374261,
+            "best_primary_condition_score": 0.266119,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.590201,
+            "lexical_overlap_max": 0.25,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 0.0,
+            "fusion_component": 0.185176,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.15,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.25,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 2,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.5902,
+              "lexical_overlap": 0.25,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.1771,
+              "adjusted_retrieval_score": 0.2661,
+              "weighted_retrieval_score": 0.2661
+            }
+          ],
+          "presentation_rank": 10
+        }
+      ],
+      "specific_variants": [],
+      "suppressed_candidates": [
+        {
+          "presentation_score": 0.912015,
+          "snomed_code": "127991000119101",
+          "term": "Hypertension concurrent and due to end stage renal disease on dialysis due to type 2 diabetes mellitus (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 10.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.620441,
+            "best_primary_condition_score": 0.448475,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.61152,
+            "lexical_overlap_max": 0.75,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 1.336783,
+            "fusion_component": 0.325232,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.12,
+            "query_misalignment_penalty": 1.6
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.6115,
+              "lexical_overlap": 0.75,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.1835,
+              "adjusted_retrieval_score": 0.4485,
+              "weighted_retrieval_score": 0.4485
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.822134,
+          "snomed_code": "71421000119105",
+          "term": "Hypertension in chronic kidney disease due to type 2 diabetes mellitus (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.613537,
+            "best_primary_condition_score": 0.443361,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.596698,
+            "lexical_overlap_max": 0.75,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 1.25,
+            "fusion_component": 0.322134,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.12,
+            "query_misalignment_penalty": 1.6
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.5967,
+              "lexical_overlap": 0.75,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.179,
+              "adjusted_retrieval_score": 0.4434,
+              "weighted_retrieval_score": 0.4434
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.609956,
+          "snomed_code": "198942000",
+          "term": "Benign essential hypertension complicating pregnancy, childbirth and the puerperium (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 150.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.445323,
+            "best_primary_condition_score": 0.318758,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.597849,
+            "lexical_overlap_max": 0.25,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 1.431581,
+            "fusion_component": 0.208374,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 2.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.5978,
+              "lexical_overlap": 0.25,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.1794,
+              "adjusted_retrieval_score": 0.3188,
+              "weighted_retrieval_score": 0.3188
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.521133,
+          "snomed_code": "199005000",
+          "term": "Pre-existing hypertension complicating pregnancy, childbirth and puerperium (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 10.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.458637,
+            "best_primary_condition_score": 0.32862,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.626436,
+            "lexical_overlap_max": 0.25,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 1.336783,
+            "fusion_component": 0.21435,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 2.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.6264,
+              "lexical_overlap": 0.25,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.1879,
+              "adjusted_retrieval_score": 0.3286,
+              "weighted_retrieval_score": 0.3286
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.431289,
+          "snomed_code": "198949009",
+          "term": "Renal hypertension complicating pregnancy, childbirth and the puerperium (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.451817,
+            "best_primary_condition_score": 0.323568,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.611792,
+            "lexical_overlap_max": 0.25,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 1.25,
+            "fusion_component": 0.211289,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 2.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.6118,
+              "lexical_overlap": 0.25,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.1835,
+              "adjusted_retrieval_score": 0.3236,
+              "weighted_retrieval_score": 0.3236
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.312778,
+          "snomed_code": "128001000119105",
+          "term": "Hypertension concurrent and due to end stage renal disease on dialysis due to type 1 diabetes mellitus (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.659533,
+            "best_primary_condition_score": 0.477432,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.695455,
+            "lexical_overlap_max": 0.75,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 1.25,
+            "fusion_component": 0.342778,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.65,
+            "query_misalignment_penalty": 1.6
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.6955,
+              "lexical_overlap": 0.75,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2086,
+              "adjusted_retrieval_score": 0.4774,
+              "weighted_retrieval_score": 0.4774
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.309972,
+          "snomed_code": "71701000119105",
+          "term": "Hypertension in chronic kidney disease due to type 1 diabetes mellitus (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.653281,
+            "best_primary_condition_score": 0.472801,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.682031,
+            "lexical_overlap_max": 0.75,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 1.25,
+            "fusion_component": 0.339972,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.65,
+            "query_misalignment_penalty": 1.6
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.682,
+              "lexical_overlap": 0.75,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2046,
+              "adjusted_retrieval_score": 0.4728,
+              "weighted_retrieval_score": 0.4728
+            }
+          ]
+        },
+        {
+          "presentation_score": -0.202997,
+          "snomed_code": "198941007",
+          "term": "Hypertension complicating pregnancy, childbirth and the puerperium (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "MEDIUM",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": false,
+            "in_opencodelists": true,
+            "usage_count_nhs": 1730.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.442583,
+            "best_primary_condition_score": 0.316728,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.591966,
+            "lexical_overlap_max": 0.25,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 0.619858,
+            "fusion_component": 0.207145,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 2.0
+          },
+          "authority_bucket": 1,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.592,
+              "lexical_overlap": 0.25,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.1776,
+              "adjusted_retrieval_score": 0.3167,
+              "weighted_retrieval_score": 0.3167
+            }
+          ]
+        },
+        {
+          "presentation_score": -0.218711,
+          "snomed_code": "199008003",
+          "term": "Pre-existing secondary hypertension complicating pregnancy, childbirth and puerperium (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.451817,
+            "best_primary_condition_score": 0.323568,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.611792,
+            "lexical_overlap_max": 0.25,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity, diabetes mellitus, and hypertension"
+          ],
+          "dominant_condition": "Obesity, diabetes mellitus, and hypertension",
+          "ranking_components": {
+            "authority_component": 1.25,
+            "fusion_component": 0.211289,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "primary_condition_penalty": 0.0,
+            "subtype_clutter_penalty": 0.65,
+            "query_misalignment_penalty": 2.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity, diabetes mellitus, and hypertension",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.6118,
+              "lexical_overlap": 0.25,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.1835,
+              "adjusted_retrieval_score": 0.3236,
+              "weighted_retrieval_score": 0.3236
+            }
+          ]
+        }
+      ]
+    },
+    "explanation_mode": "deterministic_fallback_formatter_error",
+    "formatter_debug": {
+      "llm_payload_count": 19,
+      "llm_payload_codes": [
+        "783722008",
+        "237619009",
+        "237612000",
+        "720568003",
+        "722206009",
+        "715759002",
+        "609580007",
+        "609579009",
+        "609581006",
+        "774102003",
+        "127991000119101",
+        "71421000119105",
+        "198942000",
+        "199005000",
+        "198949009",
+        "128001000119105",
+        "71701000119105",
+        "198941007",
+        "199008003"
+      ],
+      "raw_llm_response": null,
+      "cleaned_llm_response": null,
+      "parsed_response": null,
+      "llm_response_shape_summary": null,
+      "json_parse_exception": "model 'gpt-oss:20b' not found (status code: 404)",
+      "schema_validation_error": null
+    }
+  },
+  "final_structured_output": {
+    "include_candidates": [
+      {
+        "presentation_rank": 4,
+        "presentation_score": 1.990322,
+        "snomed_code": "783722008",
+        "term": "Myopathy and diabetes mellitus (disorder)",
+        "confidence_tier": "MEDIUM",
+        "candidate_role": "core",
+        "rationale": "central query-aligned concept; present in OpenCodelists",
+        "evidence": {
+          "in_qof": false,
+          "in_opencodelists": true,
+          "usage_count_nhs": 0.0
+        }
+      }
+    ],
+    "review_candidates": [
+      {
+        "presentation_rank": 1,
+        "presentation_score": 3.300034,
+        "snomed_code": "237619009",
+        "term": "Maternally inherited diabetes and deafness (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "variant",
+        "rationale": "relevant narrower variant for analyst review; QOF-supported code; present in OpenCodelists; NHS usage count 80",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 80.0
+        }
+      },
+      {
+        "presentation_rank": 2,
+        "presentation_score": 2.71944,
+        "snomed_code": "237612000",
+        "term": "Photomyoclonus, diabetes mellitus, deafness, nephropathy and cerebral dysfunction (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "variant",
+        "rationale": "relevant narrower variant for analyst review; QOF-supported code; present in OpenCodelists",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 0.0
+        }
+      },
+      {
+        "presentation_rank": 3,
+        "presentation_score": 2.590962,
+        "snomed_code": "720568003",
+        "term": "Brachydactyly and arterial hypertension syndrome (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "variant",
+        "rationale": "relevant narrower variant for analyst review; QOF-supported code; present in OpenCodelists",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 0.0
+        }
+      },
+      {
+        "presentation_rank": 5,
+        "presentation_score": 1.793006,
+        "snomed_code": "722206009",
+        "term": "Pancreatic hypoplasia, diabetes mellitus, congenital heart disease syndrome (disorder)",
+        "confidence_tier": "MEDIUM",
+        "candidate_role": "variant",
+        "rationale": "relevant narrower variant for analyst review; present in OpenCodelists",
+        "evidence": {
+          "in_qof": false,
+          "in_opencodelists": true,
+          "usage_count_nhs": 0.0
+        }
+      },
+      {
+        "presentation_rank": 6,
+        "presentation_score": 1.715277,
+        "snomed_code": "715759002",
+        "term": "Provision of written information about diabetes and hypertension (procedure)",
+        "confidence_tier": "MEDIUM",
+        "candidate_role": "variant",
+        "rationale": "relevant narrower variant for analyst review; NHS usage count 29790",
+        "evidence": {
+          "in_qof": false,
+          "in_opencodelists": false,
+          "usage_count_nhs": 29790.0
+        }
+      },
+      {
+        "presentation_rank": 7,
+        "presentation_score": 1.170831,
+        "snomed_code": "609580007",
+        "term": "Diabetes mellitus, transient neonatal 2 (disorder)",
+        "confidence_tier": "REVIEW",
+        "candidate_role": "variant",
+        "rationale": "relevant narrower variant for analyst review",
+        "evidence": {
+          "in_qof": false,
+          "in_opencodelists": false,
+          "usage_count_nhs": 0.0
+        }
+      },
+      {
+        "presentation_rank": 8,
+        "presentation_score": 1.170831,
+        "snomed_code": "609579009",
+        "term": "Diabetes mellitus, transient neonatal 1 (disorder)",
+        "confidence_tier": "REVIEW",
+        "candidate_role": "variant",
+        "rationale": "relevant narrower variant for analyst review",
+        "evidence": {
+          "in_qof": false,
+          "in_opencodelists": false,
+          "usage_count_nhs": 0.0
+        }
+      },
+      {
+        "presentation_rank": 9,
+        "presentation_score": 1.170831,
+        "snomed_code": "609581006",
+        "term": "Diabetes mellitus, transient neonatal 3 (disorder)",
+        "confidence_tier": "REVIEW",
+        "candidate_role": "variant",
+        "rationale": "relevant narrower variant for analyst review",
+        "evidence": {
+          "in_qof": false,
+          "in_opencodelists": false,
+          "usage_count_nhs": 0.0
+        }
+      },
+      {
+        "presentation_rank": 10,
+        "presentation_score": 1.055176,
+        "snomed_code": "774102003",
+        "term": "Intellectual disability, obesity, prognathism, eye and skin anomalies syndrome (disorder)",
+        "confidence_tier": "REVIEW",
+        "candidate_role": "variant",
+        "rationale": "relevant narrower variant for analyst review",
+        "evidence": {
+          "in_qof": false,
+          "in_opencodelists": false,
+          "usage_count_nhs": 0.0
+        }
+      }
+    ],
+    "specific_variants": [],
+    "suppressed_candidates": [
+      {
+        "presentation_rank": null,
+        "presentation_score": 0.912015,
+        "snomed_code": "127991000119101",
+        "term": "Hypertension concurrent and due to end stage renal disease on dialysis due to type 2 diabetes mellitus (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists; NHS usage count 10",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 10.0
+        }
+      },
+      {
+        "presentation_rank": null,
+        "presentation_score": 0.822134,
+        "snomed_code": "71421000119105",
+        "term": "Hypertension in chronic kidney disease due to type 2 diabetes mellitus (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 0.0
+        }
+      },
+      {
+        "presentation_rank": null,
+        "presentation_score": 0.609956,
+        "snomed_code": "198942000",
+        "term": "Benign essential hypertension complicating pregnancy, childbirth and the puerperium (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists; NHS usage count 150",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 150.0
+        }
+      },
+      {
+        "presentation_rank": null,
+        "presentation_score": 0.521133,
+        "snomed_code": "199005000",
+        "term": "Pre-existing hypertension complicating pregnancy, childbirth and puerperium (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists; NHS usage count 10",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 10.0
+        }
+      },
+      {
+        "presentation_rank": null,
+        "presentation_score": 0.431289,
+        "snomed_code": "198949009",
+        "term": "Renal hypertension complicating pregnancy, childbirth and the puerperium (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 0.0
+        }
+      },
+      {
+        "presentation_rank": null,
+        "presentation_score": 0.312778,
+        "snomed_code": "128001000119105",
+        "term": "Hypertension concurrent and due to end stage renal disease on dialysis due to type 1 diabetes mellitus (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 0.0
+        }
+      },
+      {
+        "presentation_rank": null,
+        "presentation_score": 0.309972,
+        "snomed_code": "71701000119105",
+        "term": "Hypertension in chronic kidney disease due to type 1 diabetes mellitus (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 0.0
+        }
+      },
+      {
+        "presentation_rank": null,
+        "presentation_score": -0.202997,
+        "snomed_code": "198941007",
+        "term": "Hypertension complicating pregnancy, childbirth and the puerperium (disorder)",
+        "confidence_tier": "MEDIUM",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; present in OpenCodelists; NHS usage count 1730",
+        "evidence": {
+          "in_qof": false,
+          "in_opencodelists": true,
+          "usage_count_nhs": 1730.0
+        }
+      },
+      {
+        "presentation_rank": null,
+        "presentation_score": -0.218711,
+        "snomed_code": "199008003",
+        "term": "Pre-existing secondary hypertension complicating pregnancy, childbirth and puerperium (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 0.0
+        }
+      }
+    ]
+  }
+}
