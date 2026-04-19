@@ -77,15 +77,22 @@ Current source of truth:
 - `evaluation.py` and `eval_runner.py` provide opt-in evaluation/RAGAS utilities outside the production path.
 
 ## Resource loading
-The project supports reusable local resources for:
+The production runtime reads two required source files and builds reusable local
+runtime assets from them:
 
-- **Chroma DB**
-- **embedding model cache**
+- `snomed_master_v4.csv`
+- `snomed_parent_child_edges_clean.csv`
+- Chroma DB persistence directory
+- embedding model cache directory
+- audit output directory
 
-By default, it looks for sibling folders outside the project root:
+By default, paths are resolved relative to this `backend/` directory:
 
+- `../snomed_master_v4.csv`
+- `../snomed_parent_child_edges_clean.csv`
 - `../chroma_db_v4`
 - `../embeddings`
+- `audit/`
 
 You can also override these with environment variables:
 
@@ -94,13 +101,31 @@ export NICE_SNOMED_PATH=/absolute/path/to/snomed_master_v4.csv
 export NICE_EDGE_PATH=/absolute/path/to/snomed_parent_child_edges_clean.csv
 export NICE_CHROMA_DIR=/absolute/path/to/chroma_db_v4
 export NICE_EMBEDDINGS_DIR=/absolute/path/to/embeddings
+export NICE_AUDIT_DIR=/absolute/path/to/audit
 ```
 
 Behaviour:
 
-- if an existing Chroma DB is found, it is reused
-- if a cached embedding model is found, it is reused
-- if resources are missing, they are created or downloaded automatically
+- required source CSV files are validated at startup with a clear error if missing
+- runtime directories for Chroma, embeddings, and audit output are created automatically
+- if an existing Chroma collection is found and has records, it is reused
+- if the Chroma collection is missing or empty, it is rebuilt automatically from `snomed_master_v4.csv`
+- if the embedding model is missing, `sentence-transformers` downloads and caches it in the embeddings directory
+- if `NICE_REBUILD_CHROMA=true`, the configured Chroma collection is deleted and rebuilt on startup
+
+For a forced Chroma rebuild:
+
+```bash
+export NICE_REBUILD_CHROMA=true
+export NICE_CHROMA_REBUILD_BATCH_SIZE=1000
+./.venv/bin/python main.py
+```
+
+Unset the rebuild flag afterwards so normal runs reuse the persisted index:
+
+```bash
+unset NICE_REBUILD_CHROMA
+```
 
 ## Configuration Setup
 To customise paths, models, or testing queries without modifying core files:
@@ -109,6 +134,24 @@ To customise paths, models, or testing queries without modifying core files:
    *(Note: `user_settings.py` is safely ignored by git).*
 
 **⚠️ CRITICAL**: Do NOT store API keys in `user_settings.py`. Any secret credentials must remain purely within your environment variables.
+
+## Environment setup
+Python 3.11 is the tested runtime for this repository.
+
+From the `backend/` directory:
+
+```bash
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+First run requirements:
+
+- local Ollama is optional for query decomposition; if unavailable, the planner uses fallback decomposition
+- Hugging Face access is required the first time embedding and reranking models are downloaded
+- the Chroma rebuild can take a while because it embeds all SNOMED rows
 
 ## How to run
 From the project root:
@@ -127,6 +170,13 @@ To run optional evaluation without changing production runtime:
 
 ```bash
 ./.venv/bin/python eval_runner.py "Obesity, diabetes mellitus, and hypertension" --custom-eval
+```
+
+Evaluation uses Nebius for judge-model calls. Set `NEBIUS_API_KEY` only when you
+want to run `eval_runner.py` with `--custom-eval`, `--ragas`, or `--all-evals`:
+
+```bash
+export NEBIUS_API_KEY=...
 ```
 
 ## Regression checks
@@ -150,6 +200,28 @@ audit/
 ```
 
 The audit captures the key pipeline steps and config snapshot used for that run.
+
+## Troubleshooting
+If startup fails with a missing source-file error, set:
+
+```bash
+export NICE_SNOMED_PATH=/absolute/path/to/snomed_master_v4.csv
+export NICE_EDGE_PATH=/absolute/path/to/snomed_parent_child_edges_clean.csv
+```
+
+If retrieval returns empty results on a fresh machine, force a Chroma rebuild:
+
+```bash
+export NICE_REBUILD_CHROMA=true
+./.venv/bin/python main.py
+unset NICE_REBUILD_CHROMA
+```
+
+If model download fails, confirm internet access to Hugging Face or pre-populate
+the directory set by `NICE_EMBEDDINGS_DIR`.
+
+If optional evaluation reports missing Nebius credentials, set `NEBIUS_API_KEY`.
+Do not put API keys in `user_settings.py` or commit them to audit artifacts.
 
 ## Current limitations
 This is still an MVP.

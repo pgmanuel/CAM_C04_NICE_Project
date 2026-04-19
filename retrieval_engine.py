@@ -2,15 +2,6 @@
 
 Source: backend_with_Eval.ipynb retrieval logic, reconciled with backend intent.
 
-Final retrieval policy:
-1. _lexical_overlap checks candidate TERM only (not text_for_embedding).
-2. _term_precision added as precision-oriented signal.
-3. Weak partial lexical matches are hard-gated by term precision.
-4. Extra candidate tokens are penalised with a floor to preserve recall.
-5. specificity_score is NOT computed here — it is produced only by HierarchyEnricher.
-6. Retrieval sort is decoupled from query_weight (sorts by adjusted_retrieval_score).
-7. Evidence bonus (+0.05) is not part of adj_score.
-8. BM25 is indexed on term only (text_for_bm25), not enriched metadata.
 """
 
 from __future__ import annotations
@@ -57,6 +48,7 @@ class DataLoader:
     _shared_bm25: BM25Okapi | None                        = None
     _shared_collection                                     = None
     _shared_embedding_model: SentenceTransformer | None   = None
+    _chroma_checked: bool                                  = False
 
     def __init__(self, config: Any):
         self.config = config
@@ -174,17 +166,26 @@ class DataLoader:
 
     def get_collection(self):
         if DataLoader._shared_collection is not None:
+            self._ensure_collection_populated(DataLoader._shared_collection)
             return DataLoader._shared_collection
         try:
             chroma_dir = Path(self.config.chroma_persist_dir)
+            chroma_dir.mkdir(parents=True, exist_ok=True)
             if chroma_dir.exists() and any(chroma_dir.iterdir()):
                 logger.info("Loading existing Chroma DB from %s.", chroma_dir)
             else:
                 logger.info("Chroma DB not found at %s — a fresh instance will be created.", chroma_dir)
             client = chromadb.PersistentClient(path=str(chroma_dir))
+            if bool(getattr(self.config, "rebuild_chroma", False)):
+                logger.info("NICE_REBUILD_CHROMA requested — rebuilding collection %s.", self.config.chroma_collection_name)
+                try:
+                    client.delete_collection(name=self.config.chroma_collection_name)
+                except Exception:
+                    pass
             DataLoader._shared_collection = client.get_or_create_collection(
                 name=self.config.chroma_collection_name
             )
+            self._ensure_collection_populated(DataLoader._shared_collection)
             return DataLoader._shared_collection
         except Exception as exc:
             logger.warning(
@@ -192,6 +193,63 @@ class DataLoader:
                 self.config.chroma_persist_dir, exc,
             )
             return None
+
+    def _ensure_collection_populated(self, collection: Any) -> None:
+        if DataLoader._chroma_checked and not bool(getattr(self.config, "rebuild_chroma", False)):
+            return
+
+        try:
+            count = int(collection.count())
+        except Exception as exc:
+            logger.warning("Could not inspect Chroma collection count: %s", exc)
+            return
+
+        if count > 0 and not bool(getattr(self.config, "rebuild_chroma", False)):
+            logger.info("Chroma collection %s contains %s records.", self.config.chroma_collection_name, count)
+            DataLoader._chroma_checked = True
+            return
+
+        df = self.get_dataframe()
+        embedder = self.get_embedding_model()
+        if df is None or embedder is None:
+            logger.warning("Cannot rebuild Chroma collection because source data or embedding model is unavailable.")
+            return
+
+        batch_size = int(getattr(self.config, "chroma_rebuild_batch_size", 1000) or 1000)
+        texts = df["text_for_embedding"].fillna("").astype(str).tolist()
+        ids = df["snomed_code"].astype(str).tolist()
+        metadatas = [
+            {
+                "term": str(row.term),
+                "semantic_tag": str(row.semantic_tag),
+                "in_qof": bool(row.in_qof),
+                "in_opencodelists": bool(row.in_opencodelists),
+                "usage_count_nhs": float(row.usage_count_nhs),
+                "num_parents": int(row.num_parents),
+                "num_children": int(row.num_children),
+            }
+            for row in df.itertuples(index=False)
+        ]
+
+        logger.info(
+            "Building Chroma collection %s from %s SNOMED records.",
+            self.config.chroma_collection_name,
+            len(df),
+        )
+        for start in range(0, len(df), batch_size):
+            end = min(start + batch_size, len(df))
+            batch_texts = texts[start:end]
+            batch_embeddings = embedder.encode(batch_texts, show_progress_bar=False).tolist()
+            collection.add(
+                ids=ids[start:end],
+                documents=batch_texts,
+                metadatas=metadatas[start:end],
+                embeddings=batch_embeddings,
+            )
+            logger.info("Chroma build progress: %s/%s", end, len(df))
+
+        logger.info("Chroma collection build complete. Total records: %s", collection.count())
+        DataLoader._chroma_checked = True
 
     def get_embedding_model(self) -> SentenceTransformer | None:
         if DataLoader._shared_embedding_model is not None:

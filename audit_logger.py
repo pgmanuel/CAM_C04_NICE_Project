@@ -231,7 +231,7 @@ class RunLogger:
         }
 
         try:
-            audit_dir  = Path(self.config.base_dir) / "audit"
+            audit_dir  = Path(getattr(self.config, "audit_dir", Path(self.config.base_dir) / "audit"))
             audit_dir.mkdir(parents=True, exist_ok=True)
             audit_path = audit_dir / f"{self.run_id}.json"
             with open(audit_path, "w", encoding="utf-8") as fh:

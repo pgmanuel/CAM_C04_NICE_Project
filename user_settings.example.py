@@ -11,6 +11,7 @@ SNOMED_PATH   = "../snomed_master_v4.csv"
 EDGE_PATH     = "../snomed_parent_child_edges_clean.csv"
 CHROMA_DIR    = "../chroma_db_v4"
 EMBEDDINGS_DIR = "../embeddings"
+AUDIT_DIR = "audit"
 
 # ==========================================
 # Models
@@ -26,3 +27,7 @@ LLM_MODEL               = "llama3.1"
 DEMO_QUERY      = "Obesity, diabetes mellitus, and hypertension"
 
 RETRIEVAL_LIMIT = 20
+
+# Set to True to delete and rebuild the configured Chroma collection on startup.
+REBUILD_CHROMA = False
+CHROMA_REBUILD_BATCH_SIZE = 1000
