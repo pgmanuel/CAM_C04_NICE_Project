@@ -1,7 +1,8 @@
 """query_planning.py — query decomposition and per-condition search job planning.
 
 Source: Playground.ipynb, Section 3 (cell mLiCkec6XBDr).
-Logic is unchanged from the notebook.
+The planner keeps the notebook's per-condition job model, with one repo-side
+refinement: modifiers are only attached to compatible conditions.
 
 Key changes from original:
 1. No combined jobs by default (include_combined_jobs=False).
@@ -9,6 +10,8 @@ Key changes from original:
 3. query_weight decoupled from retrieval: stored as metadata only.
    HybridRetriever sorts by adjusted_retrieval_score, not weighted_retrieval_score.
    Field name: "query_weight" (was "weight").
+4. Conservative modifier scoping prevents unrelated jobs such as
+   "morbid hypertension" and "poorly controlled obesity".
 """
 
 from __future__ import annotations
@@ -236,6 +239,43 @@ class QueryPlanner:
             "blocked_tags": sorted(blocked_tags),
         }
 
+    @staticmethod
+    def _modifier_applies_to_condition(modifier: str, condition_text: str) -> bool:
+        """Return whether a modifier should generate a query for this condition.
+
+        The decomposer exposes modifiers globally, so without this check every
+        modifier gets crossed with every condition. That creates noisy jobs such
+        as "morbid hypertension" in a query about morbid obesity plus
+        hypertension.
+        """
+        modifier_tokens = tokenize_text(modifier)
+        condition_tokens = tokenize_text(condition_text)
+        if not modifier_tokens or not condition_tokens:
+            return False
+
+        # Avoid generating duplicate variants when the condition already carries
+        # the same modifier words.
+        if modifier_tokens <= condition_tokens:
+            return False
+
+        obesity_terms = {"obesity", "obese", "overweight", "adiposity"}
+        diabetes_terms = {"diabetes", "diabetic", "mellitus"}
+
+        obesity_specific_modifiers = {"morbid", "central"}
+        control_modifiers = {"poorly", "controlled", "uncontrolled"}
+        broad_severity_modifiers = {"severe", "mild", "moderate"}
+
+        if modifier_tokens & obesity_specific_modifiers:
+            return bool(condition_tokens & obesity_terms)
+        if modifier_tokens & control_modifiers:
+            return bool(condition_tokens & diabetes_terms)
+        if modifier_tokens & broad_severity_modifiers:
+            return True
+
+        # Unknown modifiers are kept for compatibility with future decomposer
+        # output rather than silently reducing recall.
+        return True
+
     def build_search_queries(self, structured_query: dict[str, Any]) -> list[dict[str, Any]]:
         primary              = normalize_query(structured_query.get("primary_condition", ""))
         secondary_conditions = structured_query.get("secondary_conditions", [])
@@ -275,10 +315,11 @@ class QueryPlanner:
             primary_profile = self._build_condition_profile(primary)
             add_job(primary, "primary_condition", primary, primary_profile)
 
-            # Modifier variants: "morbid obesity", "poorly controlled diabetes"
-            # These stay attached to their own condition — not cross-condition.
+            # Modifier variants: "morbid obesity", "poorly controlled diabetes".
+            # Modifiers are scoped to clinically compatible conditions.
             for modifier in modifiers:
-                add_job(f"{modifier} {primary}", "modifier", primary, primary_profile)
+                if self._modifier_applies_to_condition(modifier, primary):
+                    add_job(f"{modifier} {primary}", "modifier", primary, primary_profile)
 
         # ── Secondary conditions — each fully isolated ─────────────────────────
         # Each secondary condition gets its own bare query with its own profile.
@@ -289,7 +330,8 @@ class QueryPlanner:
             add_job(secondary, "secondary_condition", secondary, secondary_profile)
 
             for modifier in modifiers:
-                add_job(f"{modifier} {secondary}", "modifier", secondary, secondary_profile)
+                if self._modifier_applies_to_condition(modifier, secondary):
+                    add_job(f"{modifier} {secondary}", "modifier", secondary, secondary_profile)
 
         # ── Supporting terms ───────────────────────────────────────────────────
         if primary and supporting_terms:

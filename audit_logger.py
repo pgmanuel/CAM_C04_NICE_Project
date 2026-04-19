@@ -40,15 +40,25 @@ class RunLogger:
             "structured_query": None,
             "search_jobs": [],
             "retrieval_batches_summary": [],
+            "retrieval_evaluation_summary": {},
+            "retrieval_evaluation_details": [],
             "hierarchy_enrichment_summary": [],  # new v4 slot
             "fused_candidates_preview": [],
             "gate_summary": {},                  # new v4 slot
             "gate_candidates_preview": [],        # new v4 slot
+            "post_gate_evaluation_summary": {},
+            "post_gate_evaluation_details": [],
+            "post_ce_evaluation_summary": {},
+            "post_ce_evaluation_details": [],
             "cross_encoder_summary": {},          # new v4 slot
             "cross_encoder_candidates_preview": [],  # new v4 slot
+            "final_decision_evaluation_summary": {},
+            "final_decision_evaluation_details": [],
             "final_decisions": [],
             "explanation_mode": None,
             "formatter_debug": None,
+            "final_response_ragas_summary": {},
+            "final_response_ragas_details": [],
         }
 
     def log_normalized_query(self, v: str) -> None:
@@ -79,6 +89,47 @@ class RunLogger:
             }
             for job, batch in zip(search_jobs, retrieval_batches)
         ]
+
+    def log_retrieval_evaluation(self, retrieval_eval_result: dict[str, Any]) -> None:
+        self.trace["retrieval_evaluation_summary"] = {
+            "stage": retrieval_eval_result.get("stage"),
+            "num_rows": retrieval_eval_result.get("num_rows"),
+            "average_custom_score": retrieval_eval_result.get("average_custom_score"),
+        }
+        self.trace["retrieval_evaluation_details"] = retrieval_eval_result.get("details", [])
+
+    def log_post_gate_evaluation(self, post_gate_eval_result: dict[str, Any]) -> None:
+        self.trace["post_gate_evaluation_summary"] = {
+            "stage": post_gate_eval_result.get("stage"),
+            "num_rows": post_gate_eval_result.get("num_rows"),
+            "average_custom_score": post_gate_eval_result.get("average_custom_score"),
+        }
+        self.trace["post_gate_evaluation_details"] = post_gate_eval_result.get("details", [])
+
+    def log_post_ce_evaluation(self, post_ce_eval_result: dict[str, Any]) -> None:
+        self.trace["post_ce_evaluation_summary"] = {
+            "stage": post_ce_eval_result.get("stage"),
+            "num_rows": post_ce_eval_result.get("num_rows"),
+            "average_custom_score": post_ce_eval_result.get("average_custom_score"),
+        }
+        self.trace["post_ce_evaluation_details"] = post_ce_eval_result.get("details", [])
+
+    def log_final_decision_evaluation(self, final_decision_eval_result: dict[str, Any]) -> None:
+        self.trace["final_decision_evaluation_summary"] = {
+            "stage": final_decision_eval_result.get("stage"),
+            "num_rows": final_decision_eval_result.get("num_rows"),
+            "average_custom_score": final_decision_eval_result.get("average_custom_score"),
+        }
+        self.trace["final_decision_evaluation_details"] = final_decision_eval_result.get("details", [])
+
+    def log_final_response_ragas(self, eval_result: dict[str, Any]) -> None:
+        self.trace["final_response_ragas_summary"] = {
+            "stage": eval_result.get("stage"),
+            "num_rows": eval_result.get("num_rows"),
+            "faithfulness": eval_result.get("faithfulness"),
+            "response_relevancy": eval_result.get("response_relevancy"),
+        }
+        self.trace["final_response_ragas_details"] = eval_result.get("details", [])
 
     def log_hierarchy_enrichment(self, enriched_batches: list[list[dict[str, Any]]]) -> None:
         """Log summary of hierarchy enrichment stage (v4 new slot)."""

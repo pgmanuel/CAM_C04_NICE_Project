@@ -1,7 +1,9 @@
-"""main.py — 9-stage pipeline runner (v4, CE-first).
+"""main.py — production pipeline runner (v4, CE-first).
 
 Source: Playground.ipynb, Section 4 (cell run-pipeline).
-Orchestration is unchanged from the notebook. Mirrors run_pipeline() exactly.
+This module keeps the production path focused on retrieval, reranking,
+decisioning, formatting, and audit logging. Notebook-style evaluation remains
+opt-in through evaluation.py / eval_runner.py and is not run by default.
 
 Stages:
 1. Decompose query
@@ -123,6 +125,8 @@ def run_pipeline(user_query: str, top_k: int | None = None) -> Any:
         ce_reranked_candidates,
         model_name=cross_encoder_reranker.model_name,
         top_n_per_condition=cross_encoder_reranker.top_n_per_condition,
+        ce_condition_weight=config.ce_condition_weight,
+        ce_query_weight=config.ce_query_weight,
     )
 
     # 8. Decision Engine

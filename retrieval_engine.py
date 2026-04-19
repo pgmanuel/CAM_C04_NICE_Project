@@ -1,15 +1,16 @@
 """retrieval_engine.py — hybrid semantic + BM25 retrieval, CE-first, no leakage.
 
-Source: Playground.ipynb, Section 3 (cell t-BbAUVpX9uf).
-Logic is unchanged from the notebook.
+Source: backend_with_Eval.ipynb retrieval logic, reconciled with backend intent.
 
-Key changes from original:
+Final retrieval policy:
 1. _lexical_overlap checks candidate TERM only (not text_for_embedding).
 2. _term_precision added as precision-oriented signal.
-3. specificity_score is NOT computed here — it is produced only by HierarchyEnricher.
-4. Retrieval sort decoupled from query_weight (sorts by adjusted_retrieval_score).
-5. Evidence bonus (+0.05) removed from adj_score.
-6. BM25 indexed on term only (text_for_bm25), not enriched metadata.
+3. Weak partial lexical matches are hard-gated by term precision.
+4. Extra candidate tokens are penalised with a floor to preserve recall.
+5. specificity_score is NOT computed here — it is produced only by HierarchyEnricher.
+6. Retrieval sort is decoupled from query_weight (sorts by adjusted_retrieval_score).
+7. Evidence bonus (+0.05) is not part of adj_score.
+8. BM25 is indexed on term only (text_for_bm25), not enriched metadata.
 """
 
 from __future__ import annotations
@@ -227,6 +228,8 @@ class DataLoader:
 # ── HybridRetriever (clean, CE-first, no leakage) ─────────────────────────────
 
 class HybridRetriever:
+    MIN_TERM_PRECISION = 0.4
+
     def __init__(self, config: Any, data_loader: DataLoader):
         self.config = config
         self.data_loader = data_loader
@@ -238,15 +241,34 @@ class HybridRetriever:
         tolerated = set(query_profile.get("tolerated_tags", []))
         blocked   = set(query_profile.get("blocked_tags", []))
 
-        if tag in blocked:
+        strict_block = {
+            "situation",
+            "event",
+            "physical object",
+            "environment",
+            "specimen",
+            "occupation",
+            "assessment scale",
+        }
+        heavy_penalty = {
+            "procedure",
+            "body structure",
+            "morphologic abnormality",
+            "regime/therapy",
+        }
+
+        if tag in blocked or tag in strict_block:
             return 0.0
         if tag in preferred:
             return 1.15
         if tag in tolerated:
             return 0.75
 
-        if tag in {"body structure", "procedure", "event", "morphologic abnormality"}:
-            return 0.4
+        if tag == "observable entity":
+            return 0.75 if tag in tolerated else 0.0
+
+        if tag in heavy_penalty:
+            return 0.2
 
         return 0.55
 
@@ -364,13 +386,29 @@ class HybridRetriever:
             if base_retrieval < 0.15 and lex_overlap == 0.0:
                 continue
 
+            # ── TERM PRECISION HARD GATE ───────────────────────────────────────
+            # Remove weak partial lexical matches unless semantic/BM25 confidence
+            # is very strong. This protects broad condition queries from long,
+            # unrelated compound concepts while preserving high-confidence recall.
+            if (
+                lex_overlap > 0.0 and
+                term_prec < self.MIN_TERM_PRECISION and
+                base_retrieval < 0.8
+            ):
+                continue
+
+            candidate_tokens = tokenize_text(term)
+            extra_tokens = candidate_tokens - query_terms
+            extra_token_penalty = max(0.3, 1.0 - (0.15 * len(extra_tokens)))
+
             # ── Multiplicative scoring (strict filtering) ──────────────────────
             # specificity_score is NOT used here — it is metadata from HierarchyEnricher
             adj_score = (
                 base_retrieval *
                 tag_weight *
                 (0.5 + 0.5 * term_prec) *
-                (0.5 + 0.5 * lex_overlap)
+                (0.5 + 0.5 * lex_overlap) *
+                extra_token_penalty
             )
 
             if adj_score <= 0.0:

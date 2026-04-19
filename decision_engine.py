@@ -12,6 +12,7 @@ NOTE:   specificity_score is NOT computed here — it is metadata from Hierarchy
 from __future__ import annotations
 
 import math
+import re
 from typing import Any
 
 
@@ -69,6 +70,71 @@ def compute_bounded_authority(candidate: dict[str, Any]) -> float:
         0.25 * float(in_oc) +
         min(0.35, math.log10(usage + 1.0) / 8.0)
     )
+
+
+def is_bad_core_pattern(term: str, condition: str) -> bool:
+    term_lower = term.lower()
+    cond_lower = condition.lower()
+
+    bad_phrases = [
+        "due to",
+        "caused by",
+        "secondary to",
+        "fear of",
+        "history of",
+        "suspected",
+        "risk of",
+        "exposure to",
+        "family history",
+    ]
+    for phrase in bad_phrases:
+        if phrase in term_lower and phrase not in cond_lower:
+            return True
+
+    if cond_lower == "hypertension" and "pulmonary" in term_lower:
+        return True
+    if cond_lower == "hypertension" and "portal" in term_lower:
+        return True
+    if cond_lower == "hypertension" and "ocular" in term_lower:
+        return True
+
+    return False
+
+
+def is_weak_suppress_pattern(term: str, condition: str) -> bool:
+    term_lower = term.lower()
+    cond_lower = condition.lower()
+
+    weak_phrases = ["fear of", "worried about", "anxiety about"]
+    for phrase in weak_phrases:
+        if phrase in term_lower and phrase not in cond_lower:
+            return True
+    return False
+
+
+def compute_anchor_score(candidate: dict[str, Any], condition: str) -> float:
+    """Score how well this concept serves as a broad canonical anchor."""
+    term = str(candidate.get("term", "")).lower()
+    cond = condition.lower()
+
+    term_tokens = set(re.findall(r"\b\w+\b", term))
+    cond_tokens = set(re.findall(r"\b\w+\b", cond))
+
+    if not cond_tokens:
+        return 0.0
+
+    stop_words = {"disorder", "finding", "disease", "syndrome"}
+    clean_term_tokens = term_tokens - stop_words
+
+    if clean_term_tokens == cond_tokens:
+        return 1.0
+
+    extra_tokens = clean_term_tokens - cond_tokens
+    specificity_penalty = len(extra_tokens) * 0.15
+    overlap = len(clean_term_tokens & cond_tokens) / len(cond_tokens)
+
+    score = overlap - specificity_penalty
+    return max(0.0, min(1.0, score))
 
 
 # ── Output serializer ─────────────────────────────────────────────────────────
@@ -218,7 +284,7 @@ class DecisionEngine:
                 if cond in by_condition:
                     by_condition[cond].append(c)
 
-        include, review, specific = [], [], []
+        include, review, specific, suppressed = [], [], [], []
         selected_codes: set[str] = set()
 
         # ── Stage 3: strict anchor selection (1 per condition) ────────────────
@@ -227,9 +293,15 @@ class DecisionEngine:
             if not candidates:
                 continue
 
+            for c in candidates:
+                c["_anchor_score"] = compute_anchor_score(c, condition)
+                c["_is_bad_core"] = is_bad_core_pattern(c.get("term", ""), condition)
+                c["_is_weak_suppress"] = is_weak_suppress_pattern(c.get("term", ""), condition)
+
             candidates = sorted(
                 candidates,
                 key=lambda x: (
+                    -x.get("_anchor_score", 0.0),
                     -x["ranking_components"]["ce_score"],
                     -x["authority_score"],
                 )
@@ -243,7 +315,9 @@ class DecisionEngine:
                 # FIX 2: anchor constraint — blocked tags + final_rerank_score >= 0.2
                 if (
                     tag not in BLOCKED_CORE_TAGS and
-                    c["final_rerank_score"] >= 0.2
+                    c["final_rerank_score"] >= 0.2 and
+                    not c.get("_is_bad_core", False) and
+                    not c.get("_is_weak_suppress", False)
                 ):
                     anchor = c
                     break
@@ -253,24 +327,38 @@ class DecisionEngine:
                 include.append(anchor)
                 selected_codes.add(anchor["snomed_code"])
 
-            # rest → variant / specific
-            for c in candidates:
+            remaining = sorted(
+                [c for c in candidates if c["snomed_code"] not in selected_codes],
+                key=lambda x: -x["presentation_score"],
+            )
+
+            for c in remaining:
                 if c["snomed_code"] in selected_codes:
+                    continue
+
+                if c.get("_is_weak_suppress", False):
+                    c["candidate_role"] = "suppress"
+                    suppressed.append(c)
+                    selected_codes.add(c["snomed_code"])
                     continue
 
                 tag = str(c.get("semantic_tag", "")).lower()
 
-                if tag in BLOCKED_CORE_TAGS:
+                if tag in BLOCKED_CORE_TAGS or c.get("_is_bad_core", False):
                     c["candidate_role"] = "specific"
                     specific.append(c)
                 else:
                     c["candidate_role"] = "variant"
                     review.append(c)
 
+                selected_codes.add(c["snomed_code"])
+
         # ── Stage 4: deduplicate + cap ─────────────────────────────────────────
         def serialize_list(rows: list[dict[str, Any]], cap: int) -> list[dict[str, Any]]:
             out = []
             seen: set[str] = set()
+
+            rows = sorted(rows, key=lambda x: -x["presentation_score"])
 
             for i, r in enumerate(rows, start=1):
                 code = r["snomed_code"]
@@ -289,5 +377,5 @@ class DecisionEngine:
             "include_candidates": serialize_list(include, len(conditions)),
             "review_candidates": serialize_list(review, 5),
             "specific_variants": serialize_list(specific, 5),
-            "suppressed_candidates": [],
+            "suppressed_candidates": serialize_list(suppressed, 5),
         }

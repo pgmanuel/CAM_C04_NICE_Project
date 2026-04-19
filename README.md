@@ -16,9 +16,14 @@ the pipeline:
 
 - decomposes the query into structured search components
 - runs hybrid retrieval using BM25 and vector search
-- merges and ranks evidence across search jobs
-- groups candidates into review buckets
+- enriches candidates with hierarchy metadata
+- fuses candidates across search jobs
+- applies relevance-gate and cross-encoder reranking
+- applies the decision engine to group candidates into review buckets
 - writes a JSON audit file for each run
+
+Evaluation is available as an optional path and is not run by the production
+runtime by default.
 
 ## Output buckets
 The current output is grouped into:
@@ -38,21 +43,38 @@ This MVP is built to be:
 
 ## Project structure
 ```text
-CAM_C04_NICE_Project/
+backend/
 ├── main.py
 ├── config.py
+├── user_settings.example.py
 ├── query_planning.py
 ├── retrieval_engine.py
+├── hierarchy_enricher.py
 ├── fusion_engine.py
-├── ranking_engine.py
-├── scoring_rules.py
+├── gate_reranker.py
+├── ce_reranker.py
 ├── decision_engine.py
 ├── output_formatter.py
 ├── audit_logger.py
+├── evaluation.py
+├── eval_runner.py
+├── requirements.txt
 ├── tests/
 ├── audit/
 └── README.md
 ```
+
+Current source of truth:
+
+- `main.py` is the clean production runtime.
+- `query_planning.py` owns decomposition and condition-specific search jobs.
+- `retrieval_engine.py` owns hybrid BM25/vector retrieval policy.
+- `fusion_engine.py` owns cross-job candidate fusion.
+- `gate_reranker.py` owns the lightweight relevance gate.
+- `ce_reranker.py` owns cross-encoder reranking.
+- `decision_engine.py` owns final bucket assignment and presentation scoring.
+- `audit_logger.py` owns run traces and audit JSON output.
+- `evaluation.py` and `eval_runner.py` provide opt-in evaluation/RAGAS utilities outside the production path.
 
 ## Resource loading
 The project supports reusable local resources for:
@@ -62,14 +84,16 @@ The project supports reusable local resources for:
 
 By default, it looks for sibling folders outside the project root:
 
-- `../chroma_db`
+- `../chroma_db_v4`
 - `../embeddings`
 
 You can also override these with environment variables:
 
 ```bash
-export INTEGRATED_AGENT_CHROMA_DIR=/absolute/path/to/chroma_db
-export INTEGRATED_AGENT_EMBEDDINGS_DIR=/absolute/path/to/embeddings
+export NICE_SNOMED_PATH=/absolute/path/to/snomed_master_v4.csv
+export NICE_EDGE_PATH=/absolute/path/to/snomed_parent_child_edges_clean.csv
+export NICE_CHROMA_DIR=/absolute/path/to/chroma_db_v4
+export NICE_EMBEDDINGS_DIR=/absolute/path/to/embeddings
 ```
 
 Behaviour:
@@ -97,6 +121,12 @@ Or with the virtual environment:
 
 ```bash
 ./.venv/bin/python main.py
+```
+
+To run optional evaluation without changing production runtime:
+
+```bash
+./.venv/bin/python eval_runner.py "Obesity, diabetes mellitus, and hypertension" --custom-eval
 ```
 
 ## Regression checks
