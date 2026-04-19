@@ -1,0 +1,202 @@
+{
+  "run_id": "run_20260405_171350_d860cd",
+  "timestamp": "2026-04-05T17:13:50.915802",
+  "duration_seconds": 1.027765,
+  "query": "Diabetes mellitus",
+  "config_snapshot": {
+    "query": "Diabetes mellitus",
+    "input_assets": {
+      "snomed_csv": "/Users/vic/Desktop/NICE/CAM_C04_NICE_Project/snomed_master_v3.csv",
+      "chroma_persist_dir": "/Users/vic/Desktop/NICE/CAM_C04_NICE_Project/chroma_db",
+      "chroma_collection_name": "snomed_master_v3_retrieval"
+    },
+    "models": {
+      "embedding_model_name": "BAAI/bge-small-en",
+      "formatter_mode": "deterministic_disabled",
+      "formatter_model_configured": "llama3.1"
+    },
+    "runtime": {
+      "default_top_k": 20,
+      "effective_top_k": 20,
+      "audit_verbosity": "standard"
+    },
+    "query_type_weights": {
+      "primary_condition": 1.0,
+      "combined": 0.9,
+      "secondary_condition": 0.75,
+      "modifier": 0.45,
+      "supporting_term": 0.35
+    },
+    "bucket_caps": {
+      "include_candidates": 4,
+      "review_candidates": 3,
+      "specific_variants": 5,
+      "candidate_pool_limit": 15
+    },
+    "ranking_policy_terms": {
+      "query_exception_terms": [
+        "follow-up",
+        "history of",
+        "past",
+        "remission",
+        "resolved"
+      ],
+      "causal_trigger_terms": [
+        "associated with",
+        "due to",
+        "caused by",
+        "secondary to"
+      ],
+      "pregnancy_trigger_terms": [
+        "pregnancy",
+        "childbirth",
+        "pre-existing",
+        "complicating pregnancy"
+      ],
+      "core_block_terms": [
+        "benign",
+        "labile",
+        "malignant",
+        "systolic",
+        "diastolic",
+        "renal",
+        "with",
+        "associated",
+        "due to"
+      ],
+      "narrow_subtype_terms": [
+        "secondary",
+        "renovascular",
+        "drug-induced",
+        "brittle",
+        "goldblatt",
+        "malignant",
+        "juvenile",
+        "gestational",
+        "type 1",
+        "type 2",
+        "renal",
+        "albuminuria",
+        "systolic",
+        "diastolic",
+        "rebound",
+        "benign",
+        "supine",
+        "central",
+        "generalized",
+        "simple",
+        "localized",
+        "childhood",
+        "ulcer",
+        "remission",
+        "complication"
+      ]
+    },
+    "retrieval_suppression_terms": {
+      "history_exception_terms": [
+        "follow",
+        "history",
+        "inactive",
+        "past",
+        "remission",
+        "resolved"
+      ],
+      "pregnancy_exception_terms": [
+        "childbirth",
+        "eclampsia",
+        "partum",
+        "pre",
+        "pregnancy",
+        "puerperium"
+      ],
+      "pregnancy_markers": [
+        "pregnancy",
+        "childbirth",
+        "puerperium",
+        "eclampsia",
+        "pre-eclampsia",
+        "preeclampsia"
+      ]
+    }
+  },
+  "trace": {
+    "normalized_query": "Diabetes mellitus",
+    "structured_query": {
+      "original_query": "Diabetes mellitus",
+      "primary_condition": "Diabetes mellitus",
+      "secondary_conditions": [],
+      "modifiers": [],
+      "supporting_terms": []
+    },
+    "search_jobs": [
+      {
+        "query_text": "Diabetes mellitus",
+        "query_type": "primary_condition",
+        "clinical_focus": "Diabetes mellitus",
+        "weight": 1.0,
+        "query_terms": [
+          "diabetes",
+          "mellitus"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "mellitus"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      }
+    ],
+    "retrieval_batches_summary": [
+      {
+        "query_text": "Diabetes mellitus",
+        "query_type": "primary_condition",
+        "result_count": 0
+      }
+    ],
+    "top_candidates_per_search_job": [
+      {
+        "query_text": "Diabetes mellitus",
+        "query_type": "primary_condition",
+        "top_candidates": []
+      }
+    ],
+    "fused_candidates_preview": [],
+    "fused_candidates_before_decisioning": [],
+    "final_decisions": {
+      "include_candidates": [],
+      "review_candidates": [],
+      "specific_variants": [],
+      "suppressed_candidates": []
+    },
+    "explanation_mode": "deterministic_formatter_disabled",
+    "formatter_debug": {
+      "formatter_enabled": false,
+      "schema_validation_error": "formatter disabled by design"
+    }
+  },
+  "final_structured_output": {
+    "include_candidates": [],
+    "review_candidates": [],
+    "specific_variants": [],
+    "suppressed_candidates": []
+  }
+}

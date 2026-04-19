@@ -1,0 +1,394 @@
+{
+  "run_id": "run_20260405_171341_f254d4",
+  "timestamp": "2026-04-05T17:13:41.704242",
+  "duration_seconds": 8.14947,
+  "query": "Obesity, diabetes mellitus, and hypertension",
+  "config_snapshot": {
+    "query": "Obesity, diabetes mellitus, and hypertension",
+    "input_assets": {
+      "snomed_csv": "/Users/vic/Desktop/NICE/CAM_C04_NICE_Project/snomed_master_v3.csv",
+      "chroma_persist_dir": "/Users/vic/Desktop/NICE/CAM_C04_NICE_Project/chroma_db",
+      "chroma_collection_name": "snomed_master_v3_retrieval"
+    },
+    "models": {
+      "embedding_model_name": "BAAI/bge-small-en",
+      "formatter_mode": "deterministic_disabled",
+      "formatter_model_configured": "llama3.1"
+    },
+    "runtime": {
+      "default_top_k": 20,
+      "effective_top_k": 20,
+      "audit_verbosity": "standard"
+    },
+    "query_type_weights": {
+      "primary_condition": 1.0,
+      "combined": 0.9,
+      "secondary_condition": 0.75,
+      "modifier": 0.45,
+      "supporting_term": 0.35
+    },
+    "bucket_caps": {
+      "include_candidates": 4,
+      "review_candidates": 3,
+      "specific_variants": 5,
+      "candidate_pool_limit": 15
+    },
+    "ranking_policy_terms": {
+      "query_exception_terms": [
+        "follow-up",
+        "history of",
+        "past",
+        "remission",
+        "resolved"
+      ],
+      "causal_trigger_terms": [
+        "associated with",
+        "due to",
+        "caused by",
+        "secondary to"
+      ],
+      "pregnancy_trigger_terms": [
+        "pregnancy",
+        "childbirth",
+        "pre-existing",
+        "complicating pregnancy"
+      ],
+      "core_block_terms": [
+        "benign",
+        "labile",
+        "malignant",
+        "systolic",
+        "diastolic",
+        "renal",
+        "with",
+        "associated",
+        "due to"
+      ],
+      "narrow_subtype_terms": [
+        "secondary",
+        "renovascular",
+        "drug-induced",
+        "brittle",
+        "goldblatt",
+        "malignant",
+        "juvenile",
+        "gestational",
+        "type 1",
+        "type 2",
+        "renal",
+        "albuminuria",
+        "systolic",
+        "diastolic",
+        "rebound",
+        "benign",
+        "supine",
+        "central",
+        "generalized",
+        "simple",
+        "localized",
+        "childhood",
+        "ulcer",
+        "remission",
+        "complication"
+      ]
+    },
+    "retrieval_suppression_terms": {
+      "history_exception_terms": [
+        "follow",
+        "history",
+        "inactive",
+        "past",
+        "remission",
+        "resolved"
+      ],
+      "pregnancy_exception_terms": [
+        "childbirth",
+        "eclampsia",
+        "partum",
+        "pre",
+        "pregnancy",
+        "puerperium"
+      ],
+      "pregnancy_markers": [
+        "pregnancy",
+        "childbirth",
+        "puerperium",
+        "eclampsia",
+        "pre-eclampsia",
+        "preeclampsia"
+      ]
+    }
+  },
+  "trace": {
+    "normalized_query": "Obesity, diabetes mellitus, and hypertension",
+    "structured_query": {
+      "original_query": "Obesity, diabetes mellitus, and hypertension",
+      "primary_condition": "Obesity",
+      "secondary_conditions": [
+        "diabetes mellitus",
+        "and hypertension"
+      ],
+      "modifiers": [],
+      "supporting_terms": []
+    },
+    "search_jobs": [
+      {
+        "query_text": "Obesity",
+        "query_type": "primary_condition",
+        "clinical_focus": "Obesity",
+        "weight": 1.0,
+        "query_terms": [
+          "obesity"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "hypertension",
+            "mellitus",
+            "obesity"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "diabetes mellitus",
+        "query_type": "secondary_condition",
+        "clinical_focus": "diabetes mellitus",
+        "weight": 0.75,
+        "query_terms": [
+          "diabetes",
+          "mellitus"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "hypertension",
+            "mellitus",
+            "obesity"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "Obesity with diabetes mellitus",
+        "query_type": "combined",
+        "clinical_focus": "diabetes mellitus",
+        "weight": 0.9,
+        "query_terms": [
+          "diabetes",
+          "mellitus",
+          "obesity"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "hypertension",
+            "mellitus",
+            "obesity"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "and hypertension",
+        "query_type": "secondary_condition",
+        "clinical_focus": "and hypertension",
+        "weight": 0.75,
+        "query_terms": [
+          "hypertension"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "hypertension",
+            "mellitus",
+            "obesity"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "Obesity with and hypertension",
+        "query_type": "combined",
+        "clinical_focus": "and hypertension",
+        "weight": 0.9,
+        "query_terms": [
+          "hypertension",
+          "obesity"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "hypertension",
+            "mellitus",
+            "obesity"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      }
+    ],
+    "retrieval_batches_summary": [
+      {
+        "query_text": "Obesity",
+        "query_type": "primary_condition",
+        "result_count": 0
+      },
+      {
+        "query_text": "diabetes mellitus",
+        "query_type": "secondary_condition",
+        "result_count": 0
+      },
+      {
+        "query_text": "Obesity with diabetes mellitus",
+        "query_type": "combined",
+        "result_count": 0
+      },
+      {
+        "query_text": "and hypertension",
+        "query_type": "secondary_condition",
+        "result_count": 0
+      },
+      {
+        "query_text": "Obesity with and hypertension",
+        "query_type": "combined",
+        "result_count": 0
+      }
+    ],
+    "top_candidates_per_search_job": [
+      {
+        "query_text": "Obesity",
+        "query_type": "primary_condition",
+        "top_candidates": []
+      },
+      {
+        "query_text": "diabetes mellitus",
+        "query_type": "secondary_condition",
+        "top_candidates": []
+      },
+      {
+        "query_text": "Obesity with diabetes mellitus",
+        "query_type": "combined",
+        "top_candidates": []
+      },
+      {
+        "query_text": "and hypertension",
+        "query_type": "secondary_condition",
+        "top_candidates": []
+      },
+      {
+        "query_text": "Obesity with and hypertension",
+        "query_type": "combined",
+        "top_candidates": []
+      }
+    ],
+    "fused_candidates_preview": [],
+    "fused_candidates_before_decisioning": [],
+    "final_decisions": {
+      "include_candidates": [],
+      "review_candidates": [],
+      "specific_variants": [],
+      "suppressed_candidates": []
+    },
+    "explanation_mode": "deterministic_formatter_disabled",
+    "formatter_debug": {
+      "formatter_enabled": false,
+      "schema_validation_error": "formatter disabled by design"
+    }
+  },
+  "final_structured_output": {
+    "include_candidates": [],
+    "review_candidates": [],
+    "specific_variants": [],
+    "suppressed_candidates": []
+  }
+}

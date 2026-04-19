@@ -1,0 +1,333 @@
+{
+  "run_id": "run_20260419_155908_684a88",
+  "timestamp": "2026-04-19T15:59:08.636725",
+  "duration_seconds": 9.660455,
+  "query": "A patient with poorly controlled type 2 diabetes, presenting with morbid obesity and also history of hypertension",
+  "config_snapshot": {
+    "query": "A patient with poorly controlled type 2 diabetes, presenting with morbid obesity and also history of hypertension",
+    "input_assets": {
+      "snomed_csv": "/Users/vic/Desktop/NICE/snomed_master_v4.csv",
+      "hierarchy_edge_csv": "/Users/vic/Desktop/NICE/snomed_parent_child_edges_clean.csv",
+      "chroma_persist_dir": "/Users/vic/Desktop/NICE/chroma_db_v4",
+      "chroma_collection_name": "snomed_master_v4_retrieval"
+    },
+    "models": {
+      "embedding_model_name": "BAAI/bge-small-en",
+      "llm_model": "llama3.1",
+      "cross_encoder_model_name": "BAAI/bge-reranker-v2-m3"
+    },
+    "runtime": {
+      "effective_top_k": 20,
+      "default_top_k": 20,
+      "audit_verbosity": "standard",
+      "gate_top_n_per_condition": 50,
+      "ce_top_n_per_condition": 20,
+      "ce_condition_weight": 0.75,
+      "ce_query_weight": 0.25
+    },
+    "architecture": {
+      "condition_isolated_planning": true,
+      "hierarchy_zero_trust_enrichment": true,
+      "rrf_fusion": true,
+      "relevance_gate_reranker": true,
+      "cross_encoder_reranker": true,
+      "bounded_authority_decisioning": true
+    }
+  },
+  "trace": {
+    "normalized_query": "A patient with poorly controlled type 2 diabetes, presenting with morbid obesity and also history of hypertension",
+    "structured_query": {
+      "original_query": "A patient with poorly controlled type 2 diabetes, presenting with morbid obesity and also history of hypertension",
+      "primary_condition": "A patient",
+      "secondary_conditions": [
+        "type 2 diabetes",
+        "presenting with morbid obesity",
+        "also history of hypertension"
+      ],
+      "modifiers": [],
+      "supporting_terms": [
+        "poorly controlled"
+      ]
+    },
+    "search_jobs": [
+      {
+        "query_text": "A patient",
+        "query_type": "primary_condition",
+        "clinical_focus": "A patient",
+        "query_weight": 1.0,
+        "query_terms": [
+          "patient"
+        ],
+        "query_profile": {
+          "tokens": [
+            "patient"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "type 2 diabetes",
+        "query_type": "secondary_condition",
+        "clinical_focus": "type 2 diabetes",
+        "query_weight": 1.0,
+        "query_terms": [
+          "diabetes",
+          "type"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "type"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "presenting with morbid obesity",
+        "query_type": "secondary_condition",
+        "clinical_focus": "presenting with morbid obesity",
+        "query_weight": 1.0,
+        "query_terms": [
+          "morbid",
+          "obesity",
+          "presenting"
+        ],
+        "query_profile": {
+          "tokens": [
+            "morbid",
+            "obesity",
+            "presenting"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "also history of hypertension",
+        "query_type": "secondary_condition",
+        "clinical_focus": "also history of hypertension",
+        "query_weight": 1.0,
+        "query_terms": [
+          "also",
+          "history",
+          "hypertension"
+        ],
+        "query_profile": {
+          "tokens": [
+            "also",
+            "history",
+            "hypertension"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "poorly controlled",
+        "query_type": "supporting_term",
+        "clinical_focus": "poorly controlled",
+        "query_weight": 0.35,
+        "query_terms": [
+          "controlled",
+          "poorly"
+        ],
+        "query_profile": {
+          "tokens": [
+            "patient"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      }
+    ],
+    "retrieval_batches_summary": [
+      {
+        "query_text": "A patient",
+        "query_type": "primary_condition",
+        "clinical_focus": "A patient",
+        "result_count": 0
+      },
+      {
+        "query_text": "type 2 diabetes",
+        "query_type": "secondary_condition",
+        "clinical_focus": "type 2 diabetes",
+        "result_count": 0
+      },
+      {
+        "query_text": "presenting with morbid obesity",
+        "query_type": "secondary_condition",
+        "clinical_focus": "presenting with morbid obesity",
+        "result_count": 0
+      },
+      {
+        "query_text": "also history of hypertension",
+        "query_type": "secondary_condition",
+        "clinical_focus": "also history of hypertension",
+        "result_count": 0
+      },
+      {
+        "query_text": "poorly controlled",
+        "query_type": "supporting_term",
+        "clinical_focus": "poorly controlled",
+        "result_count": 0
+      }
+    ],
+    "retrieval_evaluation_summary": {},
+    "retrieval_evaluation_details": [],
+    "hierarchy_enrichment_summary": [
+      {
+        "batch_index": 0,
+        "total_candidates_after_enrichment": 0,
+        "hierarchy_added_count": 0
+      },
+      {
+        "batch_index": 1,
+        "total_candidates_after_enrichment": 0,
+        "hierarchy_added_count": 0
+      },
+      {
+        "batch_index": 2,
+        "total_candidates_after_enrichment": 0,
+        "hierarchy_added_count": 0
+      },
+      {
+        "batch_index": 3,
+        "total_candidates_after_enrichment": 0,
+        "hierarchy_added_count": 0
+      },
+      {
+        "batch_index": 4,
+        "total_candidates_after_enrichment": 0,
+        "hierarchy_added_count": 0
+      }
+    ],
+    "fused_candidates_preview": [],
+    "gate_summary": {
+      "relevance_threshold": 0.2,
+      "top_n_per_condition": 50,
+      "survivor_count": 0
+    },
+    "gate_candidates_preview": [],
+    "post_gate_evaluation_summary": {},
+    "post_gate_evaluation_details": [],
+    "post_ce_evaluation_summary": {},
+    "post_ce_evaluation_details": [],
+    "cross_encoder_summary": {
+      "model_name": "BAAI/bge-reranker-v2-m3",
+      "top_n_per_condition": 20,
+      "ce_condition_weight": 0.75,
+      "ce_query_weight": 0.25,
+      "survivor_count": 0
+    },
+    "cross_encoder_candidates_preview": [],
+    "final_decision_evaluation_summary": {},
+    "final_decision_evaluation_details": [],
+    "final_decisions": {
+      "include_candidates": [],
+      "review_candidates": [],
+      "specific_variants": [],
+      "suppressed_candidates": []
+    },
+    "explanation_mode": "deterministic_revised_formatter",
+    "formatter_debug": {
+      "formatter_enabled": false,
+      "mode": "deterministic_revised_formatter",
+      "schema_validation_error": null
+    },
+    "final_response_ragas_summary": {},
+    "final_response_ragas_details": []
+  },
+  "final_structured_output": {
+    "include_candidates": [],
+    "review_candidates": [],
+    "specific_variants": [],
+    "suppressed_candidates": []
+  }
+}
