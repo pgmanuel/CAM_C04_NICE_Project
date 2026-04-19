@@ -1,0 +1,223 @@
+{
+  "run_id": "run_20260418_165113_6c2bff",
+  "timestamp": "2026-04-18T16:51:13.419202",
+  "duration_seconds": 7.804507,
+  "query": "Obesity, diabetes mellitus, and hypertension",
+  "config_snapshot": {
+    "query": "Obesity, diabetes mellitus, and hypertension",
+    "input_assets": {
+      "snomed_csv": "../snomed_master_v4.csv",
+      "hierarchy_edge_csv": "../snomed_parent_child_edges_clean.csv",
+      "chroma_persist_dir": "../chroma_db_v4",
+      "chroma_collection_name": "snomed_master_v4_retrieval"
+    },
+    "models": {
+      "embedding_model_name": "BAAI/bge-small-en",
+      "llm_model": "llama3.1",
+      "cross_encoder_model_name": "BAAI/bge-reranker-v2-m3"
+    },
+    "runtime": {
+      "effective_top_k": 20,
+      "default_top_k": 20,
+      "audit_verbosity": "standard",
+      "gate_top_n_per_condition": 50,
+      "ce_top_n_per_condition": 20,
+      "ce_condition_weight": 0.75,
+      "ce_query_weight": 0.25
+    },
+    "architecture": {
+      "condition_isolated_planning": true,
+      "hierarchy_zero_trust_enrichment": true,
+      "rrf_fusion": true,
+      "relevance_gate_reranker": true,
+      "cross_encoder_reranker": true,
+      "bounded_authority_decisioning": true
+    }
+  },
+  "trace": {
+    "normalized_query": "Obesity, diabetes mellitus, and hypertension",
+    "structured_query": {
+      "original_query": "Obesity, diabetes mellitus, and hypertension",
+      "primary_condition": "Obesity",
+      "secondary_conditions": [
+        "diabetes mellitus",
+        "and hypertension"
+      ],
+      "modifiers": [],
+      "supporting_terms": []
+    },
+    "search_jobs": [
+      {
+        "query_text": "Obesity",
+        "query_type": "primary_condition",
+        "clinical_focus": "Obesity",
+        "query_weight": 1.0,
+        "query_terms": [
+          "obesity"
+        ],
+        "query_profile": {
+          "tokens": [
+            "obesity"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "diabetes mellitus",
+        "query_type": "secondary_condition",
+        "clinical_focus": "diabetes mellitus",
+        "query_weight": 1.0,
+        "query_terms": [
+          "diabetes",
+          "mellitus"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "mellitus"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "and hypertension",
+        "query_type": "secondary_condition",
+        "clinical_focus": "and hypertension",
+        "query_weight": 1.0,
+        "query_terms": [
+          "hypertension"
+        ],
+        "query_profile": {
+          "tokens": [
+            "hypertension"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      }
+    ],
+    "retrieval_batches_summary": [
+      {
+        "query_text": "Obesity",
+        "query_type": "primary_condition",
+        "clinical_focus": "Obesity",
+        "result_count": 0
+      },
+      {
+        "query_text": "diabetes mellitus",
+        "query_type": "secondary_condition",
+        "clinical_focus": "diabetes mellitus",
+        "result_count": 0
+      },
+      {
+        "query_text": "and hypertension",
+        "query_type": "secondary_condition",
+        "clinical_focus": "and hypertension",
+        "result_count": 0
+      }
+    ],
+    "hierarchy_enrichment_summary": [
+      {
+        "batch_index": 0,
+        "total_candidates_after_enrichment": 0,
+        "hierarchy_added_count": 0
+      },
+      {
+        "batch_index": 1,
+        "total_candidates_after_enrichment": 0,
+        "hierarchy_added_count": 0
+      },
+      {
+        "batch_index": 2,
+        "total_candidates_after_enrichment": 0,
+        "hierarchy_added_count": 0
+      }
+    ],
+    "fused_candidates_preview": [],
+    "gate_summary": {
+      "relevance_threshold": 0.2,
+      "top_n_per_condition": 50,
+      "survivor_count": 0
+    },
+    "gate_candidates_preview": [],
+    "cross_encoder_summary": {
+      "model_name": "BAAI/bge-reranker-v2-m3",
+      "top_n_per_condition": 20,
+      "ce_condition_weight": null,
+      "ce_query_weight": null,
+      "survivor_count": 0
+    },
+    "cross_encoder_candidates_preview": [],
+    "final_decisions": {
+      "include_candidates": [],
+      "review_candidates": [],
+      "specific_variants": [],
+      "suppressed_candidates": []
+    },
+    "explanation_mode": "deterministic_revised_formatter",
+    "formatter_debug": {
+      "formatter_enabled": false,
+      "mode": "deterministic_revised_formatter",
+      "schema_validation_error": null
+    }
+  },
+  "final_structured_output": {
+    "include_candidates": [],
+    "review_candidates": [],
+    "specific_variants": [],
+    "suppressed_candidates": []
+  }
+}

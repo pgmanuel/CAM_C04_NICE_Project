@@ -1,0 +1,2699 @@
+{
+  "run_id": "run_20260406_165514_c9cf5e",
+  "timestamp": "2026-04-06T16:55:14.094123",
+  "duration_seconds": 22.958139,
+  "query": "Obesity, diabetes mellitus, and hypertension",
+  "config_snapshot": {
+    "query": "Obesity, diabetes mellitus, and hypertension",
+    "input_assets": {
+      "snomed_csv": "/Users/vic/Desktop/NICE/CAM_C04_NICE_Project/snomed_master_v3.csv",
+      "chroma_persist_dir": "/Users/vic/Desktop/NICE/CAM_C04_NICE_Project/chroma_db",
+      "chroma_collection_name": "snomed_master_v3_retrieval"
+    },
+    "models": {
+      "embedding_model_name": "BAAI/bge-small-en",
+      "formatter_mode": "deterministic_disabled",
+      "formatter_model_configured": "llama3.1"
+    },
+    "runtime": {
+      "default_top_k": 20,
+      "effective_top_k": 20,
+      "audit_verbosity": "standard"
+    },
+    "query_type_weights": {
+      "primary_condition": 1.0,
+      "combined": 0.9,
+      "secondary_condition": 0.75,
+      "modifier": 0.45,
+      "supporting_term": 0.35
+    },
+    "bucket_caps": {
+      "include_candidates": 4,
+      "review_candidates": 3,
+      "specific_variants": 5,
+      "candidate_pool_limit": 15
+    },
+    "ranking_policy_terms": {
+      "query_exception_terms": [
+        "follow-up",
+        "history of",
+        "past",
+        "remission",
+        "resolved"
+      ],
+      "causal_trigger_terms": [
+        "associated with",
+        "due to",
+        "caused by",
+        "secondary to"
+      ],
+      "pregnancy_trigger_terms": [
+        "pregnancy",
+        "childbirth",
+        "pre-existing",
+        "complicating pregnancy"
+      ],
+      "core_block_terms": [
+        "benign",
+        "labile",
+        "malignant",
+        "systolic",
+        "diastolic",
+        "renal",
+        "with",
+        "associated",
+        "due to"
+      ],
+      "narrow_subtype_terms": [
+        "secondary",
+        "renovascular",
+        "drug-induced",
+        "brittle",
+        "goldblatt",
+        "malignant",
+        "juvenile",
+        "gestational",
+        "type 1",
+        "type 2",
+        "renal",
+        "albuminuria",
+        "systolic",
+        "diastolic",
+        "rebound",
+        "benign",
+        "supine",
+        "central",
+        "generalized",
+        "simple",
+        "localized",
+        "childhood",
+        "ulcer",
+        "remission",
+        "complication"
+      ]
+    },
+    "retrieval_suppression_terms": {
+      "history_exception_terms": [
+        "follow",
+        "history",
+        "inactive",
+        "past",
+        "remission",
+        "resolved"
+      ],
+      "pregnancy_exception_terms": [
+        "childbirth",
+        "eclampsia",
+        "partum",
+        "pre",
+        "pregnancy",
+        "puerperium"
+      ],
+      "pregnancy_markers": [
+        "pregnancy",
+        "childbirth",
+        "puerperium",
+        "eclampsia",
+        "pre-eclampsia",
+        "preeclampsia"
+      ]
+    }
+  },
+  "trace": {
+    "normalized_query": "Obesity, diabetes mellitus, and hypertension",
+    "structured_query": {
+      "original_query": "Obesity, diabetes mellitus, and hypertension",
+      "primary_condition": "Obesity",
+      "secondary_conditions": [
+        "Diabetes Mellitus",
+        "Hypertension"
+      ],
+      "modifiers": [],
+      "supporting_terms": []
+    },
+    "search_jobs": [
+      {
+        "query_text": "Obesity",
+        "query_type": "primary_condition",
+        "clinical_focus": "Obesity",
+        "weight": 1.0,
+        "query_terms": [
+          "obesity"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "hypertension",
+            "mellitus",
+            "obesity"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "Diabetes Mellitus",
+        "query_type": "secondary_condition",
+        "clinical_focus": "Diabetes Mellitus",
+        "weight": 0.75,
+        "query_terms": [
+          "diabetes",
+          "mellitus"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "hypertension",
+            "mellitus",
+            "obesity"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "Obesity with Diabetes Mellitus",
+        "query_type": "combined",
+        "clinical_focus": "Diabetes Mellitus",
+        "weight": 0.9,
+        "query_terms": [
+          "diabetes",
+          "mellitus",
+          "obesity"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "hypertension",
+            "mellitus",
+            "obesity"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "Hypertension",
+        "query_type": "secondary_condition",
+        "clinical_focus": "Hypertension",
+        "weight": 0.75,
+        "query_terms": [
+          "hypertension"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "hypertension",
+            "mellitus",
+            "obesity"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      },
+      {
+        "query_text": "Obesity with Hypertension",
+        "query_type": "combined",
+        "clinical_focus": "Hypertension",
+        "weight": 0.9,
+        "query_terms": [
+          "hypertension",
+          "obesity"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "hypertension",
+            "mellitus",
+            "obesity"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      }
+    ],
+    "retrieval_batches_summary": [
+      {
+        "query_text": "Obesity",
+        "query_type": "primary_condition",
+        "result_count": 20
+      },
+      {
+        "query_text": "Diabetes Mellitus",
+        "query_type": "secondary_condition",
+        "result_count": 19
+      },
+      {
+        "query_text": "Obesity with Diabetes Mellitus",
+        "query_type": "combined",
+        "result_count": 20
+      },
+      {
+        "query_text": "Hypertension",
+        "query_type": "secondary_condition",
+        "result_count": 19
+      },
+      {
+        "query_text": "Obesity with Hypertension",
+        "query_type": "combined",
+        "result_count": 15
+      }
+    ],
+    "top_candidates_per_search_job": [
+      {
+        "query_text": "Obesity",
+        "query_type": "primary_condition",
+        "top_candidates": [
+          {
+            "snomed_code": "414916001",
+            "term": "Obesity (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.645,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "238136002",
+            "term": "Morbid obesity (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.6275297992487308,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "248311001",
+            "term": "Central obesity (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.6275297992487308,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "238132000",
+            "term": "Android obesity (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.6275297992487308,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "82793005",
+            "term": "Hypothalamic obesity (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.6275297992487308,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "83911000119104",
+            "term": "Severe obesity (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.6275297992487308,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "238134004",
+            "term": "Generalized obesity (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.6275297992487308,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "415530009",
+            "term": "Simple obesity (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.6275297992487308,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "270486005",
+            "term": "Localized obesity (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.6275297992487308,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "190965006",
+            "term": "Drug-induced obesity (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.6275297992487308,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          }
+        ]
+      },
+      {
+        "query_text": "Diabetes Mellitus",
+        "query_type": "secondary_condition",
+        "top_candidates": [
+          {
+            "snomed_code": "73211009",
+            "term": "Diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.48375,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "8801005",
+            "term": "Secondary diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.47700942103758515,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "5368009",
+            "term": "Drug-induced diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.47700942103758515,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "1217044000",
+            "term": "Ketosis-resistant diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.47700942103758515,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "11530004",
+            "term": "Brittle diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.47700942103758515,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "237601000",
+            "term": "Secondary endocrine diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4706158434627292,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "46635009",
+            "term": "Diabetes mellitus type 1 (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4706158434627292,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "230577008",
+            "term": "Mononeuropathy due to diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4645428107523984,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "290002008",
+            "term": "Brittle type 1 diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4645428107523984,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "737212004",
+            "term": "Diabetes mellitus caused by chemical (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4645428107523984,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          }
+        ]
+      },
+      {
+        "query_text": "Obesity with Diabetes Mellitus",
+        "query_type": "combined",
+        "top_candidates": [
+          {
+            "snomed_code": "190368000",
+            "term": "Type I diabetes mellitus with ulcer (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.5055,
+            "lexical_overlap": 0.6666666666666666,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "5969009",
+            "term": "Diabetes mellitus associated with genetic syndrome (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.5055,
+            "lexical_overlap": 0.6666666666666666,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "51002006",
+            "term": "Diabetes mellitus associated with pancreatic disease (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.5055,
+            "lexical_overlap": 0.6666666666666666,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "73211009",
+            "term": "Diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4899361728309271,
+            "lexical_overlap": 0.6666666666666666,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "8801005",
+            "term": "Secondary diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.482252924282756,
+            "lexical_overlap": 0.6666666666666666,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "5368009",
+            "term": "Drug-induced diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.482252924282756,
+            "lexical_overlap": 0.6666666666666666,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "1217044000",
+            "term": "Ketosis-resistant diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.482252924282756,
+            "lexical_overlap": 0.6666666666666666,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "11530004",
+            "term": "Brittle diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.482252924282756,
+            "lexical_overlap": 0.6666666666666666,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "190389009",
+            "term": "Type II diabetes mellitus with ulcer (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.47654085222202697,
+            "lexical_overlap": 0.6666666666666666,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "709147009",
+            "term": "Gingivitis co-occurrent with diabetes mellitus (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4763599043848866,
+            "lexical_overlap": 0.6666666666666666,
+            "semantic_tag_weight": 1.15
+          }
+        ]
+      },
+      {
+        "query_text": "Hypertension",
+        "query_type": "secondary_condition",
+        "top_candidates": [
+          {
+            "snomed_code": "762463000",
+            "term": "Diastolic hypertension co-occurrent with systolic hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.48375,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "48146000",
+            "term": "Diastolic hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4799616221083756,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "70272006",
+            "term": "Malignant hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4799616221083756,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "28119000",
+            "term": "Renal hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4799616221083756,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "84094009",
+            "term": "Rebound hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4799616221083756,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "56218007",
+            "term": "Systolic hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4799616221083756,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "10725009",
+            "term": "Benign hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4799616221083756,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "712832005",
+            "term": "Supine hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4799616221083756,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "123800009",
+            "term": "Goldblatt hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4799616221083756,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "123799005",
+            "term": "Renovascular hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.4799616221083756,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          }
+        ]
+      },
+      {
+        "query_text": "Obesity with Hypertension",
+        "query_type": "combined",
+        "top_candidates": [
+          {
+            "snomed_code": "276792008",
+            "term": "Pulmonary hypertension with extreme obesity (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.5355,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "1186852004",
+            "term": "Benign intracranial hypertension due to obesity (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.46636918378612574,
+            "lexical_overlap": 1.0,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "762463000",
+            "term": "Diastolic hypertension co-occurrent with systolic hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.3905981978590057,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "397748008",
+            "term": "Hypertension with albuminuria (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.38948976688006565,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "14973001",
+            "term": "Renal sclerosis with hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.3833772045663259,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "427889009",
+            "term": "Hypertension associated with transplantation (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.3833772045663259,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "703316004",
+            "term": "Lymphedema associated with obesity (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.36403925213232685,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "703310005",
+            "term": "Autosomal dominant progressive nephropathy with hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.36246642625863923,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "70272006",
+            "term": "Malignant hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.33991256540438286,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          },
+          {
+            "snomed_code": "28119000",
+            "term": "Renal hypertension (disorder)",
+            "semantic_tag": "disorder",
+            "weighted_retrieval_score": 0.33991256540438286,
+            "lexical_overlap": 0.5,
+            "semantic_tag_weight": 1.15
+          }
+        ]
+      }
+    ],
+    "fused_candidates_preview": [
+      {
+        "snomed_code": "414916001",
+        "term": "Obesity (disorder)",
+        "fusion_score": 0.88575,
+        "best_primary_condition_score": 0.645,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "238136002",
+        "term": "Morbid obesity (disorder)",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "248311001",
+        "term": "Central obesity (disorder)",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "238132000",
+        "term": "Android obesity (disorder)",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "82793005",
+        "term": "Hypothalamic obesity (disorder)",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "83911000119104",
+        "term": "Severe obesity (disorder)",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "238134004",
+        "term": "Generalized obesity (disorder)",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "415530009",
+        "term": "Simple obesity (disorder)",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "270486005",
+        "term": "Localized obesity (disorder)",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "190965006",
+        "term": "Drug-induced obesity (disorder)",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      }
+    ],
+    "fused_candidates_before_decisioning": [
+      {
+        "snomed_code": "414916001",
+        "term": "Obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.88575,
+        "best_primary_condition_score": 0.645,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "238136002",
+        "term": "Morbid obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "248311001",
+        "term": "Central obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "238132000",
+        "term": "Android obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "82793005",
+        "term": "Hypothalamic obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "83911000119104",
+        "term": "Severe obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "238134004",
+        "term": "Generalized obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "415530009",
+        "term": "Simple obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "270486005",
+        "term": "Localized obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "190965006",
+        "term": "Drug-induced obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "444862003",
+        "term": "Childhood obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.862165,
+        "best_primary_condition_score": 0.62753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "414438005",
+        "term": "Hyperplastic obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.794665,
+        "best_primary_condition_score": 0.57753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "295509007",
+        "term": "Hypertrophic obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.794665,
+        "best_primary_condition_score": 0.57753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "248312008",
+        "term": "Peripheral obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.794665,
+        "best_primary_condition_score": 0.57753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "292464007",
+        "term": "Constitutional obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.794665,
+        "best_primary_condition_score": 0.57753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "5036006",
+        "term": "Hypogonadal obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.794665,
+        "best_primary_condition_score": 0.57753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "290439001",
+        "term": "Familial obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.794665,
+        "best_primary_condition_score": 0.57753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "360566006",
+        "term": "Buffalo obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.794665,
+        "best_primary_condition_score": 0.57753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "238133005",
+        "term": "Gynecoid obesity (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.794665,
+        "best_primary_condition_score": 0.57753,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "primary_condition"
+        ],
+        "query_coverage_count": 1
+      },
+      {
+        "snomed_code": "190368000",
+        "term": "Type I diabetes mellitus with ulcer (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.787822,
+        "best_primary_condition_score": 0.0,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "combined",
+          "secondary_condition"
+        ],
+        "query_coverage_count": 2
+      },
+      {
+        "snomed_code": "73211009",
+        "term": "Diabetes mellitus (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.785999,
+        "best_primary_condition_score": 0.0,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "combined",
+          "secondary_condition"
+        ],
+        "query_coverage_count": 2
+      },
+      {
+        "snomed_code": "8801005",
+        "term": "Secondary diabetes mellitus (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.774608,
+        "best_primary_condition_score": 0.0,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "combined",
+          "secondary_condition"
+        ],
+        "query_coverage_count": 2
+      },
+      {
+        "snomed_code": "5368009",
+        "term": "Drug-induced diabetes mellitus (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.774608,
+        "best_primary_condition_score": 0.0,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "combined",
+          "secondary_condition"
+        ],
+        "query_coverage_count": 2
+      },
+      {
+        "snomed_code": "1217044000",
+        "term": "Ketosis-resistant diabetes mellitus (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.774608,
+        "best_primary_condition_score": 0.0,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "combined",
+          "secondary_condition"
+        ],
+        "query_coverage_count": 2
+      },
+      {
+        "snomed_code": "11530004",
+        "term": "Brittle diabetes mellitus (disorder)",
+        "semantic_tag": "disorder",
+        "fusion_score": 0.774608,
+        "best_primary_condition_score": 0.0,
+        "lexical_overlap_max": 1.0,
+        "query_types_hit": [
+          "combined",
+          "secondary_condition"
+        ],
+        "query_coverage_count": 2
+      }
+    ],
+    "final_decisions": {
+      "include_candidates": [
+        {
+          "presentation_score": 2.841242,
+          "snomed_code": "73211009",
+          "term": "Diabetes mellitus (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "core",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 249270.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.785999,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 1.0,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 2
+          },
+          "matched_conditions": [
+            "Diabetes Mellitus"
+          ],
+          "dominant_condition": "Diabetes Mellitus",
+          "ranking_components": {
+            "authority_component": 1.699723,
+            "fusion_component": 0.43152,
+            "coverage_component": 0.22,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.14,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.35,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Diabetes Mellitus",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 1.0,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.3,
+              "adjusted_retrieval_score": 0.645,
+              "weighted_retrieval_score": 0.4838
+            },
+            {
+              "query_text": "Obesity with Diabetes Mellitus",
+              "query_type": "combined",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9499,
+              "lexical_overlap": 0.6667,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.285,
+              "adjusted_retrieval_score": 0.5444,
+              "weighted_retrieval_score": 0.4899
+            }
+          ],
+          "presentation_rank": 2
+        },
+        {
+          "presentation_score": 2.702795,
+          "snomed_code": "59621000",
+          "term": "Essential hypertension (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "core",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 4231880.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.198979,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.985359,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Hypertension"
+          ],
+          "dominant_condition": "Hypertension",
+          "ranking_components": {
+            "authority_component": 1.8,
+            "fusion_component": 0.242795,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.14,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.35,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Hypertension",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9854,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2956,
+              "adjusted_retrieval_score": 0.6399,
+              "weighted_retrieval_score": 0.48
+            }
+          ],
+          "presentation_rank": 3
+        },
+        {
+          "presentation_score": 2.285436,
+          "snomed_code": "414916001",
+          "term": "Obesity (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "MEDIUM",
+          "candidate_role": "core",
+          "evidence": {
+            "in_qof": false,
+            "in_opencodelists": false,
+            "usage_count_nhs": 265430.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.88575,
+            "best_primary_condition_score": 0.645,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 1.0,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity"
+          ],
+          "dominant_condition": "Obesity",
+          "ranking_components": {
+            "authority_component": 0.451996,
+            "fusion_component": 0.46344,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.25,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.15,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 1,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity",
+              "semantic_score": 0.0,
+              "bm25_score": 1.0,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.3,
+              "adjusted_retrieval_score": 0.645,
+              "weighted_retrieval_score": 0.645
+            }
+          ],
+          "presentation_rank": 5
+        }
+      ],
+      "review_candidates": [
+        {
+          "presentation_score": 2.518902,
+          "snomed_code": "238136002",
+          "term": "Morbid obesity (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "MEDIUM",
+          "candidate_role": "variant",
+          "evidence": {
+            "in_qof": false,
+            "in_opencodelists": false,
+            "usage_count_nhs": 32550.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.862165,
+            "best_primary_condition_score": 0.62753,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.949362,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Obesity"
+          ],
+          "dominant_condition": "Obesity",
+          "ranking_components": {
+            "authority_component": 0.376047,
+            "fusion_component": 0.452855,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.8,
+            "centrality_component": 0.25,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.65,
+            "subtype_clutter_penalty": 0.18,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 1,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity",
+              "query_type": "primary_condition",
+              "clinical_focus": "Obesity",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9494,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2848,
+              "adjusted_retrieval_score": 0.6275,
+              "weighted_retrieval_score": 0.6275
+            }
+          ],
+          "presentation_rank": 1
+        },
+        {
+          "presentation_score": 2.006496,
+          "snomed_code": "1217044000",
+          "term": "Ketosis-resistant diabetes mellitus (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "variant",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 20.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.774608,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.973949,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 2
+          },
+          "matched_conditions": [
+            "Diabetes Mellitus"
+          ],
+          "dominant_condition": "Diabetes Mellitus",
+          "ranking_components": {
+            "authority_component": 1.360185,
+            "fusion_component": 0.426311,
+            "coverage_component": 0.22,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Diabetes Mellitus",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9739,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2922,
+              "adjusted_retrieval_score": 0.636,
+              "weighted_retrieval_score": 0.477
+            },
+            {
+              "query_text": "Obesity with Diabetes Mellitus",
+              "query_type": "combined",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9251,
+              "lexical_overlap": 0.6667,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2775,
+              "adjusted_retrieval_score": 0.5358,
+              "weighted_retrieval_score": 0.4823
+            }
+          ],
+          "presentation_rank": 6
+        },
+        {
+          "presentation_score": 1.958672,
+          "snomed_code": "426875007",
+          "term": "Latent autoimmune diabetes mellitus in adult (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "variant",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 4510.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.187322,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.903445,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Diabetes Mellitus"
+          ],
+          "dominant_condition": "Diabetes Mellitus",
+          "ranking_components": {
+            "authority_component": 1.554523,
+            "fusion_component": 0.23415,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Diabetes Mellitus",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9034,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.271,
+              "adjusted_retrieval_score": 0.6117,
+              "weighted_retrieval_score": 0.4588
+            }
+          ],
+          "presentation_rank": 15
+        }
+      ],
+      "specific_variants": [
+        {
+          "presentation_score": 2.182053,
+          "snomed_code": "28119000",
+          "term": "Renal hypertension (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "specific",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 190.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.633891,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.985359,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 2
+          },
+          "matched_conditions": [
+            "Hypertension"
+          ],
+          "dominant_condition": "Hypertension",
+          "ranking_components": {
+            "authority_component": 1.440086,
+            "fusion_component": 0.381967,
+            "coverage_component": 0.22,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.14,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Hypertension",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9854,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2956,
+              "adjusted_retrieval_score": 0.6399,
+              "weighted_retrieval_score": 0.48
+            },
+            {
+              "query_text": "Obesity with Hypertension",
+              "query_type": "combined",
+              "clinical_focus": "Hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.5875,
+              "lexical_overlap": 0.5,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.1762,
+              "adjusted_retrieval_score": 0.3777,
+              "weighted_retrieval_score": 0.3399
+            }
+          ],
+          "presentation_rank": 4
+        },
+        {
+          "presentation_score": 2.159701,
+          "snomed_code": "397748008",
+          "term": "Hypertension with albuminuria (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "specific",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 70.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.680229,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.962597,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 2
+          },
+          "matched_conditions": [
+            "Hypertension"
+          ],
+          "dominant_condition": "Hypertension",
+          "ranking_components": {
+            "authority_component": 1.404272,
+            "fusion_component": 0.395429,
+            "coverage_component": 0.22,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.14,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Hypertension",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9626,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2888,
+              "adjusted_retrieval_score": 0.6321,
+              "weighted_retrieval_score": 0.4741
+            },
+            {
+              "query_text": "Obesity with Hypertension",
+              "query_type": "combined",
+              "clinical_focus": "Hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.7471,
+              "lexical_overlap": 0.5,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2241,
+              "adjusted_retrieval_score": 0.4328,
+              "weighted_retrieval_score": 0.3895
+            }
+          ],
+          "presentation_rank": 7
+        },
+        {
+          "presentation_score": 2.10064,
+          "snomed_code": "56218007",
+          "term": "Systolic hypertension (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "specific",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 3750.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.198979,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.985359,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Hypertension"
+          ],
+          "dominant_condition": "Hypertension",
+          "ranking_components": {
+            "authority_component": 1.547846,
+            "fusion_component": 0.242795,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.14,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Hypertension",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9854,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2956,
+              "adjusted_retrieval_score": 0.6399,
+              "weighted_retrieval_score": 0.48
+            }
+          ],
+          "presentation_rank": 8
+        },
+        {
+          "presentation_score": 2.083578,
+          "snomed_code": "48146000",
+          "term": "Diastolic hypertension (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "specific",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 2340.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.198979,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.985359,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Hypertension"
+          ],
+          "dominant_condition": "Hypertension",
+          "ranking_components": {
+            "authority_component": 1.530783,
+            "fusion_component": 0.242795,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.14,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Hypertension",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9854,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2956,
+              "adjusted_retrieval_score": 0.6399,
+              "weighted_retrieval_score": 0.48
+            }
+          ],
+          "presentation_rank": 9
+        },
+        {
+          "presentation_score": 2.078749,
+          "snomed_code": "84094009",
+          "term": "Rebound hypertension (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "specific",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 10.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.633891,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.985359,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 2
+          },
+          "matched_conditions": [
+            "Hypertension"
+          ],
+          "dominant_condition": "Hypertension",
+          "ranking_components": {
+            "authority_component": 1.336783,
+            "fusion_component": 0.381967,
+            "coverage_component": 0.22,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.14,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Hypertension",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9854,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2956,
+              "adjusted_retrieval_score": 0.6399,
+              "weighted_retrieval_score": 0.48
+            },
+            {
+              "query_text": "Obesity with Hypertension",
+              "query_type": "combined",
+              "clinical_focus": "Hypertension",
+              "semantic_score": 0.0,
+              "bm25_score": 0.5875,
+              "lexical_overlap": 0.5,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.1762,
+              "adjusted_retrieval_score": 0.3777,
+              "weighted_retrieval_score": 0.3399
+            }
+          ],
+          "presentation_rank": 10
+        }
+      ],
+      "suppressed_candidates": [
+        {
+          "presentation_score": 1.879851,
+          "snomed_code": "703137001",
+          "term": "Type I diabetes mellitus in remission (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 510.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.187322,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.903445,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Diabetes Mellitus"
+          ],
+          "dominant_condition": "Diabetes Mellitus",
+          "ranking_components": {
+            "authority_component": 1.475702,
+            "fusion_component": 0.23415,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 0.0
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Diabetes Mellitus",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9034,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.271,
+              "adjusted_retrieval_score": 0.6117,
+              "weighted_retrieval_score": 0.4588
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.727666,
+          "snomed_code": "4855003",
+          "term": "Retinopathy due to diabetes mellitus (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 195810.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.753541,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.925769,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 2
+          },
+          "matched_conditions": [
+            "Diabetes Mellitus"
+          ],
+          "dominant_condition": "Diabetes Mellitus",
+          "ranking_components": {
+            "authority_component": 1.690986,
+            "fusion_component": 0.416679,
+            "coverage_component": 0.22,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 1.6
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Diabetes Mellitus",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9258,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2777,
+              "adjusted_retrieval_score": 0.6194,
+              "weighted_retrieval_score": 0.4645
+            },
+            {
+              "query_text": "Obesity with Diabetes Mellitus",
+              "query_type": "combined",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.8794,
+              "lexical_overlap": 0.6667,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2638,
+              "adjusted_retrieval_score": 0.52,
+              "weighted_retrieval_score": 0.468
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.523302,
+          "snomed_code": "49455004",
+          "term": "Polyneuropathy due to diabetes mellitus (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 690.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.753541,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.925769,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 2
+          },
+          "matched_conditions": [
+            "Diabetes Mellitus"
+          ],
+          "dominant_condition": "Diabetes Mellitus",
+          "ranking_components": {
+            "authority_component": 1.486623,
+            "fusion_component": 0.416679,
+            "coverage_component": 0.22,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 1.6
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Diabetes Mellitus",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9258,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2777,
+              "adjusted_retrieval_score": 0.6194,
+              "weighted_retrieval_score": 0.4645
+            },
+            {
+              "query_text": "Obesity with Diabetes Mellitus",
+              "query_type": "combined",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.8794,
+              "lexical_overlap": 0.6667,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2638,
+              "adjusted_retrieval_score": 0.52,
+              "weighted_retrieval_score": 0.468
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.463119,
+          "snomed_code": "230577008",
+          "term": "Mononeuropathy due to diabetes mellitus (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 130.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.753541,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.925769,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 2
+          },
+          "matched_conditions": [
+            "Diabetes Mellitus"
+          ],
+          "dominant_condition": "Diabetes Mellitus",
+          "ranking_components": {
+            "authority_component": 1.426439,
+            "fusion_component": 0.416679,
+            "coverage_component": 0.22,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 1.6
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Diabetes Mellitus",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9258,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2777,
+              "adjusted_retrieval_score": 0.6194,
+              "weighted_retrieval_score": 0.4645
+            },
+            {
+              "query_text": "Obesity with Diabetes Mellitus",
+              "query_type": "combined",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.8794,
+              "lexical_overlap": 0.6667,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2638,
+              "adjusted_retrieval_score": 0.52,
+              "weighted_retrieval_score": 0.468
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.44806,
+          "snomed_code": "51002006",
+          "term": "Diabetes mellitus associated with pancreatic disease (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 7210.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.5205,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 1.0,
+            "lexical_overlap_max": 0.666667,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Diabetes Mellitus"
+          ],
+          "dominant_condition": "Diabetes Mellitus",
+          "ranking_components": {
+            "authority_component": 1.5715,
+            "fusion_component": 0.30656,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 1.6
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity with Diabetes Mellitus",
+              "query_type": "combined",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 1.0,
+              "lexical_overlap": 0.6667,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.3,
+              "adjusted_retrieval_score": 0.5617,
+              "weighted_retrieval_score": 0.5055
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.289813,
+          "snomed_code": "5969009",
+          "term": "Diabetes mellitus associated with genetic syndrome (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 90.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.5205,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 1.0,
+            "lexical_overlap_max": 0.666667,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Diabetes Mellitus"
+          ],
+          "dominant_condition": "Diabetes Mellitus",
+          "ranking_components": {
+            "authority_component": 1.413253,
+            "fusion_component": 0.30656,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 1.6
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Obesity with Diabetes Mellitus",
+              "query_type": "combined",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 1.0,
+              "lexical_overlap": 0.6667,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.3,
+              "adjusted_retrieval_score": 0.5617,
+              "weighted_retrieval_score": 0.5055
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.286679,
+          "snomed_code": "737212004",
+          "term": "Diabetes mellitus caused by chemical (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 0.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.753541,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.925769,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 2
+          },
+          "matched_conditions": [
+            "Diabetes Mellitus"
+          ],
+          "dominant_condition": "Diabetes Mellitus",
+          "ranking_components": {
+            "authority_component": 1.25,
+            "fusion_component": 0.416679,
+            "coverage_component": 0.22,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 1.6
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Diabetes Mellitus",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9258,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2777,
+              "adjusted_retrieval_score": 0.6194,
+              "weighted_retrieval_score": 0.4645
+            },
+            {
+              "query_text": "Obesity with Diabetes Mellitus",
+              "query_type": "combined",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.8794,
+              "lexical_overlap": 0.6667,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.2638,
+              "adjusted_retrieval_score": 0.52,
+              "weighted_retrieval_score": 0.468
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.258209,
+          "snomed_code": "427089005",
+          "term": "Diabetes mellitus due to cystic fibrosis (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 280.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.187322,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.903445,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Diabetes Mellitus"
+          ],
+          "dominant_condition": "Diabetes Mellitus",
+          "ranking_components": {
+            "authority_component": 1.454059,
+            "fusion_component": 0.23415,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 1.6
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Diabetes Mellitus",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9034,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.271,
+              "adjusted_retrieval_score": 0.6117,
+              "weighted_retrieval_score": 0.4588
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.221177,
+          "snomed_code": "408540003",
+          "term": "Diabetes mellitus caused by non-steroid drugs (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 100.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.187322,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.903445,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Diabetes Mellitus"
+          ],
+          "dominant_condition": "Diabetes Mellitus",
+          "ranking_components": {
+            "authority_component": 1.417027,
+            "fusion_component": 0.23415,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 1.6
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Diabetes Mellitus",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9034,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.271,
+              "adjusted_retrieval_score": 0.6117,
+              "weighted_retrieval_score": 0.4588
+            }
+          ]
+        },
+        {
+          "presentation_score": 0.202927,
+          "snomed_code": "1217674007",
+          "term": "Neurotrophic keratitis due to diabetes mellitus (disorder)",
+          "semantic_tag": "disorder",
+          "confidence_tier": "HIGH",
+          "candidate_role": "suppress",
+          "evidence": {
+            "in_qof": true,
+            "in_opencodelists": true,
+            "usage_count_nhs": 60.0
+          },
+          "retrieval_features": {
+            "fusion_score": 0.187322,
+            "best_primary_condition_score": 0.0,
+            "semantic_score_max": 0.0,
+            "bm25_score_max": 0.903445,
+            "lexical_overlap_max": 1.0,
+            "query_coverage_count": 1
+          },
+          "matched_conditions": [
+            "Diabetes Mellitus"
+          ],
+          "dominant_condition": "Diabetes Mellitus",
+          "ranking_components": {
+            "authority_component": 1.398777,
+            "fusion_component": 0.23415,
+            "coverage_component": 0.17,
+            "primary_alignment_component": 0.0,
+            "centrality_component": 0.0,
+            "modifier_component": 0.0,
+            "diversity_component": 0.0,
+            "family_policy_component": 0.0,
+            "subtype_clutter_penalty": 0.0,
+            "query_misalignment_penalty": 1.6
+          },
+          "authority_bucket": 0,
+          "retrieval_trace": [
+            {
+              "query_text": "Diabetes Mellitus",
+              "query_type": "secondary_condition",
+              "clinical_focus": "Diabetes Mellitus",
+              "semantic_score": 0.0,
+              "bm25_score": 0.9034,
+              "lexical_overlap": 1.0,
+              "semantic_tag_weight": 1.15,
+              "retrieval_score": 0.271,
+              "adjusted_retrieval_score": 0.6117,
+              "weighted_retrieval_score": 0.4588
+            }
+          ]
+        }
+      ]
+    },
+    "explanation_mode": "deterministic_formatter_disabled",
+    "formatter_debug": {
+      "formatter_enabled": false,
+      "schema_validation_error": "formatter disabled by design"
+    }
+  },
+  "final_structured_output": {
+    "include_candidates": [
+      {
+        "presentation_score": 2.841242,
+        "snomed_code": "73211009",
+        "term": "Diabetes mellitus (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "core",
+        "rationale": "central query-aligned concept; QOF-supported code; present in OpenCodelists; NHS usage count 249270",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 249270.0
+        }
+      },
+      {
+        "presentation_score": 2.702795,
+        "snomed_code": "59621000",
+        "term": "Essential hypertension (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "core",
+        "rationale": "central query-aligned concept; QOF-supported code; present in OpenCodelists; NHS usage count 4231880",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 4231880.0
+        }
+      },
+      {
+        "presentation_score": 2.285436,
+        "snomed_code": "414916001",
+        "term": "Obesity (disorder)",
+        "confidence_tier": "MEDIUM",
+        "candidate_role": "core",
+        "rationale": "central query-aligned concept; NHS usage count 265430",
+        "evidence": {
+          "in_qof": false,
+          "in_opencodelists": false,
+          "usage_count_nhs": 265430.0
+        }
+      }
+    ],
+    "review_candidates": [
+      {
+        "presentation_score": 2.518902,
+        "snomed_code": "238136002",
+        "term": "Morbid obesity (disorder)",
+        "confidence_tier": "MEDIUM",
+        "candidate_role": "variant",
+        "rationale": "relevant narrower variant for analyst review; NHS usage count 32550",
+        "evidence": {
+          "in_qof": false,
+          "in_opencodelists": false,
+          "usage_count_nhs": 32550.0
+        }
+      },
+      {
+        "presentation_score": 2.006496,
+        "snomed_code": "1217044000",
+        "term": "Ketosis-resistant diabetes mellitus (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "variant",
+        "rationale": "relevant narrower variant for analyst review; QOF-supported code; present in OpenCodelists; NHS usage count 20",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 20.0
+        }
+      },
+      {
+        "presentation_score": 1.958672,
+        "snomed_code": "426875007",
+        "term": "Latent autoimmune diabetes mellitus in adult (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "variant",
+        "rationale": "relevant narrower variant for analyst review; QOF-supported code; present in OpenCodelists; NHS usage count 4510",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 4510.0
+        }
+      }
+    ],
+    "specific_variants": [
+      {
+        "presentation_score": 2.182053,
+        "snomed_code": "28119000",
+        "term": "Renal hypertension (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "specific",
+        "rationale": "specialised related concept kept as lower-priority depth; QOF-supported code; present in OpenCodelists; NHS usage count 190",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 190.0
+        }
+      },
+      {
+        "presentation_score": 2.159701,
+        "snomed_code": "397748008",
+        "term": "Hypertension with albuminuria (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "specific",
+        "rationale": "specialised related concept kept as lower-priority depth; QOF-supported code; present in OpenCodelists; NHS usage count 70",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 70.0
+        }
+      },
+      {
+        "presentation_score": 2.10064,
+        "snomed_code": "56218007",
+        "term": "Systolic hypertension (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "specific",
+        "rationale": "specialised related concept kept as lower-priority depth; QOF-supported code; present in OpenCodelists; NHS usage count 3750",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 3750.0
+        }
+      },
+      {
+        "presentation_score": 2.083578,
+        "snomed_code": "48146000",
+        "term": "Diastolic hypertension (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "specific",
+        "rationale": "specialised related concept kept as lower-priority depth; QOF-supported code; present in OpenCodelists; NHS usage count 2340",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 2340.0
+        }
+      },
+      {
+        "presentation_score": 2.078749,
+        "snomed_code": "84094009",
+        "term": "Rebound hypertension (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "specific",
+        "rationale": "specialised related concept kept as lower-priority depth; QOF-supported code; present in OpenCodelists; NHS usage count 10",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 10.0
+        }
+      }
+    ],
+    "suppressed_candidates": [
+      {
+        "presentation_score": 1.879851,
+        "snomed_code": "703137001",
+        "term": "Type I diabetes mellitus in remission (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists; NHS usage count 510",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 510.0
+        }
+      },
+      {
+        "presentation_score": 0.727666,
+        "snomed_code": "4855003",
+        "term": "Retinopathy due to diabetes mellitus (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists; NHS usage count 195810",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 195810.0
+        }
+      },
+      {
+        "presentation_score": 0.523302,
+        "snomed_code": "49455004",
+        "term": "Polyneuropathy due to diabetes mellitus (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists; NHS usage count 690",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 690.0
+        }
+      },
+      {
+        "presentation_score": 0.463119,
+        "snomed_code": "230577008",
+        "term": "Mononeuropathy due to diabetes mellitus (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists; NHS usage count 130",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 130.0
+        }
+      },
+      {
+        "presentation_score": 0.44806,
+        "snomed_code": "51002006",
+        "term": "Diabetes mellitus associated with pancreatic disease (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists; NHS usage count 7210",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 7210.0
+        }
+      },
+      {
+        "presentation_score": 0.289813,
+        "snomed_code": "5969009",
+        "term": "Diabetes mellitus associated with genetic syndrome (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists; NHS usage count 90",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 90.0
+        }
+      },
+      {
+        "presentation_score": 0.286679,
+        "snomed_code": "737212004",
+        "term": "Diabetes mellitus caused by chemical (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 0.0
+        }
+      },
+      {
+        "presentation_score": 0.258209,
+        "snomed_code": "427089005",
+        "term": "Diabetes mellitus due to cystic fibrosis (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists; NHS usage count 280",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 280.0
+        }
+      },
+      {
+        "presentation_score": 0.221177,
+        "snomed_code": "408540003",
+        "term": "Diabetes mellitus caused by non-steroid drugs (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists; NHS usage count 100",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 100.0
+        }
+      },
+      {
+        "presentation_score": 0.202927,
+        "snomed_code": "1217674007",
+        "term": "Neurotrophic keratitis due to diabetes mellitus (disorder)",
+        "confidence_tier": "HIGH",
+        "candidate_role": "suppress",
+        "rationale": "retained for traceability but suppressed from first-pass review; QOF-supported code; present in OpenCodelists; NHS usage count 60",
+        "evidence": {
+          "in_qof": true,
+          "in_opencodelists": true,
+          "usage_count_nhs": 60.0
+        }
+      }
+    ]
+  }
+}

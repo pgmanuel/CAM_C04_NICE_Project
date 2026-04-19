@@ -1,0 +1,96 @@
+{
+  "run_id": "run_20260404_221445_32f4e6",
+  "timestamp": "2026-04-04T22:14:45.871875",
+  "duration_seconds": 13.272587,
+  "query": "Obesity, diabetes mellitus, and hypertension",
+  "trace": {
+    "normalized_query": "Obesity, diabetes mellitus, and hypertension",
+    "structured_query": {
+      "original_query": "Obesity, diabetes mellitus, and hypertension",
+      "primary_condition": "Obesity, diabetes mellitus, and hypertension",
+      "secondary_conditions": [],
+      "modifiers": [],
+      "supporting_terms": []
+    },
+    "search_jobs": [
+      {
+        "query_text": "Obesity, diabetes mellitus, and hypertension",
+        "query_type": "primary_condition",
+        "clinical_focus": "Obesity, diabetes mellitus, and hypertension",
+        "weight": 1.0,
+        "query_terms": [
+          "diabetes",
+          "hypertension",
+          "mellitus",
+          "obesity"
+        ],
+        "query_profile": {
+          "tokens": [
+            "diabetes",
+            "hypertension",
+            "mellitus",
+            "obesity"
+          ],
+          "preferred_tags": [
+            "disorder",
+            "finding"
+          ],
+          "tolerated_tags": [
+            "observable entity",
+            "situation"
+          ],
+          "blocked_tags": [
+            "assessment scale",
+            "attribute",
+            "environment",
+            "occupation",
+            "organism",
+            "physical object",
+            "qualifier value",
+            "specimen",
+            "substance"
+          ]
+        }
+      }
+    ],
+    "retrieval_batches_summary": [
+      {
+        "query_text": "Obesity, diabetes mellitus, and hypertension",
+        "query_type": "primary_condition",
+        "result_count": 0
+      }
+    ],
+    "top_candidates_per_search_job": [
+      {
+        "query_text": "Obesity, diabetes mellitus, and hypertension",
+        "query_type": "primary_condition",
+        "top_candidates": []
+      }
+    ],
+    "fused_candidates_preview": [],
+    "fused_candidates_before_decisioning": [],
+    "final_decisions": {
+      "include_candidates": [],
+      "review_candidates": [],
+      "specific_variants": [],
+      "suppressed_candidates": []
+    },
+    "explanation_mode": "deterministic_fallback_no_candidates",
+    "formatter_debug": {
+      "llm_payload_count": 0,
+      "llm_payload_codes": [],
+      "raw_llm_response": null,
+      "cleaned_llm_response": null,
+      "parsed_response": null,
+      "llm_response_shape_summary": null,
+      "json_parse_exception": null,
+      "schema_validation_error": "no candidates to format"
+    }
+  },
+  "final_structured_output": {
+    "include_candidates": [],
+    "review_candidates": [],
+    "specific_variants": [],
+    "suppressed_candidates": []
+  }
+}
