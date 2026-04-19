@@ -1,0 +1,16 @@
+{
+  "run_id": "run_20260411_164315_645cf2",
+  "query": [
+    {
+      "text": "Obesity with type 2 diabetes or Hypertension and CKD",
+      "type": "text"
+    }
+  ],
+  "vote": "thumbs_down",
+  "recommended_codes": [],
+  "model_name": "llama3.2:1b",
+  "note": "",
+  "n_codes": 0,
+  "n_qof_codes": 0,
+  "timestamp": "2026-04-11T16:43:35.378274+00:00"
+}

@@ -1,0 +1,5 @@
+timestamp,run_id,vote,query,n_codes,n_qof_codes,model_name,note
+2026-04-11T11:56:21.643202+00:00,run_20260411_115618_f3bd4d,thumbs_down,"[{'text': 'give me the codes for hypertension', 'type': 'text'}]",0,0,llama3.2:1b,
+2026-04-11T16:43:35.378274+00:00,run_20260411_164315_645cf2,thumbs_down,"[{'text': 'Obesity with type 2 diabetes or Hypertension and CKD', 'type': 'text'}]",0,0,llama3.2:1b,
+2026-04-12T12:14:50.692226+00:00,run_20260412_121350_8e3d94,thumbs_up,"[{'text': 'besity with type 2 diabetes or Hypertension and CKD', 'type': 'text'}]",10,0,llama3.2:1b,
+2026-04-12T19:39:59.251694+00:00,run_20260412_193833_obesitywitht,thumbs_up,"[{'text': 'Obesity with type 2 diabetes', 'type': 'text'}]",10,0,llama3.2:1b,
