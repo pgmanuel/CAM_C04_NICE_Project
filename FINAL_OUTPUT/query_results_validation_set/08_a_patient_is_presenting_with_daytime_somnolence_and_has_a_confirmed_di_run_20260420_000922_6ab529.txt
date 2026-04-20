@@ -1,0 +1,100 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:09:38
+Run ID: run_20260420_000922_6ab529
+Query: A patient is presenting with daytime somnolence and has a confirmed diagnosis of obstructive sleep apnoea. Given their BMI is over 40, I also need to record the code for morbid obesity.
+Runtime seconds: 16.60
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Morbid obesity (disorder)
+   SNOMED code: 238136002
+   Presentation score: 0.63555
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=32550
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.994; NHS usage count 32550
+
+2. Obstructive sleep apnea syndrome (disorder)
+   SNOMED code: 78275009
+   Presentation score: 0.627512
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=203800
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.985; NHS usage count 203800
+
+Review candidates
+-----------------
+1. Sleep apnea (disorder)
+   SNOMED code: 73430006
+   Presentation score: 0.602016
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=77100
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.943; NHS usage count 77100
+
+2. Obstructive sleep apnea of adult (disorder)
+   SNOMED code: 1101000119103
+   Presentation score: 0.55643
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=150
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.868; NHS usage count 150
+
+3. Severe obesity (disorder)
+   SNOMED code: 83911000119104
+   Presentation score: 0.548708
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=40
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.972; NHS usage count 40
+
+4. Obstructive sleep apnea of child (disorder)
+   SNOMED code: 1091000119108
+   Presentation score: 0.435532
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=1750
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.569; NHS usage count 1750
+
+5. Obesity (disorder)
+   SNOMED code: 414916001
+   Presentation score: 0.424672
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=265430
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.590; NHS usage count 265430
+
+Specific variants
+-----------------
+1. Obesity caused by energy imbalance (disorder)
+   SNOMED code: 722596001
+   Presentation score: 0.344813
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.624
+
+2. Recurrent apnea (finding)
+   SNOMED code: 416945002
+   Presentation score: 0.270851
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=150
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.331; NHS usage count 150
+
+3. Obesity due to prohormone convertase I deficiency (disorder)
+   SNOMED code: 722053001
+   Presentation score: 0.230009
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.372
+
+Suppressed candidates
+---------------------
+No candidates.

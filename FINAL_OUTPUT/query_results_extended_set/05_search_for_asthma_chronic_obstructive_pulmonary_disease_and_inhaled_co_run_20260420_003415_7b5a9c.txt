@@ -1,0 +1,116 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:34:28
+Run ID: run_20260420_003415_7b5a9c
+Query: Search for asthma, chronic obstructive pulmonary disease, and inhaled corticosteroid therapy.
+Runtime seconds: 13.04
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Asthma (disorder)
+   SNOMED code: 195967001
+   Presentation score: 0.74465
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=2.87958e+06
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.969; QOF-supported code; present in OpenCodelists; NHS usage count 2879580
+
+2. Chronic obstructive pulmonary disease (disorder)
+   SNOMED code: 13645005
+   Presentation score: 0.707466
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=811990
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.977; QOF-supported code; NHS usage count 811990
+
+Review candidates
+-----------------
+1. Severe chronic obstructive pulmonary disease (disorder)
+   SNOMED code: 313299006
+   Presentation score: 0.673826
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=65670
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.917; QOF-supported code; NHS usage count 65670
+
+2. Moderate chronic obstructive pulmonary disease (disorder)
+   SNOMED code: 313297008
+   Presentation score: 0.619827
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=170080
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.909; QOF-supported code; NHS usage count 170080
+
+3. Mild chronic obstructive pulmonary disease (disorder)
+   SNOMED code: 313296004
+   Presentation score: 0.598209
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=136950
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.862; QOF-supported code; NHS usage count 136950
+
+4. Chronic obstructive bronchitis (disorder)
+   SNOMED code: 185086009
+   Presentation score: 0.567612
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=390
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.775; QOF-supported code; NHS usage count 390
+
+5. Chronic obstructive pulmonary disease screening (procedure)
+   SNOMED code: 171230000
+   Presentation score: 0.55925
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=7230
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.840; NHS usage count 7230
+
+Specific variants
+-----------------
+1. Pulmonary hypertension due to chronic obstructive pulmonary disease (disorder)
+   SNOMED code: 697911002
+   Presentation score: 0.512983
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.845; NHS usage count 10
+
+2. Asthma finding (finding)
+   SNOMED code: 390798007
+   Presentation score: 0.477897
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=6300
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.633; present in OpenCodelists; NHS usage count 6300
+
+3. Asthma disturbing sleep (finding)
+   SNOMED code: 170631002
+   Presentation score: 0.321797
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=85810
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.304; present in OpenCodelists; NHS usage count 85810
+
+4. Chronic lung disease due to surfactant disorder (disorder)
+   SNOMED code: 707534000
+   Presentation score: 0.276527
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.465
+
+5. Asthma trigger finding (finding)
+   SNOMED code: 397579009
+   Presentation score: 0.196802
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.289
+
+Suppressed candidates
+---------------------
+No candidates.

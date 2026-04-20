@@ -1,0 +1,132 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:10:16
+Run ID: run_20260420_000957_aa5d49
+Query: We are reviewing a patient's annual pathology report. I need the specific codes used for Serum high density lipoprotein (HDL), calculated LDL, and fasting triglyceride levels to update their record.
+Runtime seconds: 19.41
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Calculated low density lipoprotein cholesterol level (procedure)
+   SNOMED code: 395065005
+   Presentation score: 0.562443
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.921; NHS usage count 20
+
+2. Laboratory test (procedure)
+   SNOMED code: 15220000
+   Presentation score: 0.360583
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=32140
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.419; NHS usage count 32140
+
+3. High density lipoprotein deficiency (disorder)
+   SNOMED code: 448834003
+   Presentation score: 0.321464
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=10
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.531; NHS usage count 10
+
+4. Triglycerides measurement (procedure)
+   SNOMED code: 14740000
+   Presentation score: 0.261264
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=160
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.230; NHS usage count 160
+
+Review candidates
+-----------------
+1. Serum high density lipoprotein cholesterol measurement (procedure)
+   SNOMED code: 166832000
+   Presentation score: 0.584929
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=450
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.901; NHS usage count 450
+
+2. High density lipoprotein measurement (procedure)
+   SNOMED code: 17888004
+   Presentation score: 0.564239
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=50
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.914; NHS usage count 50
+
+3. High density lipoprotein cholesterol measurement (procedure)
+   SNOMED code: 28036006
+   Presentation score: 0.527845
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=8890
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.785; NHS usage count 8890
+
+4. Low density lipoprotein cholesterol measurement (procedure)
+   SNOMED code: 113079009
+   Presentation score: 0.523245
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=3710
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.783; NHS usage count 3710
+
+5. Low density lipoprotein measurement (procedure)
+   SNOMED code: 22644003
+   Presentation score: 0.513247
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.904
+
+Specific variants
+-----------------
+1. Triglyceride-lowering diet (finding)
+   SNOMED code: 226116003
+   Presentation score: 0.427239
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=790
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.656; NHS usage count 790
+
+2. Low density lipoprotein cholesterol within reference range (finding)
+   SNOMED code: 1172656007
+   Presentation score: 0.319017
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=50
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.281; QOF-supported code; NHS usage count 50
+
+3. High density lipoprotein within reference range (finding)
+   SNOMED code: 1172653004
+   Presentation score: 0.313379
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.536
+
+4. High density lipoprotein above reference range (finding)
+   SNOMED code: 443835004
+   Presentation score: 0.209462
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.307
+
+5. Lipoprotein below reference range (finding)
+   SNOMED code: 124041005
+   Presentation score: 0.15766
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.205
+
+Suppressed candidates
+---------------------
+No candidates.

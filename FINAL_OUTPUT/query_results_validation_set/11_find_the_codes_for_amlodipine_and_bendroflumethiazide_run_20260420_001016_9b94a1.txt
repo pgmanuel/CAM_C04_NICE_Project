@@ -1,0 +1,84 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:10:30
+Run ID: run_20260420_001016_9b94a1
+Query: Find the codes for Amlodipine and Bendroflumethiazide.
+Runtime seconds: 13.82
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Amlodipine adverse reaction (disorder)
+   SNOMED code: 292460003
+   Presentation score: 0.389782
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=23990
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.609; NHS usage count 23990
+
+2. Bendroflumethiazide measurement (procedure)
+   SNOMED code: 105080000
+   Presentation score: 0.373695
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.717
+
+Review candidates
+-----------------
+1. Product containing bendroflumethiazide (medicinal product)
+   SNOMED code: 91135008
+   Presentation score: 0.523794
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.949
+
+2. Product containing precisely bendroflumethiazide 2.5 milligram/1 each conventional release oral tablet (clinical drug)
+   SNOMED code: 317919004
+   Presentation score: 0.484257
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.931
+
+3. Product containing bendroflumethiazide and timolol (medicinal product)
+   SNOMED code: 421992000
+   Presentation score: 0.475363
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.855
+
+4. Product containing bendroflumethiazide and nadolol (medicinal product)
+   SNOMED code: 398704000
+   Presentation score: 0.472509
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.849
+
+5. Product containing bendroflumethiazide and potassium chloride (medicinal product)
+   SNOMED code: 772917004
+   Presentation score: 0.470728
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.851
+
+Specific variants
+-----------------
+1. Allergy to bendroflumethiazide (finding)
+   SNOMED code: 294992007
+   Presentation score: 0.243595
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=140
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.319; NHS usage count 140
+
+Suppressed candidates
+---------------------
+No candidates.

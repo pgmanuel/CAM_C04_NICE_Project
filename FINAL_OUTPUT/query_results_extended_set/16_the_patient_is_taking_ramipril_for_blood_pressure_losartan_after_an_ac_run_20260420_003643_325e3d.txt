@@ -1,0 +1,106 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:36:58
+Run ID: run_20260420_003643_325e3d
+Query: The patient is taking Ramipril for blood pressure, Losartan after an ACE inhibitor cough, and Atorvastatin for lipid management. Please show the relevant medication product codes.
+Runtime seconds: 14.47
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Stable hypertension (disorder)
+   SNOMED code: 1356877007
+   Presentation score: 0.246214
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.323
+
+Review candidates
+-----------------
+1. Hypertension medication review (procedure)
+   SNOMED code: 473225006
+   Presentation score: 0.388959
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=65110
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.561; NHS usage count 65110
+
+2. Hypertension monitoring (regime/therapy)
+   SNOMED code: 275944005
+   Presentation score: 0.34518
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=2.16856e+06
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.356; present in OpenCodelists; NHS usage count 2168560
+
+3. Hypertension monitoring call (procedure)
+   SNOMED code: 308503007
+   Presentation score: 0.336922
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=3610
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.338; present in OpenCodelists; NHS usage count 3610
+
+4. Hypertension clinical management plan (record artifact)
+   SNOMED code: 736286003
+   Presentation score: 0.321296
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=98220
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.221; present in OpenCodelists; NHS usage count 98220
+
+5. Hypertension education (procedure)
+   SNOMED code: 39155009
+   Presentation score: 0.26853
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=30
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.364; NHS usage count 30
+
+Specific variants
+-----------------
+1. Cardiomegaly due to hypertension (disorder)
+   SNOMED code: 275516004
+   Presentation score: 0.347391
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=120
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.401; present in OpenCodelists; NHS usage count 120
+
+2. Cardiomyopathy due to hypertension (disorder)
+   SNOMED code: 108701000119102
+   Presentation score: 0.299904
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.518
+
+3. On treatment for hypertension (finding)
+   SNOMED code: 1366067008
+   Presentation score: 0.288279
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.490
+
+4. Ocular hypertension (disorder)
+   SNOMED code: 4210003
+   Presentation score: 0.255635
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=94920
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.266; NHS usage count 94920
+
+Suppressed candidates
+---------------------
+1. Fear of hypertension (finding)
+   SNOMED code: 102932008
+   Presentation score: 0.228927
+   Confidence tier: REVIEW
+   Candidate role: suppress
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: filtered from first-pass review but retained for traceability; cross-encoder score 0.356

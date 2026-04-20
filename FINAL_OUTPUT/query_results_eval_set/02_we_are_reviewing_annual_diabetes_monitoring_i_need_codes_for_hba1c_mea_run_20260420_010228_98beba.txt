@@ -1,0 +1,180 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T01:04:52
+Run ID: run_20260420_010228_98beba
+Query: We are reviewing annual diabetes monitoring. I need codes for HbA1c measurement, fasting plasma glucose, and urine albumin creatinine ratio testing.
+Runtime seconds: 143.02
+
+Evaluation enabled
+------------------
+{'custom_eval': True, 'ragas': True}
+
+Include candidates
+------------------
+1. Diabetes mellitus (disorder)
+   SNOMED code: 73211009
+   Presentation score: 0.757679
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=249270
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.985; QOF-supported code; present in OpenCodelists; NHS usage count 249270
+
+2. Urine albumin/creatinine ratio measurement (procedure)
+   SNOMED code: 271075006
+   Presentation score: 0.579047
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=110
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.990; NHS usage count 110
+
+3. Plasma fasting glucose measurement (procedure)
+   SNOMED code: 167096006
+   Presentation score: 0.560306
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.977
+
+4. ALG12-congenital disorder of glycosylation (disorder)
+   SNOMED code: 711155008
+   Presentation score: 0.143879
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.221
+
+Review candidates
+-----------------
+1. Diabetes mellitus type 1 (disorder)
+   SNOMED code: 46635009
+   Presentation score: 0.638439
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=386610
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.811; QOF-supported code; present in OpenCodelists; NHS usage count 386610
+
+2. Fasting blood glucose measurement (procedure)
+   SNOMED code: 271062006
+   Presentation score: 0.608766
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=1360
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.959; NHS usage count 1360
+
+3. Albumin/creatinine ratio measurement (procedure)
+   SNOMED code: 250745003
+   Presentation score: 0.567088
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=100
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.971; NHS usage count 100
+
+4. Urine protein/creatinine ratio measurement (procedure)
+   SNOMED code: 313500004
+   Presentation score: 0.558853
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=70
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.967; NHS usage count 70
+
+5. Glucose measurement, plasma (procedure)
+   SNOMED code: 72191006
+   Presentation score: 0.557814
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.941; NHS usage count 20
+
+Specific variants
+-----------------
+1. Hyperglycemia due to diabetes mellitus (disorder)
+   SNOMED code: 822995009
+   Presentation score: 0.377445
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.572; present in OpenCodelists
+
+Suppressed candidates
+---------------------
+No candidates.
+
+Evaluations
+-----------
+
+Retrieval
+~~~~~~~~~
+Stage: retrieval_only
+Rows: 4
+Average custom score: 0.667
+Details:
+  1. Diabetes Mellitus
+     Score: 1
+     Checks: {"main_condition_retrieved": true, "noise_low": true, "top_results_relevant": true}
+  2. Hemoglobin A Glycosylation
+     Score: 0
+     Checks: {"main_condition_retrieved": false, "noise_low": false, "top_results_relevant": false}
+  3. Fasting Plasma Glucose Measurement
+     Score: 1
+     Checks: {"main_condition_retrieved": true, "noise_low": true, "top_results_relevant": true}
+  4. Urine Albumin Creatinine Ratio Test
+     Score: 0.667
+     Checks: {"main_condition_retrieved": true, "noise_low": false, "top_results_relevant": true}
+
+Post Gate
+~~~~~~~~~
+Stage: post_gate
+Rows: 4
+Average custom score: 0.875
+Details:
+  1. Diabetes Mellitus
+     Score: 1
+     Checks: {"cross_condition_contamination_low": true, "main_condition_still_present": true, "noise_low_after_gate": true, "top_candidates_relevant": true}
+  2. Hemoglobin A Glycosylation
+     Score: 0.5
+     Checks: {"cross_condition_contamination_low": true, "main_condition_still_present": false, "noise_low_after_gate": true, "top_candidates_relevant": false}
+  3. Fasting Plasma Glucose Measurement
+     Score: 1
+     Checks: {"cross_condition_contamination_low": true, "main_condition_still_present": true, "noise_low_after_gate": true, "top_candidates_relevant": true}
+  4. Urine Albumin Creatinine Ratio Test
+     Score: 1
+     Checks: {"cross_condition_contamination_low": true, "main_condition_still_present": true, "noise_low_after_gate": true, "top_candidates_relevant": true}
+
+Post Ce
+~~~~~~~
+Stage: post_cross_encoder
+Rows: 4
+Average custom score: 0.812
+Details:
+  1. Diabetes Mellitus
+     Score: 1
+     Checks: {"main_condition_still_present": true, "noise_low_after_ce": true, "ranking_improved_after_ce": true, "top_candidates_relevant": true}
+  2. Hemoglobin A Glycosylation
+     Score: 0.25
+     Checks: {"main_condition_still_present": false, "noise_low_after_ce": true, "ranking_improved_after_ce": false, "top_candidates_relevant": false}
+  3. Fasting Plasma Glucose Measurement
+     Score: 1
+     Checks: {"main_condition_still_present": true, "noise_low_after_ce": true, "ranking_improved_after_ce": true, "top_candidates_relevant": true}
+  4. Urine Albumin Creatinine Ratio Test
+     Score: 1
+     Checks: {"main_condition_still_present": true, "noise_low_after_ce": true, "ranking_improved_after_ce": true, "top_candidates_relevant": true}
+
+Final Decision
+~~~~~~~~~~~~~~
+Stage: final_decision
+Rows: 1
+Average custom score: 0.75
+Details:
+  1. We are reviewing annual diabetes monitoring. I need codes for HbA1c measurement, fasting plasma glucose, and urine albumin creatinine ratio testing.
+     Score: 0.75
+     Checks: {"anchor_correct": true, "bucket_assignment_reasonable": true, "cross_condition_balance_correct": true, "wrong_core_concepts_absent": false}
+
+Final Response Ragas
+~~~~~~~~~~~~~~~~~~~~
+Stage: final_response_ragas
+Rows: 1
+Faithfulness: nan
+Response relevancy: 0.866567
+Details:
+  1. row 1
+     Detail: {"answer_relevancy": 0.866567154556279, "faithfulness": NaN, "response": "Recommended SNOMED concepts:\n\nINCLUDE_CANDIDATES:\n- Diabetes mellitus (disorder): broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.985; QOF-supported code; present in OpenCodelists; NHS usage count 249270\n- Urine albumin/creatinine ratio measurement (procedure): broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.990; NHS usage count 110\n- Plasma fasting glucose measurement (procedure): broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.977\n- ALG12-congenital disorder of glycosylation (disorder): broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.221\n\nREVIEW_CANDIDATES:\n- Diabetes mellitus type 1 (disorder): relevant condition-linked concept kept for analyst review; cross-encoder score 0.811; QOF-supported code; present in OpenCodelists; NHS usage count 386610\n- Fasting blood glucose measurement (procedure): relevant condition-linked concept kept for analyst review; cross-encoder score 0.959; NHS usage count 1360\n- Albumin/creatinine ratio measurement (procedure): relevant condition-linked concept kept for analyst review; cross-encoder score 0.971; NHS usage count 100\n- Urine protein/creatinine ratio measurement (procedure): relevant condition-linked concept kept for analyst review; cross-encoder score 0.967; NHS usage count 70\n- Glucose measurement, plasma (procedure): relevant condition-linked concept kept for analyst review; cross-encoder score 0.941; NHS usage count 20\n\nSPECIFIC_VARIANTS:\n- Hyperglycemia due to diabetes mellitus (disorder): more specific lower-priority concept retained as depth; cross-encoder score 0.572; present in OpenCodelists", "retrieved_contexts": ["Concept: Diabetes mellitus (disorder) | QOF=True | OpenCodelists=True | Usage=249270.0", "Concept: Urine albumin/creatinine ratio measurement (procedure) | QOF=False | OpenCodelists=False | Usage=110.0", "Concept: Plasma fasting glucose measurement (procedure) | QOF=False | OpenCodelists=False | Usage=0.0", "Concept: ALG12-congenital disorder of glycosylation (disorder) | QOF=False | OpenCodelists=False | Usage=0.0", "Concept: Diabetes mellitus type 1 (disorder) | QOF=True | OpenCodelists=True | Usage=386610.0", "Concept: Fasting blood glucose measurement (procedure) | QOF=False | OpenCodelists=False | Usage=1360.0", "Concept: Albumin/creatinine ratio measurement (procedure) | QOF=False | OpenCodelists=False | Usage=100.0", "Concept: Urine protein/creatinine ratio measurement (procedure) | QOF=False | OpenCodelists=False | Usage=70.0", "Concept: Glucose measurement, plasma (procedure) | QOF=False | OpenCodelists=False | Usage=20.0"], "user_input": "We are reviewing annual diabetes monitoring. I need codes for HbA1c measurement, fasting plasma glucose, and urine albumin creatinine ratio testing."}

@@ -1,0 +1,98 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:02:54
+Run ID: run_20260420_000220_90b057
+Query: Hypertension
+Runtime seconds: 34.26
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Venous hypertension (disorder)
+   SNOMED code: 234072000
+   Presentation score: 0.260202
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=370
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.329; NHS usage count 370
+
+Review candidates
+-----------------
+1. Renovascular hypertension (disorder)
+   SNOMED code: 123799005
+   Presentation score: 0.363734
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=410
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.269; QOF-supported code; present in OpenCodelists; NHS usage count 410
+
+2. Essential hypertension (disorder)
+   SNOMED code: 59621000
+   Presentation score: 0.360694
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=4.23188e+06
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.252; QOF-supported code; present in OpenCodelists; NHS usage count 4231880
+
+3. Goldblatt hypertension (disorder)
+   SNOMED code: 123800009
+   Presentation score: 0.30888
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.292; QOF-supported code; present in OpenCodelists
+
+4. Stable hypertension (disorder)
+   SNOMED code: 1356877007
+   Presentation score: 0.243214
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.323
+
+Specific variants
+-----------------
+1. Cardiomegaly due to hypertension (disorder)
+   SNOMED code: 275516004
+   Presentation score: 0.344391
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=120
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.401; present in OpenCodelists; NHS usage count 120
+
+2. Pulmonary hypertension (disorder)
+   SNOMED code: 70995007
+   Presentation score: 0.307125
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=19170
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.420; NHS usage count 19170
+
+3. Cardiomyopathy due to hypertension (disorder)
+   SNOMED code: 108701000119102
+   Presentation score: 0.296904
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.518
+
+4. Ocular hypertension (disorder)
+   SNOMED code: 4210003
+   Presentation score: 0.252635
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=94920
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.266; NHS usage count 94920
+
+Suppressed candidates
+---------------------
+1. Fear of hypertension (finding)
+   SNOMED code: 102932008
+   Presentation score: 0.225927
+   Confidence tier: REVIEW
+   Candidate role: suppress
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: filtered from first-pass review but retained for traceability; cross-encoder score 0.356

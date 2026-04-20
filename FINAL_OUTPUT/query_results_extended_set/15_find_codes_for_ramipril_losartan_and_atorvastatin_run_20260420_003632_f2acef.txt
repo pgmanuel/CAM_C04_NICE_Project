@@ -1,0 +1,122 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:36:43
+Run ID: run_20260420_003632_f2acef
+Query: Find codes for Ramipril, Losartan, and Atorvastatin.
+Runtime seconds: 11.16
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Hyperlipidemia (disorder)
+   SNOMED code: 55822004
+   Presentation score: 0.626748
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=293450
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.986; NHS usage count 293450
+
+2. Venous hypertension (disorder)
+   SNOMED code: 234072000
+   Presentation score: 0.263202
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=370
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.329; NHS usage count 370
+
+Review candidates
+-----------------
+1. Hyperlipidemia, group A (disorder)
+   SNOMED code: 190774002
+   Presentation score: 0.470733
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=280
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.750; NHS usage count 280
+
+2. Mixed hyperlipidemia (disorder)
+   SNOMED code: 267434003
+   Presentation score: 0.429228
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=38400
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.573; NHS usage count 38400
+
+3. Familial combined hyperlipidemia (disorder)
+   SNOMED code: 238040008
+   Presentation score: 0.417727
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=1970
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.494; QOF-supported code; NHS usage count 1970
+
+4. Hyperlipidemia with lipid deposition in skin (disorder)
+   SNOMED code: 402725005
+   Presentation score: 0.417418
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.778
+
+5. Primary combined hyperlipidemia (disorder)
+   SNOMED code: 238088006
+   Presentation score: 0.403362
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=130
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.564; NHS usage count 130
+
+Specific variants
+-----------------
+1. Hyperlipidemia due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 137931000119102
+   Presentation score: 0.494012
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=120
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.722; present in OpenCodelists; NHS usage count 120
+
+2. Hyperlipidemia due to type 1 diabetes mellitus (disorder)
+   SNOMED code: 137941000119106
+   Presentation score: 0.422981
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.716; NHS usage count 20
+
+3. Hyperlipidemia caused by steroid (disorder)
+   SNOMED code: 114831000119107
+   Presentation score: 0.419831
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.647; NHS usage count 20
+
+4. Cardiomegaly due to hypertension (disorder)
+   SNOMED code: 275516004
+   Presentation score: 0.347391
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=120
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.401; present in OpenCodelists; NHS usage count 120
+
+5. Pulmonary hypertension (disorder)
+   SNOMED code: 70995007
+   Presentation score: 0.310125
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=19170
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.420; NHS usage count 19170
+
+Suppressed candidates
+---------------------
+1. Fear of hypertension (finding)
+   SNOMED code: 102932008
+   Presentation score: 0.228927
+   Confidence tier: REVIEW
+   Candidate role: suppress
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: filtered from first-pass review but retained for traceability; cross-encoder score 0.356

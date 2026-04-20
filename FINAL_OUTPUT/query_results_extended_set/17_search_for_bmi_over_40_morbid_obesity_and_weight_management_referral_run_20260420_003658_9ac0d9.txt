@@ -1,0 +1,100 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:37:11
+Run ID: run_20260420_003658_9ac0d9
+Query: Search for BMI over 40, morbid obesity, and weight management referral.
+Runtime seconds: 13.15
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Morbid obesity (disorder)
+   SNOMED code: 238136002
+   Presentation score: 0.636852
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=32550
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.997; NHS usage count 32550
+
+2. Weight management program (regime/therapy)
+   SNOMED code: 718361005
+   Presentation score: 0.461627
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=43420
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.636; NHS usage count 43420
+
+Review candidates
+-----------------
+1. Refer to weight management program (procedure)
+   SNOMED code: 408289007
+   Presentation score: 0.623187
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=205720
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.998; NHS usage count 205720
+
+2. Severe obesity (disorder)
+   SNOMED code: 83911000119104
+   Presentation score: 0.570849
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=40
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.988; NHS usage count 40
+
+3. Referral to weight maintenance regimen service (procedure)
+   SNOMED code: 398752005
+   Presentation score: 0.525036
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.872; NHS usage count 20
+
+4. Obesity (disorder)
+   SNOMED code: 414916001
+   Presentation score: 0.464787
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=265430
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.678; NHS usage count 265430
+
+5. Referral by dietitian (procedure)
+   SNOMED code: 306068001
+   Presentation score: 0.447271
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=1470
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.682; NHS usage count 1470
+
+Specific variants
+-----------------
+1. Seen in weight management clinic (finding)
+   SNOMED code: 700154005
+   Presentation score: 0.464234
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=121020
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.655; NHS usage count 121020
+
+2. Obesity caused by energy imbalance (disorder)
+   SNOMED code: 722596001
+   Presentation score: 0.375047
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.690
+
+3. Obesity due to prohormone convertase I deficiency (disorder)
+   SNOMED code: 722053001
+   Presentation score: 0.29369
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.512
+
+Suppressed candidates
+---------------------
+No candidates.

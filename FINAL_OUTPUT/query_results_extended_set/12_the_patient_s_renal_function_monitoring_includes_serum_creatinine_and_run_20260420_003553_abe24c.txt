@@ -1,0 +1,124 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:36:06
+Run ID: run_20260420_003553_abe24c
+Query: The patient's renal function monitoring includes serum creatinine and eGFR, and their record mentions CKD stage 3. Please identify the relevant test and diagnosis codes.
+Runtime seconds: 13.09
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Chronic kidney disease stage 3 (disorder)
+   SNOMED code: 433144002
+   Presentation score: 0.661256
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=580860
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.984; QOF-supported code; NHS usage count 580860
+
+2. Creatinine measurement, serum (procedure)
+   SNOMED code: 113075003
+   Presentation score: 0.627089
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=940
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.989; NHS usage count 940
+
+3. Epidermal growth factor measurement (procedure)
+   SNOMED code: 121777007
+   Presentation score: 0.434716
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.831
+
+Review candidates
+-----------------
+1. Chronic kidney disease stage 3B (disorder)
+   SNOMED code: 700379002
+   Presentation score: 0.600097
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=21870
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.851; QOF-supported code; NHS usage count 21870
+
+2. Chronic kidney disease stage 3A (disorder)
+   SNOMED code: 700378005
+   Presentation score: 0.589165
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=62120
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.827; QOF-supported code; NHS usage count 62120
+
+3. Acute kidney failure stage 3 (disorder)
+   SNOMED code: 733139004
+   Presentation score: 0.570648
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=8220
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.959; NHS usage count 8220
+
+4. Creatinine measurement (procedure)
+   SNOMED code: 70901006
+   Presentation score: 0.472465
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=10
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.787; NHS usage count 10
+
+5. Epidermal growth factor receptor inhibitor (disposition)
+   SNOMED code: 734625009
+   Presentation score: 0.428455
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=70
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.714; NHS usage count 70
+
+Specific variants
+-----------------
+1. Finding of serum creatinine level (finding)
+   SNOMED code: 365757006
+   Presentation score: 0.582428
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=40
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.968; NHS usage count 40
+
+2. Finding of creatinine level (finding)
+   SNOMED code: 365756002
+   Presentation score: 0.550689
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=800
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.870; NHS usage count 800
+
+3. Serum creatinine within reference range (finding)
+   SNOMED code: 166716007
+   Presentation score: 0.474317
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=3370
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.672; NHS usage count 3370
+
+4. Serum creatinine above reference range (finding)
+   SNOMED code: 166717003
+   Presentation score: 0.32432
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=6910
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.342; NHS usage count 6910
+
+5. Clinical stage III (finding)
+   SNOMED code: 50283003
+   Presentation score: 0.302144
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.570
+
+Suppressed candidates
+---------------------
+No candidates.

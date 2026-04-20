@@ -1,0 +1,26 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:35:05
+Run ID: run_20260420_003454_e4adba
+Query: A patient with confirmed obstructive sleep apnoea reports excessive daytime sleepiness and has been issued a CPAP device. Please show the relevant diagnostic and therapy codes.
+Runtime seconds: 11.07
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+No candidates.
+
+Review candidates
+-----------------
+No candidates.
+
+Specific variants
+-----------------
+No candidates.
+
+Suppressed candidates
+---------------------
+No candidates.

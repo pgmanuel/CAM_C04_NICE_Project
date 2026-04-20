@@ -1,0 +1,130 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:10:53
+Run ID: run_20260420_001030_eaa243
+Query: The patient's blood pressure remains high despite being on a dual regimen of Amlodipine 5mg and Bendroflumethiazide 2.5mg. I need the product codes for these specific antihypertensive medications.
+Runtime seconds: 23.18
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Drug-induced hypotension (disorder)
+   SNOMED code: 234171009
+   Presentation score: 0.528333
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=2000
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.810; NHS usage count 2000
+
+2. Drug-induced hyponatremia (disorder)
+   SNOMED code: 237844003
+   Presentation score: 0.49391
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=1210
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.687; NHS usage count 1210
+
+3. Stable hypertension (disorder)
+   SNOMED code: 1356877007
+   Presentation score: 0.246214
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.323
+
+Review candidates
+-----------------
+1. Drug-induced hyponatremia (disorder)
+   SNOMED code: 237844003
+   Presentation score: 0.49391
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=1210
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.687; NHS usage count 1210
+
+2. Induced hypotension (procedure)
+   SNOMED code: 241727003
+   Presentation score: 0.438634
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=70
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.627; NHS usage count 70
+
+3. Hypertension monitoring (regime/therapy)
+   SNOMED code: 275944005
+   Presentation score: 0.345511
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=2.16856e+06
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.356; present in OpenCodelists; NHS usage count 2168560
+
+4. Hyponatremia with decreased serum osmolality (disorder)
+   SNOMED code: 237842004
+   Presentation score: 0.287502
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=170
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.320; NHS usage count 170
+
+5. Amlodipine adverse reaction (disorder)
+   SNOMED code: 292460003
+   Presentation score: 0.259985
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=23990
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.276; NHS usage count 23990
+
+Specific variants
+-----------------
+1. Cardiomegaly due to hypertension (disorder)
+   SNOMED code: 275516004
+   Presentation score: 0.347391
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=120
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.401; present in OpenCodelists; NHS usage count 120
+
+2. On treatment for hypertension (finding)
+   SNOMED code: 1366067008
+   Presentation score: 0.327142
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.490
+
+3. Chorea due to hyponatremia (disorder)
+   SNOMED code: 1259625003
+   Presentation score: 0.312408
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.491
+
+4. Cardiomyopathy due to hypertension (disorder)
+   SNOMED code: 108701000119102
+   Presentation score: 0.299904
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.518
+
+5. Ocular hypertension (disorder)
+   SNOMED code: 4210003
+   Presentation score: 0.255635
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=94920
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.266; NHS usage count 94920
+
+Suppressed candidates
+---------------------
+1. Fear of hypertension (finding)
+   SNOMED code: 102932008
+   Presentation score: 0.228927
+   Confidence tier: REVIEW
+   Candidate role: suppress
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: filtered from first-pass review but retained for traceability; cross-encoder score 0.356

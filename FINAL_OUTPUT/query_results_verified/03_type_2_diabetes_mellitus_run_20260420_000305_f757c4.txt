@@ -1,0 +1,84 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:03:19
+Run ID: run_20260420_000305_f757c4
+Query: Type 2 Diabetes Mellitus
+Runtime seconds: 13.45
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Diabetes mellitus type 2 (disorder)
+   SNOMED code: 44054006
+   Presentation score: 0.760899
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=4.66657e+06
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.994; QOF-supported code; present in OpenCodelists; NHS usage count 4666570
+
+Review candidates
+-----------------
+1. Uncontrolled type 2 diabetes mellitus (disorder)
+   SNOMED code: 443694000
+   Presentation score: 0.598131
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=37450
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.762; QOF-supported code; present in OpenCodelists; NHS usage count 37450
+
+2. Pre-existing type 2 diabetes mellitus (disorder)
+   SNOMED code: 199230006
+   Presentation score: 0.595072
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=310
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.840; present in OpenCodelists; NHS usage count 310
+
+3. Diabetes mellitus (disorder)
+   SNOMED code: 73211009
+   Presentation score: 0.567574
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=249270
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.586; QOF-supported code; present in OpenCodelists; NHS usage count 249270
+
+4. Brittle type 2 diabetes mellitus (disorder)
+   SNOMED code: 445353002
+   Presentation score: 0.565189
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=10
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.786; QOF-supported code; present in OpenCodelists; NHS usage count 10
+
+5. Diabetes mellitus type 2 without retinopathy (disorder)
+   SNOMED code: 1481000119100
+   Presentation score: 0.465123
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=630
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.480; QOF-supported code; present in OpenCodelists; NHS usage count 630
+
+Specific variants
+-----------------
+1. Hyperglycemia due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 368051000119109
+   Presentation score: 0.416999
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.600; present in OpenCodelists; NHS usage count 10
+
+2. Hypoglycemia due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 120731000119103
+   Presentation score: 0.349463
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.510; present in OpenCodelists
+
+Suppressed candidates
+---------------------
+No candidates.

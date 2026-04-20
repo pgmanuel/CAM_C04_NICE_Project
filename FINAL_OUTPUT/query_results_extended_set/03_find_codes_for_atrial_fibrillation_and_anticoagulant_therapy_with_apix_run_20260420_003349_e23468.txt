@@ -1,0 +1,116 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:34:02
+Run ID: run_20260420_003349_e23468
+Query: Find codes for atrial fibrillation and anticoagulant therapy with Apixaban.
+Runtime seconds: 13.14
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Atrial fibrillation (disorder)
+   SNOMED code: 49436004
+   Presentation score: 0.706824
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=805010
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.982; QOF-supported code; NHS usage count 805010
+
+2. Anticoagulant therapy (procedure)
+   SNOMED code: 182764009
+   Presentation score: 0.631503
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=258740
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.988; NHS usage count 258740
+
+Review candidates
+-----------------
+1. Chronic atrial fibrillation (disorder)
+   SNOMED code: 426749004
+   Presentation score: 0.614242
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=910
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.796; QOF-supported code; NHS usage count 910
+
+2. Permanent atrial fibrillation (disorder)
+   SNOMED code: 440028005
+   Presentation score: 0.612333
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=2240
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.792; QOF-supported code; NHS usage count 2240
+
+3. Rapid atrial fibrillation (disorder)
+   SNOMED code: 314208002
+   Presentation score: 0.610674
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=3890
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.787; QOF-supported code; NHS usage count 3890
+
+4. Education about anticoagulant therapy (procedure)
+   SNOMED code: 442284008
+   Presentation score: 0.592247
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=152870
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.934; NHS usage count 152870
+
+5. Controlled atrial fibrillation (disorder)
+   SNOMED code: 300996004
+   Presentation score: 0.585409
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=690
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.732; QOF-supported code; NHS usage count 690
+
+Specific variants
+-----------------
+1. Atrial fibrillation due to heart valve disorder (disorder)
+   SNOMED code: 313377641000119105
+   Presentation score: 0.535046
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=60
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.931; NHS usage count 60
+
+2. Electrocardiographic atrial fibrillation (finding)
+   SNOMED code: 164889003
+   Presentation score: 0.525612
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=89570
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.774; NHS usage count 89570
+
+3. Permanent atrial fibrillation due to heart valve disorder (disorder)
+   SNOMED code: 280797561000119107
+   Presentation score: 0.472182
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.900
+
+4. Hypercoagulable state due to atrial fibrillation (finding)
+   SNOMED code: 129032061000119103
+   Presentation score: 0.432108
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.803
+
+5. Anticoagulant effect (finding)
+   SNOMED code: 10191004
+   Presentation score: 0.419425
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.731
+
+Suppressed candidates
+---------------------
+No candidates.

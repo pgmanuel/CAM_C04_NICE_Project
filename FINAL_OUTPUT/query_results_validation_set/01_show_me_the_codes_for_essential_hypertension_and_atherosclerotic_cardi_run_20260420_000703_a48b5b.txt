@@ -1,0 +1,78 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:07:27
+Run ID: run_20260420_000703_a48b5b
+Query: Show me the codes for essential hypertension and atherosclerotic cardiovascular disease (ASCVD).
+Runtime seconds: 24.64
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Essential hypertension (disorder)
+   SNOMED code: 59621000
+   Presentation score: 0.750236
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=4.23188e+06
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.970; QOF-supported code; present in OpenCodelists; NHS usage count 4231880
+
+2. Atherosclerotic occlusive disease (disorder)
+   SNOMED code: 129573006
+   Presentation score: 0.33422
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.427; NHS usage count 20
+
+Review candidates
+-----------------
+1. Labile essential hypertension (disorder)
+   SNOMED code: 371125006
+   Presentation score: 0.674856
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=300
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.839; QOF-supported code; present in OpenCodelists; NHS usage count 300
+
+2. High-renin essential hypertension (disorder)
+   SNOMED code: 19769006
+   Presentation score: 0.664588
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=10
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.901; QOF-supported code; present in OpenCodelists; NHS usage count 10
+
+3. Benign essential hypertension (disorder)
+   SNOMED code: 1201005
+   Presentation score: 0.662865
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=26630
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.793; QOF-supported code; present in OpenCodelists; NHS usage count 26630
+
+4. Essential hypertension in obstetric context (disorder)
+   SNOMED code: 72022006
+   Presentation score: 0.65863
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=40
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.868; QOF-supported code; present in OpenCodelists; NHS usage count 40
+
+5. Low-renin essential hypertension (disorder)
+   SNOMED code: 46481004
+   Presentation score: 0.642604
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=20
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.838; QOF-supported code; present in OpenCodelists; NHS usage count 20
+
+Specific variants
+-----------------
+No candidates.
+
+Suppressed candidates
+---------------------
+No candidates.

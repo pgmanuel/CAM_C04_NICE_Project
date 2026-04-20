@@ -1,0 +1,100 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:35:39
+Run ID: run_20260420_003523_39f96b
+Query: We are reviewing annual diabetes monitoring. I need codes for HbA1c measurement, fasting plasma glucose, and urine albumin creatinine ratio testing.
+Runtime seconds: 15.79
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Diabetes mellitus (disorder)
+   SNOMED code: 73211009
+   Presentation score: 0.757679
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=249270
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.985; QOF-supported code; present in OpenCodelists; NHS usage count 249270
+
+2. Urine albumin/creatinine ratio measurement (procedure)
+   SNOMED code: 271075006
+   Presentation score: 0.579047
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=110
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.990; NHS usage count 110
+
+3. Plasma fasting glucose measurement (procedure)
+   SNOMED code: 167096006
+   Presentation score: 0.560306
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.977
+
+4. ALG12-congenital disorder of glycosylation (disorder)
+   SNOMED code: 711155008
+   Presentation score: 0.143879
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.221
+
+Review candidates
+-----------------
+1. Diabetes mellitus type 1 (disorder)
+   SNOMED code: 46635009
+   Presentation score: 0.638439
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=386610
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.811; QOF-supported code; present in OpenCodelists; NHS usage count 386610
+
+2. Fasting blood glucose measurement (procedure)
+   SNOMED code: 271062006
+   Presentation score: 0.608766
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=1360
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.959; NHS usage count 1360
+
+3. Albumin/creatinine ratio measurement (procedure)
+   SNOMED code: 250745003
+   Presentation score: 0.567088
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=100
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.971; NHS usage count 100
+
+4. Urine protein/creatinine ratio measurement (procedure)
+   SNOMED code: 313500004
+   Presentation score: 0.558853
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=70
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.967; NHS usage count 70
+
+5. Glucose measurement, plasma (procedure)
+   SNOMED code: 72191006
+   Presentation score: 0.557814
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.941; NHS usage count 20
+
+Specific variants
+-----------------
+1. Hyperglycemia due to diabetes mellitus (disorder)
+   SNOMED code: 822995009
+   Presentation score: 0.377445
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.572; present in OpenCodelists
+
+Suppressed candidates
+---------------------
+No candidates.

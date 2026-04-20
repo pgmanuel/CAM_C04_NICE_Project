@@ -1,0 +1,116 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:08:34
+Run ID: run_20260420_000816_2eb2ae
+Query: A patient was diagnosed with mixed hyperlipidaemia after their latest lab results. I am looking for the specific codes for this condition and the Fenofibrate capsules they were prescribed to manage it.
+Runtime seconds: 17.99
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Mixed hyperlipidemia (disorder)
+   SNOMED code: 267434003
+   Presentation score: 0.634716
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=38400
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.991; NHS usage count 38400
+
+2. Hyperlipidemia (disorder)
+   SNOMED code: 55822004
+   Presentation score: 0.626748
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=293450
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.986; NHS usage count 293450
+
+Review candidates
+-----------------
+1. Hyperlipidemia, group A (disorder)
+   SNOMED code: 190774002
+   Presentation score: 0.470733
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=280
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.750; NHS usage count 280
+
+2. Hyperlipidemia screening (procedure)
+   SNOMED code: 268552003
+   Presentation score: 0.446814
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=30
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.687; NHS usage count 30
+
+3. Primary genetic mixed hyperlipidemia (disorder)
+   SNOMED code: 402787000
+   Presentation score: 0.423788
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.719
+
+4. Hyperlipidemia with lipid deposition in skin (disorder)
+   SNOMED code: 402725005
+   Presentation score: 0.417418
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.778
+
+5. Primary combined hyperlipidemia (disorder)
+   SNOMED code: 238088006
+   Presentation score: 0.403362
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=130
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.564; NHS usage count 130
+
+Specific variants
+-----------------
+1. Mixed hyperlipidemia due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 701000119103
+   Presentation score: 0.550505
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=100
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.854; present in OpenCodelists; NHS usage count 100
+
+2. Hyperlipidemia due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 137931000119102
+   Presentation score: 0.494012
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=120
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.722; present in OpenCodelists; NHS usage count 120
+
+3. Mixed hyperlipidemia due to type 1 diabetes mellitus (disorder)
+   SNOMED code: 1571000119104
+   Presentation score: 0.48139
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.845; NHS usage count 10
+
+4. Hyperlipidemia due to type 1 diabetes mellitus (disorder)
+   SNOMED code: 137941000119106
+   Presentation score: 0.422981
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.716; NHS usage count 20
+
+5. Hyperlipidemia caused by steroid (disorder)
+   SNOMED code: 114831000119107
+   Presentation score: 0.419831
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.647; NHS usage count 20
+
+Suppressed candidates
+---------------------
+No candidates.

@@ -1,0 +1,132 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:40:45
+Run ID: run_20260420_004011_4dadcd
+Query: A patient has type 2 diabetes mellitus. Please avoid codes for type 1 diabetes, gestational diabetes, or diabetes in pregnancy.
+Runtime seconds: 34.75
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Diabetes mellitus type 2 (disorder)
+   SNOMED code: 44054006
+   Presentation score: 0.763899
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=4.66657e+06
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.994; QOF-supported code; present in OpenCodelists; NHS usage count 4666570
+
+2. Diabetes mellitus type 1 (disorder)
+   SNOMED code: 46635009
+   Presentation score: 0.739622
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=386610
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.959; QOF-supported code; present in OpenCodelists; NHS usage count 386610
+
+3. Gestational diabetes mellitus (disorder)
+   SNOMED code: 11687002
+   Presentation score: 0.684821
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=151480
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.988; present in OpenCodelists; NHS usage count 151480
+
+4. Pre-existing diabetes mellitus in pregnancy (disorder)
+   SNOMED code: 609563008
+   Presentation score: 0.565511
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=30
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.830; present in OpenCodelists; NHS usage count 30
+
+Review candidates
+-----------------
+1. Pregnancy and type 2 diabetes mellitus (disorder)
+   SNOMED code: 237627000
+   Presentation score: 0.633166
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=120
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.947; present in OpenCodelists; NHS usage count 120
+
+2. Gestational diabetes mellitus complicating pregnancy (disorder)
+   SNOMED code: 40801000119106
+   Presentation score: 0.609668
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=200
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.887; present in OpenCodelists; NHS usage count 200
+
+3. Uncontrolled type 2 diabetes mellitus (disorder)
+   SNOMED code: 443694000
+   Presentation score: 0.601131
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=37450
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.762; QOF-supported code; present in OpenCodelists; NHS usage count 37450
+
+4. Pre-existing type 2 diabetes mellitus (disorder)
+   SNOMED code: 199230006
+   Presentation score: 0.598072
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=310
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.840; present in OpenCodelists; NHS usage count 310
+
+5. Gestational diabetes mellitus class A1 (disorder)
+   SNOMED code: 75022004
+   Presentation score: 0.582875
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=40
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.871; present in OpenCodelists; NHS usage count 40
+
+Specific variants
+-----------------
+1. Disorder due to type 1 diabetes mellitus (disorder)
+   SNOMED code: 420868002
+   Presentation score: 0.587259
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=50
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.762; QOF-supported code; present in OpenCodelists; NHS usage count 50
+
+2. Hyperglycemia due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 368051000119109
+   Presentation score: 0.419999
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.600; present in OpenCodelists; NHS usage count 10
+
+3. Hypoglycemia due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 120731000119103
+   Presentation score: 0.352463
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.510; present in OpenCodelists
+
+4. Hyperglycemia due to type 1 diabetes mellitus (disorder)
+   SNOMED code: 367991000119101
+   Presentation score: 0.29336
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.440; NHS usage count 10
+
+5. Hypoglycemia due to type 1 diabetes mellitus (disorder)
+   SNOMED code: 84371000119108
+   Presentation score: 0.240984
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.383
+
+Suppressed candidates
+---------------------
+No candidates.

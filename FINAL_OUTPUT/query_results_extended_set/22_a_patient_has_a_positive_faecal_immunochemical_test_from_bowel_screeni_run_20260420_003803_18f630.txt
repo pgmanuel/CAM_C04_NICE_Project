@@ -1,0 +1,84 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:38:21
+Run ID: run_20260420_003803_18f630
+Query: A patient has a positive faecal immunochemical test from bowel screening and has been referred for colonoscopy. I need the relevant screening, finding, and procedure codes.
+Runtime seconds: 17.49
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Screening for malignant neoplasm of skin (procedure)
+   SNOMED code: 444638005
+   Presentation score: 0.579331
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=190
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.917; NHS usage count 190
+
+2. Malignant neoplasm of digestive organ (disorder)
+   SNOMED code: 255077007
+   Presentation score: 0.385602
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=60
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.346; QOF-supported code; NHS usage count 60
+
+Review candidates
+-----------------
+1. Screening for malignant neoplastic disease (procedure)
+   SNOMED code: 15886004
+   Presentation score: 0.582853
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=1300
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.978; NHS usage count 1300
+
+2. Screening for neoplasm (procedure)
+   SNOMED code: 1148754001
+   Presentation score: 0.523559
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.987
+
+3. Screening for malignant neoplasm of breast (procedure)
+   SNOMED code: 268547008
+   Presentation score: 0.519364
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=318610
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.757; NHS usage count 318610
+
+4. Education about screening for malignant neoplasm (procedure)
+   SNOMED code: 1156103008
+   Presentation score: 0.513472
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.904
+
+5. Screening for malignant neoplasm of lung (procedure)
+   SNOMED code: 275981009
+   Presentation score: 0.490453
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=74110
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.694; NHS usage count 74110
+
+Specific variants
+-----------------
+1. Personal history finding (finding)
+   SNOMED code: 307294006
+   Presentation score: 0.424025
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=33820
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.665; NHS usage count 33820
+
+Suppressed candidates
+---------------------
+No candidates.
