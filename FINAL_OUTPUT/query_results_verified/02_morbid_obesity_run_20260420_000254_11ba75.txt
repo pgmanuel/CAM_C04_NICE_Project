@@ -1,0 +1,84 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:03:05
+Run ID: run_20260420_000254_11ba75
+Query: Morbid Obesity
+Runtime seconds: 11.04
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Morbid obesity (disorder)
+   SNOMED code: 238136002
+   Presentation score: 0.633852
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=32550
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.997; NHS usage count 32550
+
+Review candidates
+-----------------
+1. Severe obesity (disorder)
+   SNOMED code: 83911000119104
+   Presentation score: 0.552995
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=40
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.988; NHS usage count 40
+
+2. Obesity (disorder)
+   SNOMED code: 414916001
+   Presentation score: 0.461787
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=265430
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.678; NHS usage count 265430
+
+3. Generalized obesity (disorder)
+   SNOMED code: 238134004
+   Presentation score: 0.35075
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=460
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.487; NHS usage count 460
+
+4. Lifelong obesity (disorder)
+   SNOMED code: 294493008
+   Presentation score: 0.327433
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=70
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.483; NHS usage count 70
+
+5. Intestinal bypass for morbid obesity (procedure)
+   SNOMED code: 59657005
+   Presentation score: 0.262832
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.486
+
+Specific variants
+-----------------
+1. Obesity caused by energy imbalance (disorder)
+   SNOMED code: 722596001
+   Presentation score: 0.372046
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.690
+
+2. Obesity due to prohormone convertase I deficiency (disorder)
+   SNOMED code: 722053001
+   Presentation score: 0.290582
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.512
+
+Suppressed candidates
+---------------------
+No candidates.

@@ -1,0 +1,108 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:08:49
+Run ID: run_20260420_000834_2b27c6
+Query: List the codes for Type 2 diabetes mellitus and BMI measurements.
+Runtime seconds: 14.97
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Diabetes mellitus type 2 (disorder)
+   SNOMED code: 44054006
+   Presentation score: 0.763527
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=4.66657e+06
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.993; QOF-supported code; present in OpenCodelists; NHS usage count 4666570
+
+Review candidates
+-----------------
+1. Uncontrolled type 2 diabetes mellitus (disorder)
+   SNOMED code: 443694000
+   Presentation score: 0.610837
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=37450
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.783; QOF-supported code; present in OpenCodelists; NHS usage count 37450
+
+2. Pre-existing type 2 diabetes mellitus (disorder)
+   SNOMED code: 199230006
+   Presentation score: 0.593217
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=310
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.829; present in OpenCodelists; NHS usage count 310
+
+3. Brittle type 2 diabetes mellitus (disorder)
+   SNOMED code: 445353002
+   Presentation score: 0.580157
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=10
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.812; QOF-supported code; present in OpenCodelists; NHS usage count 10
+
+4. Diabetes mellitus (disorder)
+   SNOMED code: 73211009
+   Presentation score: 0.547881
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=249270
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.536; QOF-supported code; present in OpenCodelists; NHS usage count 249270
+
+5. Insulin treated type 2 diabetes mellitus (disorder)
+   SNOMED code: 237599002
+   Presentation score: 0.523722
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=87060
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.602; QOF-supported code; present in OpenCodelists; NHS usage count 87060
+
+Specific variants
+-----------------
+1. Obesity monitoring check done (finding)
+   SNOMED code: 185750000
+   Presentation score: 0.537418
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=1960
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.900; NHS usage count 1960
+
+2. Normal weight (finding)
+   SNOMED code: 43664005
+   Presentation score: 0.505208
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=48280
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.832; NHS usage count 48280
+
+3. Finding of measures of body height and growth (finding)
+   SNOMED code: 301330009
+   Presentation score: 0.475897
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=3670
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.765; NHS usage count 3670
+
+4. Hyperglycemia due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 368051000119109
+   Presentation score: 0.445529
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.656; present in OpenCodelists; NHS usage count 10
+
+5. Body measurement finding (finding)
+   SNOMED code: 365605003
+   Presentation score: 0.409288
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.756
+
+Suppressed candidates
+---------------------
+No candidates.

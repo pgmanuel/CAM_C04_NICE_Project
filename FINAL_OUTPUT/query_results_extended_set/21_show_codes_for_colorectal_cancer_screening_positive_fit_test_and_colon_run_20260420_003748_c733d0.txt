@@ -1,0 +1,124 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:38:03
+Run ID: run_20260420_003748_c733d0
+Query: Show codes for colorectal cancer screening, positive FIT test, and colonoscopy.
+Runtime seconds: 15.09
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Colonoscopy (procedure)
+   SNOMED code: 73761001
+   Presentation score: 0.630782
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=632550
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.995; NHS usage count 632550
+
+2. Screening colonoscopy (procedure)
+   SNOMED code: 444783004
+   Presentation score: 0.571073
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.947; NHS usage count 20
+
+3. Fecal fat screening test (procedure)
+   SNOMED code: 314086005
+   Presentation score: 0.247403
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.327
+
+Review candidates
+-----------------
+1. Referral for colonoscopy (procedure)
+   SNOMED code: 183875006
+   Presentation score: 0.585982
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=50530
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.925; NHS usage count 50530
+
+2. Intraoperative colonoscopy (procedure)
+   SNOMED code: 34264006
+   Presentation score: 0.562269
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=480
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.873; NHS usage count 480
+
+3. Screening for malignant neoplasm of colon (procedure)
+   SNOMED code: 275978004
+   Presentation score: 0.558851
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=4200
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.933; NHS usage count 4200
+
+4. Colonoscopy and biopsy of colon (procedure)
+   SNOMED code: 446745002
+   Presentation score: 0.545199
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=250
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.923; NHS usage count 250
+
+5. Open colonoscopy (procedure)
+   SNOMED code: 174158000
+   Presentation score: 0.544374
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=1060
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.822; NHS usage count 1060
+
+Specific variants
+-----------------
+1. Colorectal cancer detected by DNA-based stool screening (finding)
+   SNOMED code: 708699002
+   Presentation score: 0.527123
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.940
+
+2. Colonoscopy normal (finding)
+   SNOMED code: 313170008
+   Presentation score: 0.412393
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=117110
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.535; NHS usage count 117110
+
+3. Cancer screening follow up (finding)
+   SNOMED code: 413744002
+   Presentation score: 0.408892
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=57470
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.549; NHS usage count 57470
+
+4. Colonoscopy abnormal (finding)
+   SNOMED code: 313172000
+   Presentation score: 0.376133
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=21060
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.456; NHS usage count 21060
+
+5. Colonoscopy equivocal (finding)
+   SNOMED code: 370350009
+   Presentation score: 0.27082
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=160
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.259; NHS usage count 160
+
+Suppressed candidates
+---------------------
+No candidates.

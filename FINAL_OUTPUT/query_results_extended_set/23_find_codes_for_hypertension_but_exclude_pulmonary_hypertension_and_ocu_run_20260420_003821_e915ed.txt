@@ -1,0 +1,130 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:38:43
+Run ID: run_20260420_003821_e915ed
+Query: Find codes for hypertension but exclude pulmonary hypertension and ocular hypertension.
+Runtime seconds: 22.55
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Ocular hypertension (disorder)
+   SNOMED code: 4210003
+   Presentation score: 0.635539
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=94920
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.977; NHS usage count 94920
+
+2. Pulmonary hypertension (disorder)
+   SNOMED code: 70995007
+   Presentation score: 0.634197
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=19170
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.977; NHS usage count 19170
+
+3. Goldblatt hypertension (disorder)
+   SNOMED code: 123800009
+   Presentation score: 0.379478
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=0
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.440; QOF-supported code; present in OpenCodelists
+
+Review candidates
+-----------------
+1. Thromboembolic pulmonary hypertension (disorder)
+   SNOMED code: 233947005
+   Presentation score: 0.556564
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=1340
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.844; NHS usage count 1340
+
+2. Primary ocular hypertension (disorder)
+   SNOMED code: 1110081000000100
+   Presentation score: 0.545803
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=150
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.849; NHS usage count 150
+
+3. Ocular hypertension of bilateral eyes (disorder)
+   SNOMED code: 1295494003
+   Presentation score: 0.529617
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=60
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.853; NHS usage count 60
+
+4. Severe pulmonary hypertension (disorder)
+   SNOMED code: 840308008
+   Presentation score: 0.526327
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=10
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.872; NHS usage count 10
+
+5. Ocular hypertension of right eye (disorder)
+   SNOMED code: 1295492004
+   Presentation score: 0.520416
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=70
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.829; NHS usage count 70
+
+Specific variants
+-----------------
+1. Ocular hypertension (disorder)
+   SNOMED code: 4210003
+   Presentation score: 0.635539
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=94920
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.977; NHS usage count 94920
+
+2. Pulmonary hypertension (disorder)
+   SNOMED code: 70995007
+   Presentation score: 0.634197
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=19170
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.977; NHS usage count 19170
+
+3. Ocular hypertension due to ocular vascular disorder (disorder)
+   SNOMED code: 1285719009
+   Presentation score: 0.53197
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.952
+
+4. Ocular hypertension due to ocular trauma (disorder)
+   SNOMED code: 1110141000000109
+   Presentation score: 0.507744
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.822; NHS usage count 20
+
+5. Ocular hypertension due to uveitis (disorder)
+   SNOMED code: 1110111000000108
+   Presentation score: 0.499702
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.812; NHS usage count 20
+
+Suppressed candidates
+---------------------
+1. Fear of hypertension (finding)
+   SNOMED code: 102932008
+   Presentation score: 0.1688
+   Confidence tier: REVIEW
+   Candidate role: suppress
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: filtered from first-pass review but retained for traceability; cross-encoder score 0.224

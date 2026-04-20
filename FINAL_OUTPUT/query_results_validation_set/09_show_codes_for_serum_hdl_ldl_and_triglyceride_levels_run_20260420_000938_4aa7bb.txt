@@ -1,0 +1,124 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:09:57
+Run ID: run_20260420_000938_4aa7bb
+Query: Show codes for serum HDL, LDL, and triglyceride levels.
+Runtime seconds: 18.26
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Measurement of serum triglyceride level (procedure)
+   SNOMED code: 271245006
+   Presentation score: 0.497222
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=10
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.813; NHS usage count 10
+
+2. Measurement of serum lipid level (procedure)
+   SNOMED code: 271244005
+   Presentation score: 0.377625
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=134480
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.465; NHS usage count 134480
+
+3. Plasma total cholesterol level (procedure)
+   SNOMED code: 390956002
+   Presentation score: 0.34176
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.515
+
+Review candidates
+-----------------
+1. Triglycerides measurement (procedure)
+   SNOMED code: 14740000
+   Presentation score: 0.508442
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=160
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.865; NHS usage count 160
+
+2. Target serum triglyceride level (observable entity)
+   SNOMED code: 780835009
+   Presentation score: 0.393457
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.647
+
+3. Plasma triglyceride measurement (procedure)
+   SNOMED code: 167082000
+   Presentation score: 0.356558
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.590
+
+4. Fluid sample triglyceride measurement (procedure)
+   SNOMED code: 412827004
+   Presentation score: 0.328052
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.535
+
+5. Calculated low density lipoprotein cholesterol level (procedure)
+   SNOMED code: 395065005
+   Presentation score: 0.279723
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.338; NHS usage count 20
+
+Specific variants
+-----------------
+1. Finding of triglyceride level (finding)
+   SNOMED code: 365795001
+   Presentation score: 0.593931
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=150
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.940; NHS usage count 150
+
+2. Finding of serum triglyceride levels (finding)
+   SNOMED code: 365796000
+   Presentation score: 0.550724
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=2210
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.912; NHS usage count 2210
+
+3. Low density lipoprotein cholesterol within reference range (finding)
+   SNOMED code: 1172656007
+   Presentation score: 0.476749
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=50
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.625; QOF-supported code; NHS usage count 50
+
+4. Low density lipoprotein cholesterol below reference range (finding)
+   SNOMED code: 1172655006
+   Presentation score: 0.465869
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.696; QOF-supported code
+
+5. Finding of serum lipid levels (finding)
+   SNOMED code: 365798004
+   Presentation score: 0.423419
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.716
+
+Suppressed candidates
+---------------------
+No candidates.

@@ -1,0 +1,26 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:34:15
+Run ID: run_20260420_003402_550a4b
+Query: The patient has persistent atrial fibrillation and has been started on Apixaban 5mg tablets for stroke prevention. Please identify the relevant diagnosis and medication codes.
+Runtime seconds: 12.71
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+No candidates.
+
+Review candidates
+-----------------
+No candidates.
+
+Specific variants
+-----------------
+No candidates.
+
+Suppressed candidates
+---------------------
+No candidates.

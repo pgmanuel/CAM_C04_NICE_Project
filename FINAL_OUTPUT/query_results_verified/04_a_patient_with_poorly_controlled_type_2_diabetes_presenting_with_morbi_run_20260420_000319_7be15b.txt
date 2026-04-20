@@ -1,0 +1,130 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:03:34
+Run ID: run_20260420_000319_7be15b
+Query: A patient with poorly controlled type 2 diabetes, presenting with morbid obesity and also history of hypertension
+Runtime seconds: 15.92
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Diabetes mellitus type 2 (disorder)
+   SNOMED code: 44054006
+   Presentation score: 0.763899
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=4.66657e+06
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.994; QOF-supported code; present in OpenCodelists; NHS usage count 4666570
+
+2. Morbid obesity (disorder)
+   SNOMED code: 238136002
+   Presentation score: 0.636852
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=32550
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.997; NHS usage count 32550
+
+3. Venous hypertension (disorder)
+   SNOMED code: 234072000
+   Presentation score: 0.263202
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=370
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.329; NHS usage count 370
+
+Review candidates
+-----------------
+1. Uncontrolled type 2 diabetes mellitus (disorder)
+   SNOMED code: 443694000
+   Presentation score: 0.601131
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=37450
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.762; QOF-supported code; present in OpenCodelists; NHS usage count 37450
+
+2. Pre-existing type 2 diabetes mellitus (disorder)
+   SNOMED code: 199230006
+   Presentation score: 0.598072
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=310
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.840; present in OpenCodelists; NHS usage count 310
+
+3. Diabetes mellitus (disorder)
+   SNOMED code: 73211009
+   Presentation score: 0.570574
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=249270
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.586; QOF-supported code; present in OpenCodelists; NHS usage count 249270
+
+4. Brittle type 2 diabetes mellitus (disorder)
+   SNOMED code: 445353002
+   Presentation score: 0.568189
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=10
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.786; QOF-supported code; present in OpenCodelists; NHS usage count 10
+
+5. Severe obesity (disorder)
+   SNOMED code: 83911000119104
+   Presentation score: 0.555995
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=40
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.988; NHS usage count 40
+
+Specific variants
+-----------------
+1. Hyperglycemia due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 368051000119109
+   Presentation score: 0.419999
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.600; present in OpenCodelists; NHS usage count 10
+
+2. Obesity caused by energy imbalance (disorder)
+   SNOMED code: 722596001
+   Presentation score: 0.375046
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.690
+
+3. Hypoglycemia due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 120731000119103
+   Presentation score: 0.352463
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.510; present in OpenCodelists
+
+4. Cardiomegaly due to hypertension (disorder)
+   SNOMED code: 275516004
+   Presentation score: 0.347391
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=120
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.401; present in OpenCodelists; NHS usage count 120
+
+5. Pulmonary hypertension (disorder)
+   SNOMED code: 70995007
+   Presentation score: 0.310125
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=19170
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.420; NHS usage count 19170
+
+Suppressed candidates
+---------------------
+1. Fear of hypertension (finding)
+   SNOMED code: 102932008
+   Presentation score: 0.228927
+   Confidence tier: REVIEW
+   Candidate role: suppress
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: filtered from first-pass review but retained for traceability; cross-encoder score 0.356

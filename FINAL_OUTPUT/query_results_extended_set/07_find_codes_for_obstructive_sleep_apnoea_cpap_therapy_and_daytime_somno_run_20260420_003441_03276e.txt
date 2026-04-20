@@ -1,0 +1,124 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:34:54
+Run ID: run_20260420_003441_03276e
+Query: Find codes for obstructive sleep apnoea, CPAP therapy, and daytime somnolence.
+Runtime seconds: 12.92
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Obstructive sleep apnea syndrome (disorder)
+   SNOMED code: 78275009
+   Presentation score: 0.628328
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=203800
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.987; NHS usage count 203800
+
+2. Therapy (regime/therapy)
+   SNOMED code: 276239002
+   Presentation score: 0.259522
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=10790
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.296; NHS usage count 10790
+
+3. Somnolence syndrome (disorder)
+   SNOMED code: 370971007
+   Presentation score: 0.182937
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.221
+
+Review candidates
+-----------------
+1. Sleep apnea (disorder)
+   SNOMED code: 73430006
+   Presentation score: 0.613225
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=77100
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.967; NHS usage count 77100
+
+2. Obstructive sleep apnea of adult (disorder)
+   SNOMED code: 1101000119103
+   Presentation score: 0.549682
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=150
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.853; NHS usage count 150
+
+3. Excessive daytime sleepiness with sleep paralysis (disorder)
+   SNOMED code: 230492006
+   Presentation score: 0.503032
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=40
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.858; NHS usage count 40
+
+4. Daytime hypersomnia (disorder)
+   SNOMED code: 31771000119102
+   Presentation score: 0.478477
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.869
+
+5. Postviral excessive daytime sleepiness (disorder)
+   SNOMED code: 230491004
+   Presentation score: 0.463369
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=40
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.765; NHS usage count 40
+
+Specific variants
+-----------------
+1. Daytime somnolence (finding)
+   SNOMED code: 141000119100
+   Presentation score: 0.58279
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=30
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.950; NHS usage count 30
+
+2. Sleeps during day (finding)
+   SNOMED code: 713567005
+   Presentation score: 0.525943
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.974; NHS usage count 10
+
+3. Excessive daytime sleepiness (finding)
+   SNOMED code: 1367959007
+   Presentation score: 0.519042
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.969
+
+4. Diurnal variation of mood (finding)
+   SNOMED code: 247800004
+   Presentation score: 0.49646
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=40
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.878; NHS usage count 40
+
+5. Daytime enuresis (finding)
+   SNOMED code: 281862002
+   Presentation score: 0.245603
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=6310
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.206; NHS usage count 6310
+
+Suppressed candidates
+---------------------
+No candidates.

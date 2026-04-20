@@ -1,0 +1,94 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T01:02:28
+Run ID: run_20260420_010141_ad3ee0
+Query: The patient has persistent atrial fibrillation and has been started on Apixaban 5mg tablets for stroke prevention. Please identify the relevant diagnosis and medication codes.
+Runtime seconds: 47.13
+
+Evaluation enabled
+------------------
+{'custom_eval': True, 'ragas': True}
+
+Include candidates
+------------------
+No candidates.
+
+Review candidates
+-----------------
+No candidates.
+
+Specific variants
+-----------------
+No candidates.
+
+Suppressed candidates
+---------------------
+No candidates.
+
+Evaluations
+-----------
+
+Retrieval
+~~~~~~~~~
+Stage: retrieval_only
+Rows: 4
+Average custom score: 0.583
+Details:
+  1. I48.9
+     Score: 0.333
+     Checks: {"main_condition_retrieved": false, "noise_low": true, "top_results_relevant": false}
+  2. E87.92
+     Score: 0.667
+     Checks: {"main_condition_retrieved": false, "noise_low": true, "top_results_relevant": true}
+  3. APX
+     Score: 0.333
+     Checks: {"main_condition_retrieved": false, "noise_low": true, "top_results_relevant": false}
+  4. STROKE PREVENTION
+     Score: 1
+     Checks: {"main_condition_retrieved": true, "noise_low": true, "top_results_relevant": true}
+
+Post Gate
+~~~~~~~~~
+Stage: post_gate
+Rows: 2
+Average custom score: 0.75
+Details:
+  1. I48.9
+     Score: 0.5
+     Checks: {"cross_condition_contamination_low": true, "main_condition_still_present": false, "noise_low_after_gate": true, "top_candidates_relevant": false}
+  2. E87.92
+     Score: 1
+     Checks: {"cross_condition_contamination_low": true, "main_condition_still_present": true, "noise_low_after_gate": true, "top_candidates_relevant": true}
+
+Post Ce
+~~~~~~~
+Stage: post_cross_encoder
+Rows: 2
+Average custom score: 0
+Details:
+  1. I48.9
+     Score: 0
+     Checks: {"error": "No concepts survived cross-encoder.", "main_condition_still_present": false, "noise_low_after_ce": false, "ranking_improved_after_ce": false, "top_candidates_relevant": false}
+  2. E87.92
+     Score: 0
+     Checks: {"error": "No concepts survived cross-encoder.", "main_condition_still_present": false, "noise_low_after_ce": false, "ranking_improved_after_ce": false, "top_candidates_relevant": false}
+
+Final Decision
+~~~~~~~~~~~~~~
+Stage: final_decision
+Rows: 1
+Average custom score: 0.75
+Details:
+  1. The patient has persistent atrial fibrillation and has been started on Apixaban 5mg tablets for stroke prevention. Please identify the relevant diagnosis and medication codes.
+     Score: 0.75
+     Checks: {"anchor_correct": false, "bucket_assignment_reasonable": true, "cross_condition_balance_correct": true, "wrong_core_concepts_absent": true}
+
+Final Response Ragas
+~~~~~~~~~~~~~~~~~~~~
+Stage: final_response_ragas
+Rows: 1
+Faithfulness: 0
+Response relevancy: 0.768849
+Details:
+  1. row 1
+     Detail: {"answer_relevancy": 0.768849080444887, "faithfulness": 0.0, "response": "Recommended SNOMED concepts:", "retrieved_contexts": [], "user_input": "The patient has persistent atrial fibrillation and has been started on Apixaban 5mg tablets for stroke prevention. Please identify the relevant diagnosis and medication codes."}

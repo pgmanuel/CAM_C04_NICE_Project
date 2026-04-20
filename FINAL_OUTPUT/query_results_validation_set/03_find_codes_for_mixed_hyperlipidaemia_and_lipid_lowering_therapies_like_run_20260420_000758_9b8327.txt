@@ -1,0 +1,92 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:08:16
+Run ID: run_20260420_000758_9b8327
+Query: Find codes for mixed hyperlipidaemia and lipid-lowering therapies like Fenofibrate.
+Runtime seconds: 18.54
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Mixed hyperlipidemia (disorder)
+   SNOMED code: 267434003
+   Presentation score: 0.626716
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=38400
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.991; NHS usage count 38400
+
+2. Lipid-lowering therapy (procedure)
+   SNOMED code: 134350008
+   Presentation score: 0.602669
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=131150
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.997; NHS usage count 131150
+
+Review candidates
+-----------------
+1. Decreased saturated fat diet (regime/therapy)
+   SNOMED code: 436951000124105
+   Presentation score: 0.453164
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=190
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.734; NHS usage count 190
+
+2. Cholesterol reduction program (regime/therapy)
+   SNOMED code: 151259001
+   Presentation score: 0.394688
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=50
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.633; NHS usage count 50
+
+3. Primary genetic mixed hyperlipidemia (disorder)
+   SNOMED code: 402787000
+   Presentation score: 0.39194
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.719
+
+4. Decreased trans fat diet (regime/therapy)
+   SNOMED code: 436961000124107
+   Presentation score: 0.376207
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.692
+
+5. Decreased fat and oil diet (regime/therapy)
+   SNOMED code: 1055207008
+   Presentation score: 0.374549
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.687
+
+Specific variants
+-----------------
+1. Lipid-lowering diet (finding)
+   SNOMED code: 226115004
+   Presentation score: 0.456715
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=3160
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.695; NHS usage count 3160
+
+2. On maximum tolerated dose of lipid lowering therapy (finding)
+   SNOMED code: 1303421001
+   Presentation score: 0.238122
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.312
+
+Suppressed candidates
+---------------------
+No candidates.

@@ -1,0 +1,124 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:33:49
+Run ID: run_20260420_003335_d785f4
+Query: A patient with type 2 diabetes has chronic kidney disease stage 3 and newly diagnosed heart failure. I need the relevant diagnostic codes for their long-term cardiometabolic history.
+Runtime seconds: 14.16
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Diabetes mellitus type 2 (disorder)
+   SNOMED code: 44054006
+   Presentation score: 0.743185
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=4.66657e+06
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.969; QOF-supported code; present in OpenCodelists; NHS usage count 4666570
+
+2. Heart failure (disorder)
+   SNOMED code: 84114007
+   Presentation score: 0.712067
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=411860
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.996; QOF-supported code; NHS usage count 411860
+
+3. Chronic kidney disease stage 3 (disorder)
+   SNOMED code: 433144002
+   Presentation score: 0.709368
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=580860
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.979; QOF-supported code; NHS usage count 580860
+
+Review candidates
+-----------------
+1. Chronic kidney disease stage 3A (disorder)
+   SNOMED code: 700378005
+   Presentation score: 0.594588
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=62120
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.734; QOF-supported code; NHS usage count 62120
+
+2. Acute heart failure (disorder)
+   SNOMED code: 56675007
+   Presentation score: 0.593162
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=3330
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.860; QOF-supported code; NHS usage count 3330
+
+3. Malignant hypertensive chronic kidney disease stage 3 (disorder)
+   SNOMED code: 285871000119106
+   Presentation score: 0.58063
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=0
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.876; QOF-supported code; present in OpenCodelists
+
+4. Chronic kidney disease stage 3B (disorder)
+   SNOMED code: 700379002
+   Presentation score: 0.562275
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=21870
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.663; QOF-supported code; NHS usage count 21870
+
+5. Chronic heart failure (disorder)
+   SNOMED code: 48447003
+   Presentation score: 0.561364
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=960
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.790; QOF-supported code; NHS usage count 960
+
+Specific variants
+-----------------
+1. Chronic kidney disease stage 3 due to hypertension (disorder)
+   SNOMED code: 129171000119106
+   Presentation score: 0.582132
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.713; QOF-supported code; present in OpenCodelists; NHS usage count 10
+
+2. Renal disorder due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 420279001
+   Presentation score: 0.470098
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=680
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.625; present in OpenCodelists; NHS usage count 680
+
+3. Heart failure follow-up (finding)
+   SNOMED code: 390884006
+   Presentation score: 0.36408
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=86250
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.427; NHS usage count 86250
+
+4. Hyperglycemia due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 368051000119109
+   Presentation score: 0.36118
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.480; present in OpenCodelists; NHS usage count 10
+
+5. Hypoglycemia due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 120731000119103
+   Presentation score: 0.298619
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.402; present in OpenCodelists
+
+Suppressed candidates
+---------------------
+No candidates.

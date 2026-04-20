@@ -1,0 +1,130 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:21:39
+Run ID: run_20260420_002104_361879
+Query: Show me the codes for essential hypertension and atherosclerotic cardiovascular disease (ASCVD).
+Runtime seconds: 34.08
+
+Evaluation enabled
+------------------
+{'custom_eval': True, 'ragas': False}
+
+Include candidates
+------------------
+1. Essential hypertension (disorder)
+   SNOMED code: 59621000
+   Presentation score: 0.750236
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=4.23188e+06
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.970; QOF-supported code; present in OpenCodelists; NHS usage count 4231880
+
+2. Atherosclerotic occlusive disease (disorder)
+   SNOMED code: 129573006
+   Presentation score: 0.33422
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=20
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.427; NHS usage count 20
+
+Review candidates
+-----------------
+1. Labile essential hypertension (disorder)
+   SNOMED code: 371125006
+   Presentation score: 0.674856
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=300
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.839; QOF-supported code; present in OpenCodelists; NHS usage count 300
+
+2. High-renin essential hypertension (disorder)
+   SNOMED code: 19769006
+   Presentation score: 0.664588
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=10
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.901; QOF-supported code; present in OpenCodelists; NHS usage count 10
+
+3. Benign essential hypertension (disorder)
+   SNOMED code: 1201005
+   Presentation score: 0.662865
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=26630
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.793; QOF-supported code; present in OpenCodelists; NHS usage count 26630
+
+4. Essential hypertension in obstetric context (disorder)
+   SNOMED code: 72022006
+   Presentation score: 0.65863
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=40
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.868; QOF-supported code; present in OpenCodelists; NHS usage count 40
+
+5. Low-renin essential hypertension (disorder)
+   SNOMED code: 46481004
+   Presentation score: 0.642604
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=20
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.838; QOF-supported code; present in OpenCodelists; NHS usage count 20
+
+Specific variants
+-----------------
+No candidates.
+
+Suppressed candidates
+---------------------
+No candidates.
+
+Evaluations
+-----------
+
+Retrieval
+~~~~~~~~~
+Stage: retrieval_only
+Rows: 2
+Average custom score: 0.5
+Details:
+  1. essential hypertension
+     Score: 1
+     Checks: {"main_condition_retrieved": true, "noise_low": true, "top_results_relevant": true}
+  2. atherosclerotic cardiovascular disease
+     Score: 0
+     Checks: {"main_condition_retrieved": false, "noise_low": false, "top_results_relevant": false}
+
+Post Gate
+~~~~~~~~~
+Stage: post_gate
+Rows: 2
+Average custom score: 1
+Details:
+  1. essential hypertension
+     Score: 1
+     Checks: {"cross_condition_contamination_low": true, "main_condition_still_present": true, "noise_low_after_gate": true, "top_candidates_relevant": true}
+  2. atherosclerotic cardiovascular disease
+     Score: 1
+     Checks: {"cross_condition_contamination_low": true, "main_condition_still_present": true, "noise_low_after_gate": true, "top_candidates_relevant": true}
+
+Post Ce
+~~~~~~~
+Stage: post_cross_encoder
+Rows: 2
+Average custom score: 1
+Details:
+  1. essential hypertension
+     Score: 1
+     Checks: {"main_condition_still_present": true, "noise_low_after_ce": true, "ranking_improved_after_ce": true, "top_candidates_relevant": true}
+  2. atherosclerotic cardiovascular disease
+     Score: 1
+     Checks: {"main_condition_still_present": true, "noise_low_after_ce": true, "ranking_improved_after_ce": true, "top_candidates_relevant": true}
+
+Final Decision
+~~~~~~~~~~~~~~
+Stage: final_decision
+Rows: 1
+Average custom score: 1
+Details:
+  1. Show me the codes for essential hypertension and atherosclerotic cardiovascular disease (ASCVD).
+     Score: 1
+     Checks: {"anchor_correct": true, "bucket_assignment_reasonable": true, "cross_condition_balance_correct": true, "wrong_core_concepts_absent": true}

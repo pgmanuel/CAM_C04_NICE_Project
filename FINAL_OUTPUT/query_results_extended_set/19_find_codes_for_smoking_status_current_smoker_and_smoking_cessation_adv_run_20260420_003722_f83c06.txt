@@ -1,0 +1,116 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:37:35
+Run ID: run_20260420_003722_f83c06
+Query: Find codes for smoking status, current smoker, and smoking cessation advice.
+Runtime seconds: 12.58
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Smoking status at 52 weeks (observable entity)
+   SNOMED code: 390904005
+   Presentation score: 0.598171
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=450
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.963; NHS usage count 450
+
+2. Smoking cessation therapy (regime/therapy)
+   SNOMED code: 710081004
+   Presentation score: 0.400858
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=25460
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.431; QOF-supported code; NHS usage count 25460
+
+Review candidates
+-----------------
+1. Smoking status between 4 and 52 weeks (observable entity)
+   SNOMED code: 390903004
+   Presentation score: 0.607189
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=10730
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.985; NHS usage count 10730
+
+2. Referral to smoking cessation advisor (procedure)
+   SNOMED code: 395700008
+   Presentation score: 0.606509
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=166760
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.900; QOF-supported code; NHS usage count 166760
+
+3. Consultation for smoking cessation (procedure)
+   SNOMED code: 1290027009
+   Presentation score: 0.5777
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=30
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.963; NHS usage count 30
+
+4. Smoking status at 4 weeks (observable entity)
+   SNOMED code: 390902009
+   Presentation score: 0.575315
+   Confidence tier: MEDIUM
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=17430
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.902; NHS usage count 17430
+
+5. Brief intervention for smoking cessation (procedure)
+   SNOMED code: 771155005
+   Presentation score: 0.552542
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=84230
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.781; QOF-supported code; NHS usage count 84230
+
+Specific variants
+-----------------
+1. Smoking monitoring status (finding)
+   SNOMED code: 308512009
+   Presentation score: 0.58635
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=115040
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.900; NHS usage count 115040
+
+2. Seen by smoking cessation advisor (finding)
+   SNOMED code: 401068004
+   Presentation score: 0.490496
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=139700
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.645; QOF-supported code; NHS usage count 139700
+
+3. Thinking about stopping smoking (finding)
+   SNOMED code: 394871007
+   Presentation score: 0.431264
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=114880
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.481; QOF-supported code; NHS usage count 114880
+
+4. Smoker (finding)
+   SNOMED code: 77176002
+   Presentation score: 0.35899
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=5.00489e+06
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.342; QOF-supported code; NHS usage count 5004890
+
+5. Trying to give up smoking (finding)
+   SNOMED code: 160616005
+   Presentation score: 0.319818
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=175190
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.236; QOF-supported code; NHS usage count 175190
+
+Suppressed candidates
+---------------------
+No candidates.

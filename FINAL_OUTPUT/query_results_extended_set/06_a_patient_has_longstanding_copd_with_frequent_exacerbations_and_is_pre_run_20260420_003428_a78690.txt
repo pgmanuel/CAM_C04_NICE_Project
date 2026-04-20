@@ -1,0 +1,84 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:34:41
+Run ID: run_20260420_003428_a78690
+Query: A patient has longstanding COPD with frequent exacerbations and is prescribed a combined inhaled corticosteroid and long-acting beta agonist inhaler. I need the relevant condition and medication codes.
+Runtime seconds: 13.27
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Chronic obstructive pulmonary disease (disorder)
+   SNOMED code: 13645005
+   Presentation score: 0.66398
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=811990
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.983; QOF-supported code; NHS usage count 811990
+
+Review candidates
+-----------------
+1. Acute exacerbation of chronic obstructive pulmonary disease with asthma (disorder)
+   SNOMED code: 1751000119100
+   Presentation score: 0.729819
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=160
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.970; QOF-supported code; present in OpenCodelists; NHS usage count 160
+
+2. Acute exacerbation of chronic obstructive pulmonary disease (disorder)
+   SNOMED code: 195951007
+   Presentation score: 0.713934
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=278790
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.995; QOF-supported code; NHS usage count 278790
+
+3. Acute infective exacerbation of chronic obstructive pulmonary disease (disorder)
+   SNOMED code: 285381006
+   Presentation score: 0.694795
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=90680
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.964; QOF-supported code; NHS usage count 90680
+
+4. Severe chronic obstructive pulmonary disease (disorder)
+   SNOMED code: 313299006
+   Presentation score: 0.651128
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=65670
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.960; QOF-supported code; NHS usage count 65670
+
+5. Acute exacerbation of chronic obstructive bronchitis (disorder)
+   SNOMED code: 293241000119100
+   Presentation score: 0.620534
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=50
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.938; QOF-supported code; NHS usage count 50
+
+Specific variants
+-----------------
+1. Pulmonary hypertension due to chronic obstructive pulmonary disease (disorder)
+   SNOMED code: 697911002
+   Presentation score: 0.540883
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.898; NHS usage count 10
+
+2. Chronic obstructive pulmonary disease monitoring due (finding)
+   SNOMED code: 390941006
+   Presentation score: 0.223436
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=8360
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.230; NHS usage count 8360
+
+Suppressed candidates
+---------------------
+No candidates.

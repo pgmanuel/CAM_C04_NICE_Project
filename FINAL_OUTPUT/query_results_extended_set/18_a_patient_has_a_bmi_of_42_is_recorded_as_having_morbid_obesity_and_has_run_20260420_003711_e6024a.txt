@@ -1,0 +1,26 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:37:22
+Run ID: run_20260420_003711_e6024a
+Query: A patient has a BMI of 42, is recorded as having morbid obesity, and has been referred to a specialist weight management service. I need the relevant codes.
+Runtime seconds: 11.29
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+No candidates.
+
+Review candidates
+-----------------
+No candidates.
+
+Specific variants
+-----------------
+No candidates.
+
+Suppressed candidates
+---------------------
+No candidates.

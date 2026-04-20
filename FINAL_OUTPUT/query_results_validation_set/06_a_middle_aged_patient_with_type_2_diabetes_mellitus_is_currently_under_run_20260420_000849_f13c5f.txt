@@ -1,0 +1,26 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:09:06
+Run ID: run_20260420_000849_f13c5f
+Query: A middle-aged patient with Type 2 diabetes mellitus is currently undergoing a weight management program. Please show me the codes for their diabetes diagnosis and the Body Mass Index (BMI) tracking entries.
+Runtime seconds: 16.34
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+No candidates.
+
+Review candidates
+-----------------
+No candidates.
+
+Specific variants
+-----------------
+No candidates.
+
+Suppressed candidates
+---------------------
+No candidates.

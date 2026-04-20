@@ -1,0 +1,124 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:35:53
+Run ID: run_20260420_003539_1b2f48
+Query: Find codes for estimated glomerular filtration rate, serum creatinine, and chronic kidney disease stage.
+Runtime seconds: 14.19
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Chronic kidney disease stage 3A (disorder)
+   SNOMED code: 700378005
+   Presentation score: 0.705457
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=62120
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.981; QOF-supported code; NHS usage count 62120
+
+2. Creatinine measurement, serum (procedure)
+   SNOMED code: 113075003
+   Presentation score: 0.627089
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=940
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.989; NHS usage count 940
+
+3. Glomerular filtration rate calculation (calculation)
+   SNOMED code: 580101010000109
+   Presentation score: 0.560746
+   Confidence tier: REVIEW
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.983
+
+Review candidates
+-----------------
+1. Chronic kidney disease stage 5 (disorder)
+   SNOMED code: 433146000
+   Presentation score: 0.708816
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=34950
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.980; QOF-supported code; NHS usage count 34950
+
+2. Chronic kidney disease stage 4 (disorder)
+   SNOMED code: 431857002
+   Presentation score: 0.708727
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=88740
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.980; QOF-supported code; NHS usage count 88740
+
+3. Chronic kidney disease stage 3B (disorder)
+   SNOMED code: 700379002
+   Presentation score: 0.704778
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=21870
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.978; QOF-supported code; NHS usage count 21870
+
+4. Chronic kidney disease stage 2 (disorder)
+   SNOMED code: 431856006
+   Presentation score: 0.703505
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=44210
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.968; QOF-supported code; NHS usage count 44210
+
+5. Chronic kidney disease stage 3 (disorder)
+   SNOMED code: 433144002
+   Presentation score: 0.703323
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=580860
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.968; QOF-supported code; NHS usage count 580860
+
+Specific variants
+-----------------
+1. Chronic kidney disease stage 4 due to hypertension (disorder)
+   SNOMED code: 129151000119102
+   Presentation score: 0.658456
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=20
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.979; QOF-supported code; present in OpenCodelists; NHS usage count 20
+
+2. Chronic kidney disease stage 3 due to hypertension (disorder)
+   SNOMED code: 129171000119106
+   Presentation score: 0.646495
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.968; QOF-supported code; present in OpenCodelists; NHS usage count 10
+
+3. Chronic kidney disease stage 2 due to hypertension (disorder)
+   SNOMED code: 129181000119109
+   Presentation score: 0.645885
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.967; QOF-supported code; present in OpenCodelists; NHS usage count 10
+
+4. Finding of serum creatinine level (finding)
+   SNOMED code: 365757006
+   Presentation score: 0.582428
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=40
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.968; NHS usage count 40
+
+5. Finding of creatinine level (finding)
+   SNOMED code: 365756002
+   Presentation score: 0.550689
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=800
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.870; NHS usage count 800
+
+Suppressed candidates
+---------------------
+No candidates.

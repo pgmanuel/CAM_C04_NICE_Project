@@ -1,0 +1,124 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:35:23
+Run ID: run_20260420_003505_2011bd
+Query: Show codes for HbA1c, fasting glucose, and urine albumin creatinine ratio.
+Runtime seconds: 17.63
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Diabetes mellitus (disorder)
+   SNOMED code: 73211009
+   Presentation score: 0.757679
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=249270
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.985; QOF-supported code; present in OpenCodelists; NHS usage count 249270
+
+2. Impaired fasting glycemia (disorder)
+   SNOMED code: 390951007
+   Presentation score: 0.673339
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=25020
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.915; QOF-supported code; NHS usage count 25020
+
+3. Hyperglycemia (disorder)
+   SNOMED code: 80394007
+   Presentation score: 0.628618
+   Confidence tier: MEDIUM
+   Candidate role: core
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=45720
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.990; NHS usage count 45720
+
+Review candidates
+-----------------
+1. Diabetes mellitus type 1 (disorder)
+   SNOMED code: 46635009
+   Presentation score: 0.638439
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=386610
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.811; QOF-supported code; present in OpenCodelists; NHS usage count 386610
+
+2. Impaired glucose tolerance (disorder)
+   SNOMED code: 9414007
+   Presentation score: 0.594659
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=76180
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.867; QOF-supported code; NHS usage count 76180
+
+3. Hyperglycemic disorder (disorder)
+   SNOMED code: 237598005
+   Presentation score: 0.57501
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=530
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.985; NHS usage count 530
+
+4. Chronic hyperglycemia (disorder)
+   SNOMED code: 170765005
+   Presentation score: 0.562869
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=770
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.866; NHS usage count 770
+
+5. Acute hyperglycemia (disorder)
+   SNOMED code: 237623001
+   Presentation score: 0.562374
+   Confidence tier: REVIEW
+   Candidate role: variant
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=650
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.864; NHS usage count 650
+
+Specific variants
+-----------------
+1. Severe hyperglycemia due to diabetes mellitus (disorder)
+   SNOMED code: 237621004
+   Presentation score: 0.599353
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=190
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.892; present in OpenCodelists; NHS usage count 190
+
+2. Hyperglycemia due to diabetes mellitus (disorder)
+   SNOMED code: 822995009
+   Presentation score: 0.579953
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.952; present in OpenCodelists
+
+3. Hyperglycemia due to type 2 diabetes mellitus (disorder)
+   SNOMED code: 368051000119109
+   Presentation score: 0.55852
+   Confidence tier: MEDIUM
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=True; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.922; present in OpenCodelists; NHS usage count 10
+
+4. Hyperglycemia due to type 1 diabetes mellitus (disorder)
+   SNOMED code: 367991000119101
+   Presentation score: 0.530739
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=10
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.923; NHS usage count 10
+
+5. Chorea due to hyperglycemia (disorder)
+   SNOMED code: 1259687008
+   Presentation score: 0.515155
+   Confidence tier: REVIEW
+   Candidate role: specific
+   Evidence: QOF=False; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.931
+
+Suppressed candidates
+---------------------
+No candidates.

@@ -1,0 +1,84 @@
+NICE Clinical Code Recommendation Result
+========================================
+Generated at: 2026-04-20T00:07:58
+Run ID: run_20260420_000727_e78a51
+Query: I have a patient with a long-standing history of essential hypertension who recently suffered an acute myocardial infarction. I need to identify all relevant diagnostic codes for their cardiovascular history.
+Runtime seconds: 30.49
+
+Evaluation enabled
+------------------
+{}
+
+Include candidates
+------------------
+1. Essential hypertension (disorder)
+   SNOMED code: 59621000
+   Presentation score: 0.750236
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=4.23188e+06
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.970; QOF-supported code; present in OpenCodelists; NHS usage count 4231880
+
+2. Acute myocardial infarction (disorder)
+   SNOMED code: 57054005
+   Presentation score: 0.7115
+   Confidence tier: HIGH
+   Candidate role: core
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=55800
+   Rationale: broad anchor concept selected after relevance filtering and reranking; cross-encoder score 0.991; QOF-supported code; NHS usage count 55800
+
+Review candidates
+-----------------
+1. Labile essential hypertension (disorder)
+   SNOMED code: 371125006
+   Presentation score: 0.674856
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=300
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.839; QOF-supported code; present in OpenCodelists; NHS usage count 300
+
+2. Acute myocardial infarction of anterior wall (disorder)
+   SNOMED code: 54329005
+   Presentation score: 0.665229
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=2130
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.920; QOF-supported code; NHS usage count 2130
+
+3. High-renin essential hypertension (disorder)
+   SNOMED code: 19769006
+   Presentation score: 0.664588
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=10
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.901; QOF-supported code; present in OpenCodelists; NHS usage count 10
+
+4. Benign essential hypertension (disorder)
+   SNOMED code: 1201005
+   Presentation score: 0.662865
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=26630
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.793; QOF-supported code; present in OpenCodelists; NHS usage count 26630
+
+5. Essential hypertension in obstetric context (disorder)
+   SNOMED code: 72022006
+   Presentation score: 0.65863
+   Confidence tier: HIGH
+   Candidate role: variant
+   Evidence: QOF=True; OpenCodelists=True; NHS usage=40
+   Rationale: relevant condition-linked concept kept for analyst review; cross-encoder score 0.868; QOF-supported code; present in OpenCodelists; NHS usage count 40
+
+Specific variants
+-----------------
+1. Pericarditis due to acute myocardial infarction (disorder)
+   SNOMED code: 71023004
+   Presentation score: 0.564225
+   Confidence tier: HIGH
+   Candidate role: specific
+   Evidence: QOF=True; OpenCodelists=False; NHS usage=0
+   Rationale: more specific lower-priority concept retained as depth; cross-encoder score 0.960; QOF-supported code
+
+Suppressed candidates
+---------------------
+No candidates.
